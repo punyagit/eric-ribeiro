@@ -1,0 +1,27 @@
+{
+  "name": "booking_api",
+  "version": "1.0.0",
+  "description": "System to book a time in a day.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafesilva/booking-api.git"
+  },
+  "author": "Rafael FS",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rafesilva/booking-api/issues"
+  },
+  "homepage": "https://github.com/rafesilva/booking-api#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongoose": "^5.2.2",
+    "morgan": "^1.9.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.5"
+  }
+}
