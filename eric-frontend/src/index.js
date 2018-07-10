@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import NavComponent from './NavComponent';
-import FooterComponent from './FooterComponent';
+import NavComponent from './components/NavComponent';
+import FooterComponent from './components/FooterComponent';
 
-ReactDOM.render(<NavComponent />, document.getElementById('navbar'));
-ReactDOM.render(<FooterComponent />, document.getElementById('footer'));
+ReactDOM.render(<NavComponent />, document.getElementById('nav-component'));
+ReactDOM.render(<FooterComponent />, document.getElementById('footer-component'));
 ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
