@@ -1,0 +1,14 @@
+.headerLogo {
+  text-align: center;
+  height: 5rem;
+  background-color: #3F4449;
+  font-family:  'Alegreya', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 3rem;
+  color: #F7FBFF;
+}
+
+.navBar {
+  background-color: #F7FBFF;
+}
