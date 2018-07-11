@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
-//import logo from './logo.svg';
 import './App.css';
-import CarouselComponent from './CarouselComponent';
-//import ReactDOM from 'react-dom';
+import NavComponent from './components/NavComponent';
+import FooterComponent from './components/FooterComponent';
+// import BookCal from './booking/BookCal';
+import CarouselComponent from './components/CarouselComponent';
+import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div>
-      <CarouselComponent />
+        <NavComponent />
+        <CarouselComponent />
+        {/* <BookCal /> */}
+        <FooterComponent />
       </div>
     
     );

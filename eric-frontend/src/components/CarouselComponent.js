@@ -1,7 +1,5 @@
-import React, { Component } from 'react';
-import './App.css';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './CarouselComponent';
 import {
   Jumbotron,
   UncontrolledCarousel,
