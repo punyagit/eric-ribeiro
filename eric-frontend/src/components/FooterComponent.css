@@ -1,0 +1,48 @@
+.footerItems {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: #54B77C;
+  width: 100%;
+  padding: 1rem;
+  font-family: 'Asap', sans-serif;
+  font-size: 13px;
+}
+
+.centerText {
+  text-align: center;
+  font-family: 'Asap', sans-serif;
+  font-size: 21px;
+}
+
+.flexCenter {
+ display: flex;
+ flex-wrap: wrap;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ align-content: center;
+}
+
+.footerList {
+  text-align: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.instagramLink {
+  max-width: 30px;
+  max-height: 30px;
+  padding: 5px;
+}
+
+@media (max-width: 575px) {
+  .footerItems {
+    flex-direction: column;
+  }
+  .openingHours {
+    padding-bottom: 2rem;
+  }
+}
