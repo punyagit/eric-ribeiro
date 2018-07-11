@@ -1,7 +1,25 @@
 import React, { Component } from 'react';
-// import ReactDOM from 'react-dom';
+import {Jumbotron} from 'reactstrap';
+import BookCal from './BookCal';
+class BookInfo extends Component {
 
-class Display extends Component {
+    
+
+      changeBooking (day,month,year,timeslots) {
+        this.setState({
+          day: day,
+          month: month,
+          year: year,
+          timeslots: timeslots
+         })
+    
+        // to see the data that has been passed....
+          console.log("the state has been changed to:")
+          console.log(day)
+          console.log(month)
+          console.log(year)
+          console.log(timeslots)
+      }
 
     render(){
         const style = {
@@ -14,10 +32,15 @@ class Display extends Component {
             padding: 30
         }
 
-        let day = this.props.day;
-        let month = this.props.month;
-        let year = this.props.year;
-        let timeslots = this.props.timeslots;
+        let day = this.state.day;
+        let month = this.state.month;
+        let year = this.state.year;
+        let timeslots = this.state.timeslots;
+
+
+        const newTimeslots = [
+        day_time1,day_time2,eve_time1,eve_time2,eve_time3
+        ]
 
         return (
         <div>
@@ -25,9 +48,9 @@ class Display extends Component {
 
                 <p>Day : {day} | Month : {month} | Year : {year}</p>
                 <p>Timeslots :</p>
-            <ul>           
-                {this.props.timeslots.map(x => <button>{x}</button>)}
-            </ul>
+                <ul>           
+                    {this.props.timeslots.map(x => <button>{x}</button>)}
+                </ul>
             </Jumbotron>
 
             <div style={style2}>
@@ -40,9 +63,8 @@ class Display extends Component {
     }
 }
 
-// export const timeslots = ['9am','10am','2pm']
 
-export default Display;
+export default BookInfo;
 
 
 
