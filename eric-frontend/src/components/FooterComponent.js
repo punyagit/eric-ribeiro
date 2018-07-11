@@ -1,6 +1,5 @@
 import React from 'react';
 import './FooterComponent.css';
-import '../images/instagram.png';
 
 class FooterComponent extends React.Component {
   render() {
@@ -17,7 +16,7 @@ class FooterComponent extends React.Component {
         <div className="flexCenter">
           <h4 className="centerText">Contact Us</h4>
           <a target="_blank" href="https://www.instagram.com/hairbyericribeiro/">
-            <img className="instagramLink" src="../images/instagram.png" alt="Instagram" />
+            <img className="instagramLink" src="images/instagram.png" alt="Instagram" />
           </a>
           <span>Phone: 0411 291 123</span>
           <span>Address: 175 Palmer Street Darlinghurst</span>
