@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import BookInfo from './BookInfo';
 import Calendar from 'react-calendar-material';
 
 class BookCal extends Component {
@@ -34,6 +35,7 @@ class BookCal extends Component {
   render() {
     
     return (
+      <div>
     <Calendar
       accentColor={'blue'}
       orientation={'flex-col'}
@@ -44,7 +46,7 @@ class BookCal extends Component {
         var month = date.getMonth() + 1
         var day = date.getDate();
 
-        this.changeBooking(day,month,year,newTimeslots);
+        this.changeBooking(day,month,year,["time1","time2","time3"]);
     }}/>
 
     <BookInfo

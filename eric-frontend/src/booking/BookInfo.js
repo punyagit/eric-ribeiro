@@ -2,24 +2,8 @@ import React, { Component } from 'react';
 import {Jumbotron} from 'reactstrap';
 import BookCal from './BookCal';
 class BookInfo extends Component {
-
     
-
-      changeBooking (day,month,year,timeslots) {
-        this.setState({
-          day: day,
-          month: month,
-          year: year,
-          timeslots: timeslots
-         })
     
-        // to see the data that has been passed....
-          console.log("the state has been changed to:")
-          console.log(day)
-          console.log(month)
-          console.log(year)
-          console.log(timeslots)
-      }
 
     render(){
         const style = {
@@ -32,15 +16,10 @@ class BookInfo extends Component {
             padding: 30
         }
 
-        let day = this.state.day;
-        let month = this.state.month;
-        let year = this.state.year;
-        let timeslots = this.state.timeslots;
-
-
-        const newTimeslots = [
-        day_time1,day_time2,eve_time1,eve_time2,eve_time3
-        ]
+        let day = this.props.day;
+        let month = this.props.month;
+        let year = this.props.year;
+        let timeslots = this.props.timeslots;
 
         return (
         <div>
