@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
-//import logo from './logo.svg';
 import './App.css';
+import NavComponent from './components/NavComponent';
+import FooterComponent from './components/FooterComponent';
 import CarouselComponent from './CarouselComponent';
-//import ReactDOM from 'react-dom';
+import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div>
-      <CarouselComponent />
+        <NavComponent />
+        <CarouselComponent />
+        <FooterComponent />
       </div>
     
     );
