@@ -10,10 +10,6 @@ class BookCal extends Component {
   constructor(props){
     super(props);
     this.state = {
-      day: this.day,
-      month: this.month,
-      year: this.year,
-      duration: this.duration,
       timeslots: ["Timeslot 1","Timeslot 2"],
       collapse: false
     }
@@ -35,18 +31,8 @@ class BookCal extends Component {
       month: month,
       year: year,
       duration:duration,
-      //timeslots: ["time1","time2","time3"]
       
      })
-
-    // to see the data that has been passed....
-      console.log("the state has been changed to:")
-      console.log(day)
-      console.log(month)
-      console.log(year)
-      console.log(duration)
-     //console.log(timeslots)
-      
   }
 
   render() {
@@ -54,7 +40,7 @@ class BookCal extends Component {
     return (
       <div>
     <NavComponent />
-    <Button onClick={this.toggle} style={{ marginBottom: '1rem' }}>
+    <Button color="link" onClick={this.toggle} style={{ marginBottom: '1rem',textDecoration: 'none' }}>
     <Calendar
       accentColor={'blue'}
       orientation={'flex-col'}

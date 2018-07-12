@@ -2,10 +2,22 @@ import React, { Component } from 'react';
 import BookCal from '../pages/BookCal';
 import {CardBody, Card} from 'reactstrap';
 class BookInfo extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {value: ''};
     
-    // start of collapse properties..
-   
-    // end of collapse properties...
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+      }
+    
+      handleChange(event) {
+        this.setState({value: event.target.value});
+      }
+    
+      handleSubmit(event) {
+        alert('A name was submitted: ' + this.state.value);
+        event.preventDefault();
+      }
 
     
     render(){
@@ -34,15 +46,15 @@ class BookInfo extends Component {
                 <ul>           
                     {this.props.timeslots.map(x => <button>{x}</button>)}
                 </ul>
-                <form >
+                {/* <form onSubmit={(event) => { handleSubmit(event, onLogIn) }}> */}
+                <form>
             
+                    <input defaultValue={day} name="day" readOnly/>
+                    <input defaultValue={month} name="month" readOnly/>
                     <input defaultValue={year} name="year" readOnly/>
-                    <input defaultValue={month} name="year" readOnly/>
-                    <input defaultValue={day} name="year" readOnly/>
-                    <input defaultValue={duration} name="year" readOnly/>
-
-                </form>
-                {console.log(duration)}
+                    <input defaultValue={duration} name="duration" readOnly/>
+                    <button type="submit" value="Submit"/>
+                </form >
             </CardBody>
               </Card>
 
