@@ -3,7 +3,7 @@ import Calendar from 'react-calendar-material';
 import NavComponent from '../components/NavComponent';
 import FooterComponent from '../components/FooterComponent';
 import BookInfo from '../components/BookInfo';
-import {Collapse, Jumbotron, Button} from 'reactstrap';
+import {Card, Collapse, Jumbotron, Button} from 'reactstrap';
 
 
 class BookCal extends Component {
@@ -18,8 +18,8 @@ class BookCal extends Component {
       collapse: false
     }
 
-    this.changeBooking = this.changeBooking.bind(this);
-    this.toggle = this.toggle.bind(this)
+    this.toggle = this.toggle.bind(this);
+    this.onSubmit = this.onSubmit.bind(this)
   }
 
 
@@ -27,7 +27,7 @@ class BookCal extends Component {
     this.setState({ collapse: true });
   }
 
-  changeBooking (day,month,year,timeslots,duration) {
+  selectBooking (day,month,year,timeslots,duration) {
     this.setState({
       day: day,
       month: month,
@@ -35,21 +35,22 @@ class BookCal extends Component {
       timeslots: timeslots,
       duration: duration
      })
-     console.log(this.state)
+     console.log("Date changed..",this.state)
   }
 
   onSubmit = e => {
-    console.log("Passed value: ", e)
+    console.log("Data received: ", e)
   }
 
   render() {
     // test assign new timeslots array
-       let arr = ["timeslot 1","timeslot 2","timeslot 3", "timeslot 4", "timeslot 5"]
+       let newTimeslots = ["timeslot 1","timeslot 2","timeslot 3", "timeslot 4", "timeslot 5"]
        
     return (
       <div>
     <NavComponent />
-    <Button color="link" onClick={this.toggle} style={{ marginBottom: '1rem',textDecoration: 'none' }}>
+    {/* to revert to button style, use Button with color="link" */}
+    <Jumbotron onClick={this.toggle} style={{ marginBottom: '1rem',textDecoration: 'none' }}>
     <Calendar
       accentColor={'blue'}
       orientation={'flex-col'}
@@ -59,13 +60,13 @@ class BookCal extends Component {
         let year = date.getFullYear();
         let month = date.getMonth() + 1;
         let day = date.getDate();
-        let timeslots = arr;
+        let timeslots = newTimeslots;
         let duration = "duration placeholder";
 
-        this.changeBooking(day,month,year,timeslots,duration);
+        this.selectBooking(day,month,year,timeslots,duration);
         
     }}/>
-    </Button>
+    </Jumbotron>
 
     
     <Collapse isOpen={this.state.collapse}>
