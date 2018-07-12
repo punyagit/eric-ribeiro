@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, NavLink, Redirect } from 'react-router-
 import './App.css';
 import HomePage from './pages/HomePage';
 import BookCal from './pages/BookCal';
-import BookingForm from './pages/BookingForm'
 class App extends Component {
   render() {
     return (
@@ -11,7 +10,6 @@ class App extends Component {
         <div>
           <Route exact path='/' component={HomePage} />
           <Route exact path='/bookings' component={BookCal} />
-          <Route exact path='/form' component={BookingForm} />
 
           
         </div>
