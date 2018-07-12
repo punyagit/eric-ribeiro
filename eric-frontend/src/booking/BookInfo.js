@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import BookCal from './BookCal';
-import {Jumbotron} from 'reactstrap';
+import {CardBody, Card} from 'reactstrap';
 class BookInfo extends Component {
     
-    
+    // start of collapse properties..
+   
+    // end of collapse properties...
 
+    
     render(){
         const style = {
             // border: '20 solid black',
@@ -20,17 +23,29 @@ class BookInfo extends Component {
         let month = this.props.month;
         let year = this.props.year;
         let timeslots = this.props.timeslots;
-
+        let duration = this.props.duration
         return (
         <div>
-            <Jumbotron>
-
-                <p>Day : {day} | Month : {month} | Year : {year}</p>
+        
+          <Card>
+            <CardBody>
+            <p>Day : {day} | Month : {month} | Year : {year}</p>
                 <p>Timeslots :</p>
                 <ul>           
                     {this.props.timeslots.map(x => <button>{x}</button>)}
                 </ul>
-            </Jumbotron>
+                <form >
+            
+                    <input defaultValue={year} name="year" readOnly/>
+                    <input defaultValue={month} name="year" readOnly/>
+                    <input defaultValue={day} name="year" readOnly/>
+                    <input defaultValue={duration} name="year" readOnly/>
+
+                </form>
+                {console.log(duration)}
+            </CardBody>
+              </Card>
+
 
             <div style={style2}>
                 <h2>Product Description</h2>
@@ -44,6 +59,3 @@ class BookInfo extends Component {
 
 
 export default BookInfo;
-
-
-

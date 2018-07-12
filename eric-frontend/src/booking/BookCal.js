@@ -1,27 +1,42 @@
 import React, { Component } from 'react';
 import BookInfo from './BookInfo';
 import Calendar from 'react-calendar-material';
+import NavComponent from '../components/NavComponent';
+import FooterComponent from '../components/FooterComponent';
+import {Collapse, Jumbotron, Button} from 'reactstrap';
+
 
 class BookCal extends Component {
   constructor(props){
     super(props);
     this.state = {
-      day: "Day Placeholder",
-      month: "Month Placeholder",
-      year: "Year Placeholder",
-      timeslots: ["Timeslot 1","Timeslot 2"]
+      day: this.day,
+      month: this.month,
+      year: this.year,
+      duration: this.duration,
+      timeslots: ["Timeslot 1","Timeslot 2"],
+      collapse: false
     }
 
     // binding "this" so the property won't be lost when passed
     this.changeBooking = this.changeBooking.bind(this);
+    this.toggle = this.toggle.bind(this)
   }
 
-  changeBooking (day,month,year,timeslots) {
+
+  toggle() {
+    // this.setState({ collapse: !this.state.collapse });
+    this.setState({ collapse: true });
+  }
+
+  changeBooking (day,month,year,duration) {
     this.setState({
       day: day,
       month: month,
       year: year,
-      timeslots: timeslots
+      duration:duration,
+      //timeslots: ["time1","time2","time3"]
+      
      })
 
     // to see the data that has been passed....
@@ -29,13 +44,17 @@ class BookCal extends Component {
       console.log(day)
       console.log(month)
       console.log(year)
-      console.log(timeslots)
+      console.log(duration)
+     //console.log(timeslots)
+      
   }
 
   render() {
-    
+       let arr = ["time1","time2","time3"]
     return (
       <div>
+    <NavComponent />
+    <Button onClick={this.toggle} style={{ marginBottom: '1rem' }}>
     <Calendar
       accentColor={'blue'}
       orientation={'flex-col'}
@@ -43,19 +62,28 @@ class BookCal extends Component {
       onDatePicked={(d) => {
         var date = new Date(d);
         var year = date.getFullYear();
-        var month = date.getMonth() + 1
+        var month = date.getMonth() + 1;
         var day = date.getDate();
-
-        this.changeBooking(day,month,year,["time1","time2","time3"]);
+        var duration= 7;
+        
+        this.toggle;
+        this.changeBooking(day,month,year,duration);
+        
     }}/>
+    </Button>
 
-    <BookInfo
-    day={this.state.day}
-    month={this.state.month}
-    year={this.state.year}
-    timeslots={this.state.timeslots}
-    />
+    
+    <Collapse isOpen={this.state.collapse}>
+        <BookInfo
+        day={this.state.day}
+        month={this.state.month}
+        year={this.state.year}
+        timeslots={this.state.timeslots}
+        duration = {this.state.duration}
+        
+        />
 
+    </Collapse>
       
      </div>
     );
@@ -65,4 +93,3 @@ class BookCal extends Component {
 
 
 export default BookCal;
-
