@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, NavLink, Redirect } from 'react-router-dom' 
 import './App.css';
-import NavComponent from './components/NavComponent';
-import FooterComponent from './components/FooterComponent';
-import BookCal from './booking/BookCal';
-import CarouselComponent from './components/CarouselComponent';
-import './App.css';
-
+import HomePage from './pages/HomePage';
+import BookCal from './pages/BookCal';
 class App extends Component {
   render() {
     return (
-      <div>
-        <NavComponent />
-        <CarouselComponent />
-        <BookCal />
-        <FooterComponent />
-      </div>
+      <Router>
+        <div>
+          <Route exact path='/' component={HomePage} />
+          <Route exact path='/bookings' component={BookCal} />
+
+          
+        </div>
+      </Router>
     
     );
   }
 }
+
 
 export default App;
 

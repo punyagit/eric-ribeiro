@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import BookInfo from './BookInfo';
+import BookInfo from '../components/BookInfo';
 import Calendar from 'react-calendar-material';
 import NavComponent from '../components/NavComponent';
 import FooterComponent from '../components/FooterComponent';
@@ -84,6 +84,7 @@ class BookCal extends Component {
         />
 
     </Collapse>
+    <FooterComponent/>
       
      </div>
     );

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import BookCal from './BookCal';
+import BookCal from '../pages/BookCal';
 import {CardBody, Card} from 'reactstrap';
 class BookInfo extends Component {
     
