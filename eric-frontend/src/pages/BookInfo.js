@@ -20,7 +20,7 @@ class BookInfo extends Component {
         let month = this.props.month;
         let year = this.props.year;
         let timeslots = this.props.timeslots;
-        let duration = this.props.duration
+
         return (
         <div>
             <Jumbotron>
@@ -30,15 +30,6 @@ class BookInfo extends Component {
                 <ul>           
                     {this.props.timeslots.map(x => <button>{x}</button>)}
                 </ul>
-                <form>
-            
-                    <input defaultValue={year} name="year" readOnly/>
-                    <input defaultValue={month} name="year" readOnly/>
-                    <input defaultValue={day} name="year" readOnly/>
-                    <input defaultValue={duration} name="year" readOnly/>
-
-                </form>
-                {console.log(duration)}
             </Jumbotron>
 
             <div style={style2}>
