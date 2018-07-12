@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import BookCal from '../pages/BookCal';
 import {Container, Row, Col, Button, CardImg, CardBody, Card, Form, Label, Input} from 'reactstrap';
-// import PropTypes from 'prop-types';
-
-
-
 
 class BookInfo extends Component {
     constructor(props) {
@@ -91,10 +87,6 @@ class BookInfo extends Component {
    
 }
 
-// Container.propTypes = {
-//     fluid:  PropTypes.bool
-//     // applies .container-fluid class
-//   }
 
 
 export default BookInfo;
