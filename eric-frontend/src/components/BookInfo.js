@@ -57,7 +57,7 @@ class BookInfo extends Component {
                             <Label for="year">Year</Label>
                             <Input value={year} name="year" readOnly/>
                             <Label for="duration">Duration</Label>
-                            <Input value={duration} name="duration" readOnly/>
+                            <Input value="3" name="duration" readOnly/>
                             <Label for="timeslots">Timeslots</Label>
                             <Input onChange={e => this.change(e)} type="select" name="timeslots">
                                     {timeslots.map(x => <option value={x}>{x}</option>)}

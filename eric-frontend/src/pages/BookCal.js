@@ -6,6 +6,19 @@ import BookInfo from '../components/BookInfo';
 import {Card, Collapse, Jumbotron, Button} from 'reactstrap';
 
 
+const url = 'http://localhost:4000'
+
+const fetchData = (year) => {
+  
+  fetch(`${url}/${year}`)
+  .then(resp => resp.json())
+  .then(json => console.log(json))
+
+.catch(err => console.log("rong urls",err))
+}
+
+
+
 class BookCal extends Component {
   constructor(props){
     super(props);
@@ -18,9 +31,16 @@ class BookCal extends Component {
       collapse: false
     }
 
+    
+
     this.toggle = this.toggle.bind(this);
     this.onSubmit = this.onSubmit.bind(this)
   }
+
+  componentDidMount(){
+    
+  }
+  
 
 
   toggle() {
@@ -61,9 +81,13 @@ class BookCal extends Component {
         let month = date.getMonth() + 1;
         let day = date.getDate();
         let timeslots = newTimeslots;
-        let duration = "duration placeholder";
+        let duration = "duration punay";
 
         this.selectBooking(day,month,year,timeslots,duration);
+        const arr = fetchData(year)
+        if (arr == []){
+          console.log("Heloo")
+        }
         
     }}/>
     </Jumbotron>
