@@ -3,6 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import NavComponent from '../components/NavComponent';
 import FooterComponent from '../components/FooterComponent';
 import Service from '../components/Service';
+import { Col } from 'reactstrap';
 
 class ServicesPage extends Component {
   constructor(props){
@@ -28,11 +29,11 @@ class ServicesPage extends Component {
       <Router>
         <div className="servicesPage">
           <div><NavComponent /></div>
-          <div className="servicesCards">
-            {this.state.services.map((services, i) => {
-              return <Service key={i} services={services} />
-            })}
-          </div>
+            <div className="servicesCards">
+              {this.state.services.map((services, i) => {
+                return <div key={i}><Service services={services} /></div>
+              })}
+            </div>
           <div><FooterComponent /></div>
         </div>
       </Router>
