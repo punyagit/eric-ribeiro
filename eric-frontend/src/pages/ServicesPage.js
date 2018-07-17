@@ -29,8 +29,8 @@ class ServicesPage extends Component {
         <div className="servicesPage">
           <div><NavComponent /></div>
           <div className="servicesCards">
-            {this.state.services.map((card, i) => {
-              return <Service key={i} card={card} />
+            {this.state.services.map((services, i) => {
+              return <Service key={i} services={services} />
             })}
           </div>
           <div><FooterComponent /></div>
