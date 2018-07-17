@@ -3,7 +3,6 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import NavComponent from '../components/NavComponent';
 import FooterComponent from '../components/FooterComponent';
 import Service from '../components/Service';
-import { Col } from 'reactstrap';
 
 class ServicesPage extends Component {
   constructor(props){

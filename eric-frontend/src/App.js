@@ -13,8 +13,6 @@ class App extends Component {
           <Route exact path='/' component={HomePage} />
           <Route exact path='/services' component={ServicesPage} />
           <Route exact path='/booking' component={BookCal} />
-
-          
         </div>
       </Router>
     

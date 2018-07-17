@@ -42,7 +42,6 @@ class BookInfo extends Component {
 
         return (
         <div>
-        
         {/* forcing bootstrap in it... */}
           <div className="container-fluid">
                 <Row>
