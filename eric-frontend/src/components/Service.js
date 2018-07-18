@@ -1,12 +1,11 @@
 import React from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button, Col } from 'reactstrap';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 class Service extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      id: this.props.services.id,
+      id: this.props.services._id,
       name: this.props.services.name,
       description: this.props.services.description,
       duration: this.props.services.duration,

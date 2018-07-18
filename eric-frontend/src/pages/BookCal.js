@@ -3,7 +3,7 @@ import Calendar from 'react-calendar-material';
 import NavComponent from '../components/NavComponent';
 import FooterComponent from '../components/FooterComponent';
 import BookInfo from '../components/BookInfo';
-import {Card, Collapse, Jumbotron, Button} from 'reactstrap';
+import { Collapse, Jumbotron } from 'reactstrap';
 
 class BookCal extends Component {
   constructor(props){

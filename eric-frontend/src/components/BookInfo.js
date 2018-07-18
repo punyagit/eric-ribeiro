@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import BookCal from '../pages/BookCal';
-import {Container, Row, Col, Button, CardImg, CardBody, Card, Form, Label, Input} from 'reactstrap';
+import { Row, Col, Button, CardImg, CardBody, Card, Form, Label, Input} from 'reactstrap';
 
 class BookInfo extends Component {
     constructor(props) {
