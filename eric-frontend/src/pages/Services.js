@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import NavComponent from '../components/NavComponent';
 import FooterComponent from '../components/FooterComponent';
-import Service from '../components/Service';
+import ServiceCard from '../components/ServiceCard';
 import axios from 'axios';
 import { Button } from 'reactstrap';
 
-class ServicesPage extends Component {
+class Services extends React.Component {
   constructor(props){
     super(props);
     this.state = {
@@ -22,28 +22,48 @@ class ServicesPage extends Component {
     .catch(err => console.log(err));
   }
 
-  createData() {
-    const data = {
-      name: "test service",
-      description: "something",
-      duration: 3,
-      price: 140
-    }
-    this.postService(data)
+  handleClick = () => {
+    console.log(this.state.services);
   }
 
-  postService() {
-    axios.post('http://localhost:3000/services', {
-    })
+  onCreate = () => {
+    const newService = Object.assign({}, this.state.services, {
+      name: this.state.services.name,
+      description: this.state.services.description,
+      duration: this.state.services.duration, 
+      price: this.state.services.price
+    });
+
+    const headers = {
+      'Access-Control-Allow-Origin': '*'
+    };
+
+    axios
+    .post('http://localhost:8081/services', { newService, headers })
     .then(function (response) {
       console.log(response);
-      this.setState({
-        service: response
-      })
     })
     .catch(function (error) {
       console.log(error);
     });
+  }
+
+  onUpdate = () => {
+    axios
+    .patch('http://localhost:8081/services')
+    .then()
+    .catch()
+  }
+
+  onDelete = () => {
+    axios
+    .delete('http://localhost:8081/', {params: { serviceId: this._id}})
+    .then(function(response) {
+      console.log(response)
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
   }
 
   render() {
@@ -55,11 +75,11 @@ class ServicesPage extends Component {
               {this.state.services.map((services, i) => {
                 return(
                   <div key={i}>
-                    <Service services={services} />
+                    <ServiceCard services={services} />
                   </div>
                 )
               })}
-              <div><Button onClick={this.createData()}>Create</Button></div>
+              <div><Button onClick={this.handleClick}>Create</Button></div>
             </div>
           <div><FooterComponent /></div>
         </div>
@@ -68,4 +88,4 @@ class ServicesPage extends Component {
   }
 };
 
-export default ServicesPage;
+export default Services;
