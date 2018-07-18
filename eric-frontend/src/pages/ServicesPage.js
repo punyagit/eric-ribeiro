@@ -4,6 +4,7 @@ import NavComponent from '../components/NavComponent';
 import FooterComponent from '../components/FooterComponent';
 import Service from '../components/Service';
 import axios from 'axios';
+import { Button } from 'reactstrap';
 
 class ServicesPage extends Component {
   constructor(props){
@@ -21,6 +22,30 @@ class ServicesPage extends Component {
     .catch(err => console.log(err));
   }
 
+  createData() {
+    const data = {
+      name: "test service",
+      description: "something",
+      duration: 3,
+      price: 140
+    }
+    this.postService(data)
+  }
+
+  postService() {
+    axios.post('http://localhost:3000/services', {
+    })
+    .then(function (response) {
+      console.log(response);
+      this.setState({
+        service: response
+      })
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
   render() {
     return (
       <Router>
@@ -34,6 +59,7 @@ class ServicesPage extends Component {
                   </div>
                 )
               })}
+              <div><Button onClick={this.createData()}>Create</Button></div>
             </div>
           <div><FooterComponent /></div>
         </div>
