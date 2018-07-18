@@ -1,86 +1,82 @@
 import React, { Component } from 'react';
-import BookInfo from '../components/BookInfo';
 import Calendar from 'react-calendar-material';
 import NavComponent from '../components/NavComponent';
 import FooterComponent from '../components/FooterComponent';
-import {Collapse, Jumbotron, Button} from 'reactstrap';
+import BookInfo from '../components/BookInfo';
+import {Card, Collapse, Jumbotron, Button} from 'reactstrap';
 
 
 class BookCal extends Component {
   constructor(props){
     super(props);
     this.state = {
-      day: this.day,
-      month: this.month,
-      year: this.year,
-      duration: this.duration,
-      timeslots: ["Timeslot 1","Timeslot 2"],
+      day: "",
+      month: "",
+      year: "",
+      timeslots: ["timeslot placeholder"],
+      duration: "",
       collapse: false
     }
 
-    // binding "this" so the property won't be lost when passed
-    this.changeBooking = this.changeBooking.bind(this);
-    this.toggle = this.toggle.bind(this)
+    this.toggle = this.toggle.bind(this);
+    this.onSubmit = this.onSubmit.bind(this)
   }
 
 
   toggle() {
-    // this.setState({ collapse: !this.state.collapse });
     this.setState({ collapse: true });
   }
 
-  changeBooking (day,month,year,duration) {
+  selectBooking (day,month,year,timeslots,duration) {
     this.setState({
       day: day,
       month: month,
       year: year,
-      duration:duration,
-      //timeslots: ["time1","time2","time3"]
-      
+      timeslots: timeslots,
+      duration: duration
      })
+     console.log("Date changed..",this.state)
+  }
 
-    // to see the data that has been passed....
-      console.log("the state has been changed to:")
-      console.log(day)
-      console.log(month)
-      console.log(year)
-      console.log(duration)
-     //console.log(timeslots)
-      
+  onSubmit = e => {
+    console.log("Data received: ", e)
   }
 
   render() {
-       let arr = ["time1","time2","time3"]
+    // test assign new timeslots array
+       let newTimeslots = ["timeslot 1","timeslot 2","timeslot 3", "timeslot 4", "timeslot 5"]
+       
     return (
       <div>
     <NavComponent />
-    <Button onClick={this.toggle} style={{ marginBottom: '1rem' }}>
+    {/* to revert to button style, use Button with color="link" */}
+    <Jumbotron onClick={this.toggle} style={{ marginBottom: '1rem',textDecoration: 'none' }}>
     <Calendar
       accentColor={'blue'}
       orientation={'flex-col'}
       showHeader={false}
       onDatePicked={(d) => {
-        var date = new Date(d);
-        var year = date.getFullYear();
-        var month = date.getMonth() + 1;
-        var day = date.getDate();
-        var duration= 7;
-        
-        this.toggle;
-        this.changeBooking(day,month,year,duration);
+        let date = new Date(d);
+        let year = date.getFullYear();
+        let month = date.getMonth() + 1;
+        let day = date.getDate();
+        let timeslots = newTimeslots;
+        let duration = "duration placeholder";
+
+        this.selectBooking(day,month,year,timeslots,duration);
         
     }}/>
-    </Button>
+    </Jumbotron>
 
     
     <Collapse isOpen={this.state.collapse}>
         <BookInfo
-        day={this.state.day}
-        month={this.state.month}
-        year={this.state.year}
+        day= {this.state.day}
+        month= {this.state.month}
+        year= {this.state.year}
         timeslots={this.state.timeslots}
-        duration = {this.state.duration}
-        
+        duration= {this.state.duration}
+        onSubmit= {e => this.onSubmit(e)}
         />
 
     </Collapse>
