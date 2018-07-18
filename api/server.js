@@ -15,6 +15,22 @@ server.get('/data/:year/:month', function (req, res) {
     
   })
 
+  // server.get('/', function(req,res){
+  //   res.send("helooo")
+  // })
+
+  server.get('/', function (req, res) {
+    //const id = req.params.id
+    Date.find({})
+    .then(dat =>  {
+      
+      res.send(dat)
+    }
+        
+      )
+      
+    })
+
   server.get('/:year', function (req, res) {
     //const id = req.params.id
     Date.find({

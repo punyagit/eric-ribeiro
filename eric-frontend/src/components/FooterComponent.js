@@ -15,7 +15,7 @@ class FooterComponent extends React.Component {
         </div>
         <div className="flexCenter">
           <h4 className="centerText">Contact Us</h4>
-          <a target="_blank" href="https://www.instagram.com/hairbyericribeiro/">
+          <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/hairbyericribeiro/">
             <img className="instagramLink" src="images/instagram.png" alt="Instagram" />
           </a>
           <span>Phone: 0411 291 123</span>
