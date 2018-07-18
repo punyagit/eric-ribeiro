@@ -22,11 +22,14 @@ export default class SignUpForm extends Component {
     }
     
     handleSubmit(e) {
+      // displaying the alert
       let log = [];
       Object.entries(this.state).forEach(([key, value]) => {
         log.push(`${key} = ${value} \n`);
       });
       alert('You have submitted :\n' + log);
+
+      // prevent refresh after pressing the submit button once
       e.preventDefault();
     }
     
@@ -58,3 +61,6 @@ export default class SignUpForm extends Component {
       );
     }
   }
+
+
+  
