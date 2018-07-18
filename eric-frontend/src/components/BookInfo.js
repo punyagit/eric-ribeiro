@@ -5,6 +5,14 @@ import {Container, Row, Col, Button, CardImg, CardBody, Card, Form, Label, Input
 class BookInfo extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            day: "",
+            month: "",
+            year: "",
+            timeslots: ["timeslot placeholder"],
+            duration: "",
+            collapse: false
+        }
         this.onSubmit = this.onSubmit.bind(this);
       }
 

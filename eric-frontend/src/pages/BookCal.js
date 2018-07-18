@@ -5,7 +5,6 @@ import FooterComponent from '../components/FooterComponent';
 import BookInfo from '../components/BookInfo';
 import {Card, Collapse, Jumbotron, Button} from 'reactstrap';
 
-
 class BookCal extends Component {
   constructor(props){
     super(props);
@@ -78,7 +77,6 @@ class BookCal extends Component {
         duration= {this.state.duration}
         onSubmit= {e => this.onSubmit(e)}
         />
-
     </Collapse>
     <FooterComponent/>
       

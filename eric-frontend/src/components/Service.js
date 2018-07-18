@@ -1,30 +1,34 @@
 import React from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button, Col } from 'reactstrap';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 class Service extends React.Component {
-  handleClick = () => {
-    console.log(this.serviceDetails());
+  constructor(props){
+    super(props);
+    this.state = {
+      id: this.props.services.id,
+      name: this.props.services.name,
+      description: this.props.services.description,
+      duration: this.props.services.duration,
+      price: this.props.services.price,
+      image: this.props.services.imageUrl
+    }
   }
 
-  serviceDetails() {
-    return this.props.services;
+  handleClick = () => {
+    console.log(this.state);
   }
 
   render() {
-    const name = this.props.services.name;
-    const description = this.props.services.description;
-    const duration = this.props.services.duration;
-    const price = this.props.services.price;
-    const image = this.props.services.imageUrl;
 
     return (
       <Col sm="4">
         <Card>
           <CardBody>
-            <CardImg top width="100%" src={image} alt="Card image cap" />
-            <CardTitle>{name}</CardTitle>
-            <CardSubtitle>Duration: {duration} hours | Price: ${price}</CardSubtitle>
-            <CardText>{description}</CardText>
+            <CardImg top width="100%" src={this.state.image} alt="Card image cap" />
+            <CardTitle>{this.state.name}</CardTitle>
+            <CardSubtitle>Duration: {this.state.duration} hours | Price: ${this.state.price}</CardSubtitle>
+            <CardText>{this.state.description}</CardText>
             <Button href="" onClick={this.handleClick}>Book Now</Button>
           </CardBody>
         </Card>
