@@ -29,9 +29,9 @@ class ServicesPage extends Component {
             <div className="servicesCards">
               {this.state.services.map((services, i) => {
                 return(
-                <div key={i}>
-                  <Service services={services} />
-                </div>
+                  <div key={i}>
+                    <Service services={services} />
+                  </div>
                 )
               })}
             </div>
