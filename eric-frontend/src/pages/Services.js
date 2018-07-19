@@ -13,6 +13,11 @@ class Services extends React.Component {
       services: []
     }
   }
+ 
+  // see state of the component - should be an array of all services
+  handleClick = () => {
+    console.log(this.state.services);
+  }
 
   // get request for services data from backend
   componentDidMount() {
@@ -22,52 +27,50 @@ class Services extends React.Component {
     .then(res => this.setState({ services: res.data.services }))
     .catch(err => console.log(err));
   }
+////////////////////////////////////////////////////////////////////////////////////////
+  // // **ADMIN ONLY** post request to backend for service creation and update
+  // onCreate = () => {
+  //   const newService = Object.assign({}, this.state.services, {
+  //     name: this.state.services.name,
+  //     description: this.state.services.description,
+  //     duration: this.state.services.duration, 
+  //     price: this.state.services.price
+  //   });
 
-  // see state of the component - should be an array of all services
-  handleClick = () => {
-    console.log(this.state.services);
-  }
+  //   const headers = {
+  //     'Access-Control-Allow-Origin': '*'
+  //   };
 
-  // **ADMIN ONLY** post request to backend for service creation and update
-  onCreate = () => {
-    const newService = Object.assign({}, this.state.services, {
-      name: this.state.services.name,
-      description: this.state.services.description,
-      duration: this.state.services.duration, 
-      price: this.state.services.price
-    });
+  //   axios
+  //   .post('http://localhost:8081/services', { newService, headers })
+  //   .then(function (response) {
+  //     console.log(response);
+  //   })
+  //   .catch(function (error) {
+  //     console.log(error);
+  //   });
+  // }
 
-    const headers = {
-      'Access-Control-Allow-Origin': '*'
-    };
-
-    axios
-    .post('http://localhost:8081/services', { newService, headers })
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-  }
-
-  // **ADMIN ONLY** delete request to backend for service item
-  onDelete = () => {
-    axios
-    .delete('http://localhost:8081/', {params: { serviceId: this._id}})
-    .then(function(response) {
-      console.log(response)
-    })
-    .catch(function (error) {
-      console.log(error);
-    })
-  }
+  // // **ADMIN ONLY** delete request to backend for service item
+  // onDelete = () => {
+  //   axios
+  //   .delete('http://localhost:8081/', {params: { serviceId: this._id}})
+  //   .then(function(response) {
+  //     console.log(response)
+  //   })
+  //   .catch(function (error) {
+  //     console.log(error);
+  //   })
+  // }
+////////////////////////////////////////////////////////////////////////////////////////
 
   render() {
     return (
       <Router>
         <div className="servicesPage">
           <div><NavComponent /></div>
+            {/* render services form for creation, update and deletion of services */}
+            <div><ServiceForm /></div>
             {/* creates an array of all items from database and sends them as props to ServiceCard to be rendered */}
             <div className="servicesCards">
               {this.state.services.map((services, i) => {
@@ -77,8 +80,8 @@ class Services extends React.Component {
                   </div>
                 )
               })}
-              <div><Button onClick={this.handleClick}>Create</Button></div>
             </div>
+            <div><Button onClick={this.handleClick}>Create</Button></div>
           <div><FooterComponent /></div>
         </div>
       </Router>
