@@ -6,6 +6,7 @@ import BookCal from './pages/BookCal';
 import ContactUs from './pages/ContactUs';
 import SignUpPage from './pages/SignUpPage';
 
+
 class App extends Component {
   render() {
     return (

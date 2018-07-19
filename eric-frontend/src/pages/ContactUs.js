@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, NavLink, Redirect } from 'react-router-dom' 
 import NavComponent from '../components/NavComponent';
 import FooterComponent from '../components/FooterComponent';
-// import ContactForm from '../components/ContactForm';
+import ContactForm from '../components/ContactForm';
 //import './App.css';
 
 class HomePage extends Component {
@@ -12,7 +12,7 @@ class HomePage extends Component {
         <div>
           
           <NavComponent />
-          {/* <ContactForm /> */}
+          <ContactForm />
           <FooterComponent />
         </div>
       </Router>
