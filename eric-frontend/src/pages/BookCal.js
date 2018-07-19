@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { BrowserRouter as Router,Redirect } from 'react-router-dom' 
+//import { BrowserRouter as Router,Redirect } from 'react-router-dom' 
 import Calendar from 'react-calendar-material';
 import NavComponent from '../components/NavComponent';
 import FooterComponent from '../components/FooterComponent';
@@ -16,52 +16,47 @@ class BookCal extends Component {
   constructor(props){
     super(props);
     this.state = {
-      dat: [
-        { day: 5, month: 18, year:2017},
 
-        
-      ]
-      
+    daysData: []
     }
-//console.log(day)
-    
+
     this.onSubmit = this.onSubmit.bind(this)
 
     this.toggle = this.toggle.bind(this);
   }
 
-  componentDidMount(){
-     
-  }
+
+
   
 
+  
 
+  
   toggle() {
     this.setState({ collapse: true });
   }
 
   selectBooking (day,month,year) {
-    this.state = {dat: [
-      {day: day,
+    this.setState({
+      day: day,
       month: month,
       year: year,
-      }
-    ]
-     }
-     //console.log("Date changed..",this.state)
+      
+     })
+    
   }
 
   onSubmit = e => {
-    console.log("Data received: ", e)
+    //console.log("Data received: ", e)
   }
 
   render() {
-    // test assign new timeslots array
-       //let newTimeslots = ["timeslot 1","timeslot 2","timeslot 3", "timeslot 4", "timeslot 5"]
+    
+   //const da = this.state.days
        
     return (
       <div>
-       
+       {console.log(this.state.daysData)}
     <NavComponent />
     {/* to revert to button style, use Button with color="link" */}
     <Jumbotron onClick={this.toggle} style={{ marginBottom: '1rem',textDecoration: 'none' }}>
@@ -77,19 +72,40 @@ class BookCal extends Component {
         let year = date.getFullYear();
         let month = date.getMonth() + 1;
         let day = date.getDate();
-        
-        //let duration = "duration punay";
-        //const a = this.state.fetchData
         this.selectBooking(day,month,year);
-        const url = 'http://localhost:4000/dates'
+        
+      //   fetch(`${url}/${day}/${month}/${year}`)
+      //   .then(resp => resp.json())
+      //   .then((data) => {
+      //    //console.log(data.day)
+      //    this.setState({daysData:data.day })
+      //    })
+      // //.then(console.log(this.state.daysData))
+      // .catch(err => console.log("rong urls",err))
+      //   console.log(this.state.daysData)
+
+    
       
-      fetch(`${url}/${day}/${month}/${year}`)
-        .then(resp => resp.json())
-        .then(json => this.setState({dat: json}))
-        .catch(err => console.log("rong urls",err))
-        const dat = this.state.dat
-        console.log(dat)
-      }
+      // const url = 'http://localhost:4000/dates'
+      // fetch(`${url}/${day}/${month}/${year}`)
+      // .then(resp => resp.json())
+      // .then((data) => {
+      //    //console.log(data.day)
+      //    this.setState({datDays:data.day })
+      //    })
+      // .then(console.log(this.state.daysData))
+      // .catch(err => console.log("rong urls",err))
+
+
+        (async () => {
+          const url = 'http://localhost:4000/dates'
+          const response = await fetch(`${url}/${day}/${month}/${year}`);
+          const json = await response.json();
+          await this.setState({daysData:json.day })
+          
+      })();
+      
+    }
       
     }/>
     </Jumbotron>
@@ -97,7 +113,7 @@ class BookCal extends Component {
     
     <Collapse isOpen={this.state.collapse}>
         <BookInfo
-        day= {this.state.day}
+          day= {this.state.day}
         month= {this.state.month}
         year= {this.state.year}
         timeslots={this.state.timeslots}

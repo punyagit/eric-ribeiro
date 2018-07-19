@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-//import BookCal from '../pages/BookCal';
-import { Row, Col, Button, CardImg, CardBody, Card, Form, Label, Input} from 'reactstrap';
+import BookCal from '../pages/BookCal';
+import {Container, Row, Col, Button, CardImg, CardBody, Card, Form, Label, Input} from 'reactstrap';
 
 class BookInfo extends Component {
     constructor(props) {
@@ -37,8 +37,8 @@ class BookInfo extends Component {
         let day = this.props.day;
         let month = this.props.month;
         let year = this.props.year;
-        //let duration = this.props.duration
-        
+        let duration = this.props.duration
+        //let timeslots = this.props.timeslots;
 
         return (
         <div>
@@ -49,7 +49,7 @@ class BookInfo extends Component {
 
                     <Col style={style}>
                         
-                        <Form>
+                        {/*<Form>
                             <Label for="day">Day</Label>
                             <Input value={day} name="day" readOnly/>
                             <Label for="month">Month</Label>
@@ -57,13 +57,10 @@ class BookInfo extends Component {
                             <Label for="year">Year</Label>
                             <Input value={year} name="year" readOnly/>
                             <Label for="duration">Duration</Label>
-                            <Input value="3" name="duration" readOnly/>
-                            <Label for="timeslots">Timeslots</Label>
-                            {/* <Input onChange={e => this.change(e)} type="select" name="timeslots">
-                                    {timeslots.map(x => <option value={x}>{x}</option>)}
-                            </Input> */}
+                            <Input value={duration} name="duration" readOnly/>
+                            
                             <Button color="info" onClick={e => this.onSubmit()}>Submit!</Button>
-                        </Form >
+                        </Form >*/}
                     </Col>
 
                     <Col>
