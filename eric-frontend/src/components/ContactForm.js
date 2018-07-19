@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import { Form, Button, FormGroup, Input, Label } from "reactstrap";
 require('dotenv').config()
 
+
+const sendgrid = process.env.REACT_APP_SENDGRID_API_KEY;
+const sgMail = require('@sendgrid/mail');
+
+
 export default class ContactForm extends Component {
   constructor(props) {
     super(props);
@@ -30,32 +35,35 @@ export default class ContactForm extends Component {
       Object.entries(this.state).forEach(([key, value]) => {
         log.push(`${key} = ${value} \n`);
       });
-      alert('You have submitted :\n' + log);
+      alert('You have sent :\n' + log);
+
+      sgMail.setApiKey(sendgrid);
+      const msg = {
+        to: 'hackscriptboys@gmail.com',
+        from: 'example999@gmail.com',
+        name: this.state.name,
+        email: this.state.email,
+        phnumber: this.state.phnumber,
+        comment: this.state.comment
+      };
+      console.log("My key is : " + sendgrid)
+
+      sgMail.send(msg);
 
       // prevent refresh after pressing the submit button once
       e.preventDefault();
     }
     
     render() {
-      const sendgrid = process.env.REACT_APP_SENDGRID_API_KEY;
-      console.log("My key is : " + sendgrid)
+ 
+     
 
-
-      // const sgMail = require('@sendgrid/mail');
-      // sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-      // const msg = {
-      //   name: this.state.name,
-      //   email: this.state.email,
-      //   phnumber: this.state.phnumber,
-      //   comment: this.state.comment,
-      // };
-      // sgMail.send(msg);
 
 
 
 
       return (
-        <Form onSubmit={this.handleSubmit}>
+        <Form onSubmit={this.handleSubmit} action="mailto:samuelrazali@gmail.com" method="post" enctype="text/plain">
         <FormGroup>
         <Label> Name </Label>
         <Input type="text" name="name" onChange={e => this.handleChange(e)} />
