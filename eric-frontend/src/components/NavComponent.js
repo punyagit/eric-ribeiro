@@ -27,8 +27,8 @@ class NavComponent extends React.Component {
   render() {
     return (
       <div>
-        <div className="headerLogo">
-          <span>Eric Ribeiro</span>
+        <div className="headerBar">
+          <span className="headerLogo">Eric Ribeiro</span>
         </div>
         <div>
           <Navbar className="navBar" light expand="md">
@@ -43,7 +43,7 @@ class NavComponent extends React.Component {
                   <NavLink href="">About</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/bookings">Bookings</NavLink>
+                  <NavLink href="/services">Bookings</NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink href="">Blog</NavLink>

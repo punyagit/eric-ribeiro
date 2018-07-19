@@ -120,7 +120,6 @@ class BookCal extends Component {
         duration= {this.state.duration}
         onSubmit= {e => this.onSubmit(e)}
         />
-
     </Collapse>
     <FooterComponent/>
       
