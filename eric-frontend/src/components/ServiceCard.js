@@ -2,6 +2,19 @@ import React from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button, Col } from 'reactstrap';
 
 class ServiceCard extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      service: {
+        name: this.props.services.name,
+        description: this.props.services.description,
+        duration: this.props.services.duration,
+        price: this.props.services.price,
+        _id: this.props.services._id
+      }
+    };
+  }
+
   // check to see that props match service item
   handleClick = () => {
     console.log(this.props.services);

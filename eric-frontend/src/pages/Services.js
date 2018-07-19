@@ -7,7 +7,7 @@ import axios from 'axios';
 import { Button } from 'reactstrap';
 
 class Services extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       services: []
@@ -69,8 +69,6 @@ class Services extends React.Component {
       <Router>
         <div className="servicesPage">
           <div><NavComponent /></div>
-            {/* render services form for creation, update and deletion of services */}
-            <div><ServiceForm /></div>
             {/* creates an array of all items from database and sends them as props to ServiceCard to be rendered */}
             <div className="servicesCards">
               {this.state.services.map((services, i) => {
