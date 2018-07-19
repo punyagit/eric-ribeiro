@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+//import BookCal from '../pages/BookCal';
 import { Row, Col, Button, CardImg, CardBody, Card, Form, Label, Input} from 'reactstrap';
 
 class BookInfo extends Component {
@@ -44,8 +45,8 @@ class BookInfo extends Component {
         let day = this.props.day;
         let month = this.props.month;
         let year = this.props.year;
-        let duration = this.props.duration
-        let timeslots = this.props.timeslots;
+        //let duration = this.props.duration
+        
 
         return (
         <div>
@@ -65,9 +66,9 @@ class BookInfo extends Component {
                             <Label for="duration">Duration</Label>
                             <Input onChange={e => this.change(e)} defaultValue={duration} name="duration"/>
                             <Label for="timeslots">Timeslots</Label>
-                            <Input onChange={e => this.change(e)} type="select" name="timeslots">
+                            {/* <Input onChange={e => this.change(e)} type="select" name="timeslots">
                                     {timeslots.map(x => <option value={x}>{x}</option>)}
-                            </Input>
+                            </Input> */}
                             <Button color="info" onClick={e => this.onSubmit()}>Submit!</Button>
                         </Form>
                     </Col>
