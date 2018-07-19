@@ -10,7 +10,6 @@ class HomePage extends Component {
     return (
       <Router>
         <div>
-          
           <NavComponent />
           <CarouselComponent />
           <FooterComponent />
