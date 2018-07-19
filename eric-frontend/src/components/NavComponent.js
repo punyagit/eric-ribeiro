@@ -51,6 +51,9 @@ class NavComponent extends React.Component {
                 <NavItem>
                   <NavLink href="/signup">SignUp</NavLink>
                 </NavItem>
+                <NavItem>
+                  <NavLink href="/contactus">Contact Us</NavLink>
+                </NavItem>
               </Nav>
             </Collapse>
           </Navbar>

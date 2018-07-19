@@ -29,12 +29,13 @@ export default class ContactForm extends Component {
       );
     }
     
-    handleSubmit(e) {
+    handleSubmit(event) {
       // displaying the alert
+      event.preventDefault();
       let log = [];
       Object.entries(this.state).forEach(([key, value]) => {
         log.push(`${key} = ${value} \n`);
-      });
+      })
       alert('You have sent :\n' + log);
 
       sgMail.setApiKey(sendgrid);
@@ -45,20 +46,17 @@ export default class ContactForm extends Component {
         // email: this.state.email,
         // phnumber: this.state.phnumber,
         // comment: this.state.comment
-      };
+      }
+      
       console.log("My key is : " + sendgrid)
       sgMail.send(msg);
 
       // prevent refresh after pressing the submit button once
-      e.preventDefault();
+      
     }
     
     render() {
  
-     
-
-
-
 
 
       return (

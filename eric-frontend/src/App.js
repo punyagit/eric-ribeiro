@@ -4,6 +4,7 @@ import './App.css';
 import HomePage from './pages/HomePage';
 import BookCal from './pages/BookCal';
 import SignUpPage from './pages/SignUpPage';
+import ContactUs from './pages/ContactUs';
 import Services from './pages/Services';
 
 
@@ -15,6 +16,7 @@ class App extends Component {
           <Route exact path='/' component={HomePage} />
           <Route exact path='/services' component={Services} />
           <Route exact path='/booking' component={BookCal} />
+          <Route exact path='/contactus' component={ContactUs} />
           <Route exact path='/signup' component={SignUpPage} />
         </div>
       </Router>
