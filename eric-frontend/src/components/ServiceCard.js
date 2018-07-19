@@ -3,6 +3,7 @@ import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button, Col
 
 class ServiceCard extends React.Component {
 
+  // check to see that props match service item
   handleClick = () => {
     console.log(this.props.services);
   }

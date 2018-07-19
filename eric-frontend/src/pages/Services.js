@@ -14,6 +14,7 @@ class Services extends React.Component {
     }
   }
 
+  // get request for services data from backend
   componentDidMount() {
     console.log('Did mount');
     axios
@@ -22,10 +23,12 @@ class Services extends React.Component {
     .catch(err => console.log(err));
   }
 
+  // see state of the component - should be an array of all services
   handleClick = () => {
     console.log(this.state.services);
   }
 
+  // **ADMIN ONLY** post request to backend for service creation and update
   onCreate = () => {
     const newService = Object.assign({}, this.state.services, {
       name: this.state.services.name,
@@ -48,13 +51,7 @@ class Services extends React.Component {
     });
   }
 
-  onUpdate = () => {
-    axios
-    .patch('http://localhost:8081/services')
-    .then()
-    .catch()
-  }
-
+  // **ADMIN ONLY** delete request to backend for service item
   onDelete = () => {
     axios
     .delete('http://localhost:8081/', {params: { serviceId: this._id}})
@@ -71,6 +68,7 @@ class Services extends React.Component {
       <Router>
         <div className="servicesPage">
           <div><NavComponent /></div>
+            {/* creates an array of all items from database and sends them as props to ServiceCard to be rendered */}
             <div className="servicesCards">
               {this.state.services.map((services, i) => {
                 return(
