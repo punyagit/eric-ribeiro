@@ -10,7 +10,7 @@ class BookInfo extends Component {
 
       change(e){
           this.setState({
-              timeslots: e.target.value
+              [e.target.name]: e.target.value
           })
       }
 
@@ -51,19 +51,20 @@ class BookInfo extends Component {
                         
                         <Form>
                             <Label for="day">Day</Label>
-                            <Input value={day} name="day" readOnly/>
+                            <Input onChange={e => this.change(e)} defaultValue={day} name="day"/>
                             <Label for="month">Month</Label>
-                            <Input value={month} name="month" readOnly/>
+                            <Input onChange={e => this.change(e)} defaultValue={month} name="month"/>
                             <Label for="year">Year</Label>
-                            <Input value={year} name="year" readOnly/>
+                            <Input onChange={e => this.change(e)} defaultValue={year} name="year"/>
                             <Label for="duration">Duration</Label>
-                            <Input value="3" name="duration" readOnly/>
+
+                            <Input onChange={e => this.change(e)} defaultValue={duration} name="duration"/>
                             <Label for="timeslots">Timeslots</Label>
                             {/* <Input onChange={e => this.change(e)} type="select" name="timeslots">
                                     {timeslots.map(x => <option value={x}>{x}</option>)}
                             </Input> */}
                             <Button color="info" onClick={e => this.onSubmit()}>Submit!</Button>
-                        </Form >
+                        </Form>
                     </Col>
 
                     <Col>
