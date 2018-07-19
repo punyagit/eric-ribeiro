@@ -3,11 +3,12 @@
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-around;
-  background-color: #54B77C;
+  background-color: #3F4449;
   width: 100%;
   padding: 1rem;
   font-family: 'Asap', sans-serif;
   font-size: 13px;
+  color: #f7Fbff;
 }
 
 .centerText {
@@ -33,8 +34,8 @@
 }
 
 .instagramLink {
-  max-width: 30px;
-  max-height: 30px;
+  max-width: 40px;
+  max-height: 40px;
   padding: 5px;
 }
 

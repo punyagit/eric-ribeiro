@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, Button, FormGroup, Input, Label } from "reactstrap";
+import { Row, Col, Form, Button, FormGroup, Input, Label } from "reactstrap";
 export default class SignUpForm extends Component {
   constructor(props) {
     super(props);
@@ -34,29 +34,31 @@ export default class SignUpForm extends Component {
     
     render() {
       return (
-        <Form onSubmit={this.handleSubmit}>
-        <FormGroup>
-        <Label> User Name </Label>
-        <Input type="text" name="username" onChange={e => this.handleChange(e)} />
-        </FormGroup>
-        <FormGroup>
-        <Label> Password </Label>
-        <Input type="password" name="password" onChange={e => this.handleChange(e)} />
-        </FormGroup>
-        <FormGroup>
-        <Label> Name </Label>
-        <Input type="text" name="name" onChange={e => this.handleChange(e)} />
-        </FormGroup>
-        <FormGroup>
-        <Label> Email </Label>
-        <Input type="text" name="email" onChange={e => this.handleChange(e)} />
-        </FormGroup>
-        <FormGroup>
-        <Label> Phone Number </Label>
-        <Input type="text" name="phnumber" onChange={e => this.handleChange(e)} />
-        </FormGroup>
-        <Button type="submit">Submit </Button>
-        </Form>
+          <Col md='6' sm='6' xs='auto'>
+            <Form onSubmit={this.handleSubmit}>
+            <FormGroup>
+            <Label> User Name </Label>
+            <Input type="text" name="username" onChange={e => this.handleChange(e)} />
+            </FormGroup>
+            <FormGroup>
+            <Label> Password </Label>
+            <Input type="password" name="password" onChange={e => this.handleChange(e)} />
+            </FormGroup>
+            <FormGroup>
+            <Label> Name </Label>
+            <Input type="text" name="name" onChange={e => this.handleChange(e)} />
+            </FormGroup>
+            <FormGroup>
+            <Label> Email </Label>
+            <Input type="text" name="email" onChange={e => this.handleChange(e)} />
+            </FormGroup>
+            <FormGroup>
+            <Label> Phone Number </Label>
+            <Input type="text" name="phnumber" onChange={e => this.handleChange(e)} />
+            </FormGroup>
+            <Button type="submit">Submit </Button>
+            </Form>
+          </Col>
       );
     }
   }

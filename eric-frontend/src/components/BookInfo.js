@@ -5,6 +5,14 @@ import { Row, Col, Button, CardImg, CardBody, Card, Form, Label, Input} from 're
 class BookInfo extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            day: "",
+            month: "",
+            year: "",
+            timeslots: ["timeslot placeholder"],
+            duration: "",
+            collapse: false
+        }
         this.onSubmit = this.onSubmit.bind(this);
       }
 
@@ -42,7 +50,6 @@ class BookInfo extends Component {
 
         return (
         <div>
-        
         {/* forcing bootstrap in it... */}
           <div className="container-fluid">
                 <Row>
