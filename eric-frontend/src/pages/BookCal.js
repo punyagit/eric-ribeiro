@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 //import { BrowserRouter as Router,Redirect } from 'react-router-dom' 
 import Calendar from 'react-calendar-material';
@@ -15,7 +14,6 @@ class BookCal extends Component {
     }
 
     this.onSubmit = this.onSubmit.bind(this)
-
     this.toggle = this.toggle.bind(this);
     this.onDatePicked = this.onDatePicked(this);
   }

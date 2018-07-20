@@ -5,7 +5,7 @@ const Service = require('../models/service');
 
 router.get('/', (req, res, next) => {
 	Service.find()
-	.select('name description duration _id')
+	.select('name description duration price _id')
 	.exec()
 	.then(docs => {
 		const response = {
