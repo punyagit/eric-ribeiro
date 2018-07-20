@@ -134,7 +134,7 @@ class BookCal extends Component {
           
           timeslot = {this.state.daysData}
           day= {this.state.day}
-          month= {this.checkDate}
+          month= {this.state.month}
           year= {this.state.year}
           timeslots={this.state.timeslots}
           duration= {this.state.duration}
