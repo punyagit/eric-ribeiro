@@ -1,6 +1,5 @@
 
 import React, { Component } from 'react';
-import { BrowserRouter as Router,Redirect } from 'react-router-dom' 
 import Calendar from 'react-calendar-material';
 import NavComponent from '../components/NavComponent';
 import FooterComponent from '../components/FooterComponent';
@@ -22,7 +21,6 @@ class BookCal extends Component {
   }
 
   componentDidMount(){
-     
   }
 
   toggle() {
@@ -46,11 +44,10 @@ class BookCal extends Component {
 
   render() {
     // test assign new timeslots array
-       //let newTimeslots = ["timeslot 1","timeslot 2","timeslot 3", "timeslot 4", "timeslot 5"]
+    //let newTimeslots = ["timeslot 1","timeslot 2","timeslot 3", "timeslot 4", "timeslot 5"]
        
     return (
-      <div>
-          
+      <div> 
         <NavComponent />
         {/* to revert to button style, use Button with color="link" */}
         <Jumbotron onClick={this.toggle} style={{ marginBottom: '1rem',textDecoration: 'none' }}>
@@ -68,7 +65,7 @@ class BookCal extends Component {
               //let duration = "duration punay";
               //const a = this.state.fetchData
               this.selectBooking(day,month,year);
-              const url = 'http://localhost:4000/dates'
+              const url = 'http://localhost:8081/dates'
             
               fetch(`${url}/${day}/${month}/${year}`)
               .then(resp => resp.json())
@@ -81,12 +78,12 @@ class BookCal extends Component {
         </Jumbotron>
         <Collapse isOpen={this.state.collapse}>
             <BookInfo
-            day= {this.state.day}
-            month= {this.state.month}
-            year= {this.state.year}
+            day={this.state.day}
+            month={this.state.month}
+            year={this.state.year}
             timeslots={this.state.timeslots}
-            duration= {this.state.duration}
-            onSubmit= {e => this.onSubmit(e)}
+            duration={this.state.duration}
+            onSubmit={e => this.onSubmit(e)}
             />
         </Collapse>
         <FooterComponent/>
@@ -94,7 +91,5 @@ class BookCal extends Component {
     );
   }
 }
-
-
 
 export default BookCal;

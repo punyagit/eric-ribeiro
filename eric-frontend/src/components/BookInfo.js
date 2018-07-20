@@ -28,7 +28,7 @@ class BookInfo extends Component {
             month: this.props.month,
             year: this.props.year,
             duration: this.props.duration,
-            // timeslots: this.props.timeslots
+            //timeslots: this.props.timeslots
         })
         // e.preventDefault();
         this.props.onSubmit(this.state);
