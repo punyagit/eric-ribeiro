@@ -1,10 +1,9 @@
-
 import React, { Component } from 'react';
 import Calendar from 'react-calendar-material';
 import NavComponent from '../components/NavComponent';
 import FooterComponent from '../components/FooterComponent';
 import BookInfo from '../components/BookInfo';
-import {Collapse, Jumbotron} from 'reactstrap';
+import {Button, Collapse, Jumbotron} from 'reactstrap';
 
 class BookCal extends Component {
   constructor(props){
@@ -12,7 +11,8 @@ class BookCal extends Component {
     this.state = {
       dat: [
         { day: 5, month: 18, year:2017},  
-      ]
+      ],
+      service: {}
     }
 //console.log(day)
     
@@ -21,6 +21,11 @@ class BookCal extends Component {
   }
 
   componentDidMount(){
+    console.log(this.state);
+  }
+
+  handleClick = () => {
+    console.log(this.state.service);
   }
 
   toggle() {
@@ -86,6 +91,7 @@ class BookCal extends Component {
             onSubmit={e => this.onSubmit(e)}
             />
         </Collapse>
+        <Button onClick={this.handleClick}>Click me</Button>
         <FooterComponent/>
      </div>
     );
