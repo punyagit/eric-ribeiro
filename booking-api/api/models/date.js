@@ -6,6 +6,7 @@ const dateSchema = mongoose.Schema({
 	date: { type: Number}, //,default: Date.now },
 	month: { type: Number },
 	year: { type : Number }
+	
 });
 
 const Day = mongoose.model('Day', dateSchema);

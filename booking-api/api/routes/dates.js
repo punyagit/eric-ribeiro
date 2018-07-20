@@ -89,7 +89,7 @@ router.post('/', (req, res, next) => {
 });
 
 
-router.get('/:date/:month/:year', (req, res, next) => {
+router.get('/:date/:month/:year/', (req, res, next) => {
 	Day.find({
 		date: req.params.date,
 		year: req.params.year,
