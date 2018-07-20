@@ -27,6 +27,7 @@ class Services extends React.Component {
     .then(res => this.setState({ services: res.data.services }))
     .catch(err => console.log(err));
   }
+
 ////////////////////////////////////////////////////////////////////////////////////////
   // // **ADMIN ONLY** post request to backend for service creation and update
   // onCreate = () => {
@@ -74,7 +75,7 @@ class Services extends React.Component {
               {this.state.services.map((services, i) => {
                 return(
                   <div key={i}>
-                    <ServiceCard services={services} />
+                        <ServiceCard services={services} />
                   </div>
                 )
               })}
