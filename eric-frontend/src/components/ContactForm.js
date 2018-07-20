@@ -38,18 +38,7 @@ export default class ContactForm extends Component {
       })
       alert('You have sent :\n' + log);
 
-      sgMail.setApiKey(sendgrid);
-      const msg = {
-        to: 'hackscriptboys@gmail.com',
-        from: 'example999@gmail.com',
-        name: "this.state.name",
-        // email: this.state.email,
-        // phnumber: this.state.phnumber,
-        // comment: this.state.comment
-      }
       
-      console.log("My key is : " + sendgrid)
-      sgMail.send(msg);
 
       // prevent refresh after pressing the submit button once
       
@@ -77,7 +66,7 @@ export default class ContactForm extends Component {
         <Label> Comment </Label>
         <Input type="textarea" name="comment" onChange={e => this.handleChange(e)} />
         </FormGroup>
-        <Button type="submit">Submit (Sending with Sendgrid)</Button>
+        <Button type="submit" method="post">Submit (Sending with Sendgrid)</Button>
         </Form>
       );
     }

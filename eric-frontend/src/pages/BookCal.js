@@ -1,13 +1,12 @@
-
 import React, { Component } from 'react';
-import { BrowserRouter as Router,Redirect } from 'react-router-dom' 
+//import { BrowserRouter as Router,Redirect } from 'react-router-dom' 
 import Calendar from 'react-calendar-material';
 import NavComponent from '../components/NavComponent';
 import FooterComponent from '../components/FooterComponent';
 import BookInfo from '../components/BookInfo';
 import {Collapse, Jumbotron} from 'reactstrap';
 
-//const timeSlot = [9.30,10,10.30,11,11.30,12,12.30,13,13.30,14,14.30]
+
 
 
 
@@ -16,96 +15,136 @@ class BookCal extends Component {
   constructor(props){
     super(props);
     this.state = {
-      dat: [
-        { day: 5, month: 18, year:2017},
-
-        
-      ]
-      
+      daysData: []
     }
-//console.log(day)
-    
+
     this.onSubmit = this.onSubmit.bind(this)
 
     this.toggle = this.toggle.bind(this);
+    this.onDatePicked = this.onDatePicked(this);
   }
-
-  componentDidMount(){
-     
-  }
-  
-
-
   toggle() {
     this.setState({ collapse: true });
   }
 
   selectBooking (day,month,year) {
-    this.state = {dat: [
-      {day: day,
+    this.setState({
+      day: day,
       month: month,
       year: year,
-      }
-    ]
-     }
-     //console.log("Date changed..",this.state)
-  }
+    })
+}
 
   onSubmit = e => {
-    console.log("Data received: ", e)
+    
   }
 
+  onDatePicked = (d) => {
+
+  }
+
+  checkTimeSlot = (timeSlot,duration) => {
+      let arrLength = timeSlot.length
+      let newArr = []
+      for(let i = 0;i < arrLength-1;i++){
+        let cal = timeSlot[i+1] - [timeSlot[i]]
+        console.log(cal)
+        if(cal >= duration){
+          newArr.push(timeSlot[i])
+
+        }
+      }
+      this.setState({daysData:newArr})
+      //console.log(this.state.daysData)
+  }
+
+  checkDb = (timeSlot,db) => {
+    let arr1 = timeSlot.filter(val => !db.includes(val));
+    console.log(arr1)
+    this.setState({daysData:arr1})
+    //console.log(this.state.daysData)
+  }
+  
+  
+  checkDate = (data,duration,timeSlot,db) => {
+    if ((data.day.length) === 0){
+      if(duration >= 1){
+        
+        this.checkTimeSlot(timeSlot,duration)
+        
+      }
+   } else {
+     this.checkDb(timeSlot,db)
+     
+   }
+
+  }
+
+  
+
   render() {
-    // test assign new timeslots array
-       //let newTimeslots = ["timeslot 1","timeslot 2","timeslot 3", "timeslot 4", "timeslot 5"]
-       
+    
     return (
-      <div>
-       
+    <div>
     <NavComponent />
     {/* to revert to button style, use Button with color="link" */}
-    <Jumbotron onClick={this.toggle} style={{ marginBottom: '1rem',textDecoration: 'none' }}>
-    <Calendar
-      accentColor={'blue'}
-      orientation={'flex-col'}
-      showHeader={false}
-      
-      onDatePicked={(d) => {
-    
+      <Jumbotron onClick={this.toggle} style={{ marginBottom: '1rem',textDecoration: 'none' }}>
+      <Calendar
+        accentColor={'blue'}
+        orientation={'flex-col'}
+        showHeader={false}
         
-        let date = new Date(d);
-        let year = date.getFullYear();
-        let month = date.getMonth() + 1;
-        let day = date.getDate();
-        
-        //let duration = "duration punay";
-        //const a = this.state.fetchData
-        this.selectBooking(day,month,year);
-        const url = 'http://localhost:4000/dates'
+        onDatePicked={(d) => {
       
-      fetch(`${url}/${day}/${month}/${year}`)
+          
+          let date = new Date(d);
+          let year = date.getFullYear();
+          let month = date.getMonth() + 1;
+          let day = date.getDate();
+          this.selectBooking(day,month,year);
+          
+        let db = [11.30,14.30]
+        let duration = 3
+        let timeSlot = [9.30,10,11.30,12.30,14.30,17,20,21]
+        const url = 'http://localhost:8081/dates'
+        fetch(`${url}/${day}/${month}/${year}`)
         .then(resp => resp.json())
-        .then(json => this.setState({dat: json}))
+        .then((data) => {
+          this.checkDate(data,duration,timeSlot,db)
+          
+          //this.setState({daysData:data.day }, () => { console.log(this.state) })
+          }, )
+        //.then(console.log(this.state.daysData))
         .catch(err => console.log("rong urls",err))
-        const dat = this.state.dat
-        console.log(dat)
+
+        
+        
+        //   (async () => {
+        //     const url = 'http://localhost:8081/dates'
+        //     const response = await fetch(`${url}/${day}/${month}/${year}`);
+        //     const json = await response.json();
+        //     this.setState({daysData:json.day })
+            
+        // })();
+        
       }
+        
+      }/>
+      </Jumbotron>
       
-    }/>
-    </Jumbotron>
-     
-    
-    <Collapse isOpen={this.state.collapse}>
-        <BookInfo
-        day= {this.state.day}
-        month= {this.state.month}
-        year= {this.state.year}
-        timeslots={this.state.timeslots}
-        duration= {this.state.duration}
-        onSubmit= {e => this.onSubmit(e)}
-        />
-    </Collapse>
-    <FooterComponent/>
+      
+      <Collapse isOpen={this.state.collapse}>
+          <BookInfo
+          
+          day= {this.state.day}
+          timeslot= {this.state.daysData}
+          month= {this.checkDate}
+          year= {this.state.year}
+          duration= {this.state.duration}
+          onSubmit= {e => this.onSubmit(e)}
+          />
+      </Collapse>
+      <FooterComponent/>
       
      </div>
     );
