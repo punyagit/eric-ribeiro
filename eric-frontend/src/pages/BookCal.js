@@ -1,22 +1,30 @@
 import React, { Component } from 'react';
 //import { BrowserRouter as Router,Redirect } from 'react-router-dom' 
 import Calendar from 'react-calendar-material';
-import NavComponent from '../components/NavComponent';
-import FooterComponent from '../components/FooterComponent';
 import BookInfo from '../components/BookInfo';
 import {Collapse, Jumbotron} from 'reactstrap';
+import { withRouter } from 'react-router';
 
 class BookCal extends Component {
   constructor(props){
     super(props);
     this.state = {
-      daysData: []
+      daysData: [],
+      service: {
+        name: this.props.match.params.serviceName,
+        duration: this.props.match.params.serviceDuration,
+        price: this.props.match.params.servicePrice
+      }
     }
-
     this.onSubmit = this.onSubmit.bind(this)
     this.toggle = this.toggle.bind(this);
     this.onDatePicked = this.onDatePicked(this);
   }
+
+  componentDidMount() {
+    console.log(this.state);
+  }
+
   toggle() {
     this.setState({ collapse: true });
   }
@@ -87,10 +95,9 @@ class BookCal extends Component {
   
 
   render() {
-    
+    console.log(this.props)
     return (
     <div>
-    <NavComponent />
     {/* to revert to button style, use Button with color="link" */}
       <Jumbotron onClick={this.toggle} style={{ marginBottom: '1rem',textDecoration: 'none' }}>
       <Calendar
@@ -99,7 +106,6 @@ class BookCal extends Component {
         showHeader={false}
         
         onDatePicked={(d) => {
-      
           
           let date = new Date(d);
           let year = date.getFullYear();
@@ -107,7 +113,6 @@ class BookCal extends Component {
           let day = date.getDate();
           this.selectBooking(day,month,year);
           
-        
         let db = [11.30,14.30]
         let duration = 2
         let timeSlot = [9.30,10,11.30,12.30,14.30,17,20,21]
@@ -135,12 +140,10 @@ class BookCal extends Component {
           month= {this.state.month}
           year= {this.state.year}
           timeslots={this.state.timeslots}
-          duration= {this.state.duration}
+          duration= {this.state.service.duration}
           onSubmit= {e => this.onSubmit(e)}
           />
       </Collapse>
-      <FooterComponent/>
-      
      </div>
     );
   }
@@ -148,7 +151,7 @@ class BookCal extends Component {
 
 
 
-export default BookCal;
+export default withRouter(BookCal);
 
 
 
