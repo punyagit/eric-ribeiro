@@ -4,6 +4,7 @@ import './App.css';
 import NavComponent from './components/NavComponent';
 import FooterComponent from './components/FooterComponent';
 import CarouselComponent from './components/CarouselComponent';
+import About from './components/About';
 import Services from './pages/Services';
 import BookCal from './pages/BookCal';
 import SignUpForm from './components/SignUpForm';
@@ -32,11 +33,12 @@ class App extends Component {
         <div>
           <NavComponent />
           <Route exact path='/' component={CarouselComponent} />
-          <Route path='/booking/:serviceName/:serviceDuration/:servicePrice' render={
+          <Route exact path='/about' component={About} />
+          <Route exact path='/booking/:serviceName/:serviceDuration/:servicePrice' render={
               () => <BookCal />
             }/>
           <Route exact path='/signup' component={SignUpForm} />
-          <Route path='/services' render={
+          <Route exact path='/services' render={
               () => <Services services={this.state.services} />
             }/>
           <FooterComponent />
