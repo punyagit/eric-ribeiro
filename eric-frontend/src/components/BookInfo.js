@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 //import BookCal from '../pages/BookCal';
 import { Row, Col, Button, CardImg, CardBody, Card, Form, Label, Input} from 'reactstrap';
 
+
+
+
 class BookInfo extends Component {
     constructor(props) {
         super(props);
@@ -9,9 +12,11 @@ class BookInfo extends Component {
             day: "",
             month: "",
             year: "",
-            timeslots: ["timeslot placeholder"],
             duration: "",
-            collapse: false
+            selectedTime: "Please choose a Time and date",
+            val: "",
+            collapse: false,
+            productName: ""
         }
         this.onSubmit = this.onSubmit.bind(this);
       }
@@ -36,9 +41,14 @@ class BookInfo extends Component {
 
       selectTime(e){
           this.setState({
-              selectedTime: e.target.value
+              selectedTime: e.target.value,
+              
           })
+          this.setState({val:"BookNOw"})
+          
+        
       }
+      
       
     render(){
 
@@ -53,6 +63,8 @@ class BookInfo extends Component {
         let month = this.props.month;
         let year = this.props.year;
         let duration = this.props.duration
+        let productName = this.props.productName
+        console.log(productName)
         
 
         return (
@@ -69,11 +81,7 @@ class BookInfo extends Component {
                                     <Button value={x} onClick={e => this.selectTime(e)}> {x} </Button>
                                     )
                                 }
-                           {/* <Input onChange={e => this.change(e)} defaultValue={duration} name="duration"/>
-                            {/* <Input onChange={e => this.change(e)} type="select" name="timeslots">
-                                    {timeslots.map(x => <option value={x}>{x}</option>)}
-                            </Input> 
-                            <Button color="info" onClick={e => this.onSubmit()}>Submit!</Button>*/}
+                           
                         </Form>
                     </Col>
 
@@ -81,10 +89,15 @@ class BookInfo extends Component {
                         <Card>
                             {/* <CardImg src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" /> */}
                             <CardBody>
+                                
                                 <h2>Booking Confirmation</h2>
+                                <p>product: {productName}</p>
                                 <p>Date of booking : {day}/{month}/{year}</p>
-                                <p>Selected Duration : {this.state.selectedTime}</p>
-                                <p>Selected Time of Booking</p>
+                                <p>Selected Duration : {duration}</p>
+                                <p>Selected Time of Booking:{this.state.selectedTime}</p>
+                                <button>{this.state.val}</button>
+                               
+ 
                                 
 
                             </CardBody>
@@ -101,6 +114,8 @@ class BookInfo extends Component {
     }
    
 }
+
+
 
 
 
