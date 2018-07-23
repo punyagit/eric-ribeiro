@@ -1,7 +1,10 @@
-.headerLogo {
+.headerBar {
   text-align: center;
   height: 5rem;
   background-color: #3F4449;
+}
+
+.headerLogo {
   font-family:  'Alegreya', serif;
   font-style: italic;
   font-weight: 400;

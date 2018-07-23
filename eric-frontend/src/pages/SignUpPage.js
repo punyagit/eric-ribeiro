@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom' 
+import { BrowserRouter as Router, Route, NavLink, Redirect } from 'react-router-dom' 
 import NavComponent from '../components/NavComponent';
 import FooterComponent from '../components/FooterComponent';
-import CarouselComponent from '../components/CarouselComponent';
+import SignUpForm from '../components/SignUpForm';
 //import './App.css';
 
 class HomePage extends Component {
@@ -11,7 +11,7 @@ class HomePage extends Component {
       <Router>
         <div>
           <NavComponent />
-          <CarouselComponent />
+          <SignUpForm />
           <FooterComponent />
         </div>
       </Router>
