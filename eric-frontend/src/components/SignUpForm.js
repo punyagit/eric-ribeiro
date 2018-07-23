@@ -1,66 +1,62 @@
-import React, { Component } from "react";
-import { Form, Button, FormGroup, Input, Label } from "reactstrap";
-export default class SignUpForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: "",
-      password: "",
-      name: "",
-      email: "",
-      phnumber: ""
-      };
+// import React, { Component } from "react";
+// import { Form, Button, FormGroup, Input, Label, Container, Row, Col } from "reactstrap";
+// export default class SignUpForm extends Component {
+//   constructor() {
+//     super();
+//       this.handleSubmit = this.handleSubmit.bind(this);
+//     }
+    
+//     handleSubmit(e) {
       
-      this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
-    }
-    
-    handleChange(e) {
-      this.setState(
-        {[e.target.name]: e.target.value}
-      );
-    }
-    
-    handleSubmit(e) {
-      // displaying the alert
-      let log = [];
-      Object.entries(this.state).forEach(([key, value]) => {
-        log.push(`${key} = ${value} \n`);
-      });
-      alert('You have submitted :\n' + log);
+//       e.preventDefault();
+//       const data = new FormData(this.handleSubmit);
 
-      // prevent refresh after pressing the submit button once
-      e.preventDefault();
-    }
+//       fetch('http://localhost:8081/signup', {
+//         method: 'POST',
+//         body: data,
+//       });
+//     }
     
-    render() {
-      return (
-        <Form onSubmit={this.handleSubmit}>
-        <FormGroup>
-        <Label> User Name </Label>
-        <Input type="text" name="username" onChange={e => this.handleChange(e)} />
-        </FormGroup>
-        <FormGroup>
-        <Label> Password </Label>
-        <Input type="password" name="password" onChange={e => this.handleChange(e)} />
-        </FormGroup>
-        <FormGroup>
-        <Label> Name </Label>
-        <Input type="text" name="name" onChange={e => this.handleChange(e)} />
-        </FormGroup>
-        <FormGroup>
-        <Label> Email </Label>
-        <Input type="text" name="email" onChange={e => this.handleChange(e)} />
-        </FormGroup>
-        <FormGroup>
-        <Label> Phone Number </Label>
-        <Input type="text" name="phnumber" onChange={e => this.handleChange(e)} />
-        </FormGroup>
-        <Button type="submit">Submit </Button>
-        </Form>
-      );
-    }
-  }
+//     render() {
+//       return (
+
+//       <Container>
+//         <Row>
+//         <Col sm="12" md={{ size: 20 }}>
+//         <h1>Register</h1>
+//         <Form onSubmit={this.handleSubmit}>
+//         <FormGroup>
+//         <Label> Name </Label> 
+//         <Input type="text" name="name"  />
+//         </FormGroup>
+        
+
+//         <FormGroup>
+//         <Label> Password </Label>
+//         <Input type="password" name="password"  />
+//         </FormGroup>
+       
+//         <FormGroup>
+//         <Label> Email </Label>
+//         <Input type="text" name="email"  />
+//         </FormGroup>
+
+//         <FormGroup>
+//         <Label> Phone Number </Label>
+//         <Input type="text" name="phnumber"  />
+//         </FormGroup>
+        
+        
+//         <Button type="submit">Submit </Button>
+
+//         </Form>
+//         </Col>
+//         </Row>
+        
+//       </Container>
+//       );
+//     }
+//   }
 
 
   
