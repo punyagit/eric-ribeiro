@@ -53,6 +53,8 @@ class BookInfo extends Component {
         let month = this.props.month;
         let year = this.props.year;
         let duration = this.props.duration
+
+        console.log(duration)
         
 
         return (
@@ -83,8 +85,8 @@ class BookInfo extends Component {
                             <CardBody>
                                 <h2>Booking Confirmation</h2>
                                 <p>Date of booking : {day}/{month}/{year}</p>
-                                <p>Selected Duration : {this.state.selectedTime}</p>
-                                <p>Selected Time of Booking</p>
+                                <p>Selected Duration : {duration}</p>
+                                <p>Selected Time of Booking:{this.state.selectedTime}</p>
                                 
 
                             </CardBody>

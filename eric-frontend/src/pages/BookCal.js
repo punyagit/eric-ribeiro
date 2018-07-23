@@ -10,12 +10,13 @@ class BookCal extends Component {
   constructor(props){
     super(props);
     this.state = {
-      daysData: []
+      daysData: [],
+      duration:""
     }
 
     this.onSubmit = this.onSubmit.bind(this)
     this.toggle = this.toggle.bind(this);
-    this.onDatePicked = this.onDatePicked(this);
+    //this.onDatePicked = this.onDatePicked(this);
   }
   toggle() {
     this.setState({ collapse: true });
@@ -33,9 +34,9 @@ class BookCal extends Component {
     
   }
 
-  onDatePicked = (d) => {
+  // onDatePicked = (d) => {
 
-  }
+  // }
 
   checkTimeSlot = (timeSlot,duration) => {
       let arrLength = timeSlot.length
@@ -100,7 +101,7 @@ class BookCal extends Component {
         
         onDatePicked={(d) => {
       
-          
+          let duration = this.setState({duration:2})
           let date = new Date(d);
           let year = date.getFullYear();
           let month = date.getMonth() + 1;
@@ -109,7 +110,7 @@ class BookCal extends Component {
           
         
         let db = [11.30,14.30]
-        let duration = 2
+        //let duration = 1
         let timeSlot = [9.30,10,11.30,12.30,14.30,17,20,21]
         const url = 'http://localhost:8081/dates'
         fetch(`${url}/${day}/${month}/${year}`)
