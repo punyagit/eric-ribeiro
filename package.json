@@ -9,8 +9,8 @@
     "start": "node booking-api/server.js",
     "start-api": "nodemon server.js",
     "heroku-postbuild": "cd ./eric-frontend/ && npm install && npm install --only=dev && npm run build && cd ../booking-api && npm install"
-
   },
+  "homepage": "https://eric-staging.herokuapp.com/",
   "cacheDirectories": [
     "node_modules",
     "eric-frontend/node_modules",
