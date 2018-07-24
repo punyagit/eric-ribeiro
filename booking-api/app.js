@@ -39,7 +39,7 @@ app.use((req, res, next) => {
 app.use('/times', timeRoutes);
 app.use('/dates', dateRoutes);
 app.use('/services', serviceRoutes);
-
+app.use(express.static(__dirname + '/build'));
 app.get('*', (req, res) => {
 	res.sendFile(path.join(__dirname + '/../eric-frontend/build/index.html'));
 });
