@@ -1,72 +1,10 @@
-// import React, { Component } from "react";
-// import { Form, Button, FormGroup, Input, Label, Container, Row, Col } from "reactstrap";
-// export default class SignUpForm extends Component {
-//   constructor() {
-//     super();
-//       this.handleSubmit = this.handleSubmit.bind(this);
-//     }
-    
-//     handleSubmit(e) {
-      
-//       e.preventDefault();
-//       const data = new FormData(this.handleSubmit);
-
-//       fetch('http://localhost:8081/signup', {
-//         method: 'POST',
-//         body: data,
-//       });
-//     }
-    
-//     render() {
-//       return (
-
-//       <Container>
-//         <Row>
-//         <Col sm="12" md={{ size: 20 }}>
-//         <h1>Register</h1>
-//         <Form onSubmit={this.handleSubmit}>
-//         <FormGroup>
-//         <Label> Name </Label> 
-//         <Input type="text" name="name"  />
-//         </FormGroup>
-        
-
-//         <FormGroup>
-//         <Label> Password </Label>
-//         <Input type="password" name="password"  />
-//         </FormGroup>
-       
-//         <FormGroup>
-//         <Label> Email </Label>
-//         <Input type="text" name="email"  />
-//         </FormGroup>
-
-//         <FormGroup>
-//         <Label> Phone Number </Label>
-//         <Input type="text" name="phnumber"  />
-//         </FormGroup>
-        
-        
-//         <Button type="submit">Submit </Button>
-
-//         </Form>
-//         </Col>
-//         </Row>
-        
-//       </Container>
-//       );
-//     }
-//   }
-
-
-  
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-import "./Board.css";
+import "./Forgot.css";
 import axios from 'axios'
 const url = 'https://calendar-booking-api.herokuapp.com'
 
-export default class Login extends Component {
+export default class Forgot extends Component {
   constructor(props) {
     super(props);
 
@@ -184,44 +122,32 @@ validateLogout() {
   render() {
     return (
       <div className="board">
-      
-        <div className="SignUp">
-      
-        <form onSubmit={this.handleSubmitSignUp}>
-          <FormGroup controlId="email_s" bsSize="large">
-          <label>Signup</label>
-          <br />
+
+        <div>
+        <form onSubmit={this.handleSubmitForgotPass}>
+      <legend>Forgot Password</legend>
+   
+          <FormGroup controlId="email_f" bssize="large">
             <ControlLabel>Email</ControlLabel>
             <br />
-
             <FormControl
-              autoFocus
+              value={this.state.email_f}
+              onChange={this.handleChange}
               type="email"
-              value={this.state.email_s}
-              onChange={this.handleChange}
-            />
-            
-          </FormGroup>
-          <FormGroup controlId="password_s" bssize="large">
-            <ControlLabel>Password</ControlLabel>
-            <br />
-            <FormControl
-              value={this.state.password_s}
-              onChange={this.handleChange}
-              type="password"
             />
           </FormGroup>
-          <Button
-            block
-            bssize="large"
-            disabled={!this.validateFormSignup}
-            type="button" onClick={this.handleSubmitSignUp}
-          >
-            SignUp
-          </Button>
-          </form>
+       <Button
 
-       
+            bssize="large"
+            type="button" onClick={this.handleSubmitForgotPass}
+          >
+            Reset
+          </Button>
+
+
+        
+        </form>
+      
        
       </div>
       </div>

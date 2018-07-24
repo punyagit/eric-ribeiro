@@ -1,72 +1,10 @@
-// import React, { Component } from "react";
-// import { Form, Button, FormGroup, Input, Label, Container, Row, Col } from "reactstrap";
-// export default class SignUpForm extends Component {
-//   constructor() {
-//     super();
-//       this.handleSubmit = this.handleSubmit.bind(this);
-//     }
-    
-//     handleSubmit(e) {
-      
-//       e.preventDefault();
-//       const data = new FormData(this.handleSubmit);
-
-//       fetch('http://localhost:8081/signup', {
-//         method: 'POST',
-//         body: data,
-//       });
-//     }
-    
-//     render() {
-//       return (
-
-//       <Container>
-//         <Row>
-//         <Col sm="12" md={{ size: 20 }}>
-//         <h1>Register</h1>
-//         <Form onSubmit={this.handleSubmit}>
-//         <FormGroup>
-//         <Label> Name </Label> 
-//         <Input type="text" name="name"  />
-//         </FormGroup>
-        
-
-//         <FormGroup>
-//         <Label> Password </Label>
-//         <Input type="password" name="password"  />
-//         </FormGroup>
-       
-//         <FormGroup>
-//         <Label> Email </Label>
-//         <Input type="text" name="email"  />
-//         </FormGroup>
-
-//         <FormGroup>
-//         <Label> Phone Number </Label>
-//         <Input type="text" name="phnumber"  />
-//         </FormGroup>
-        
-        
-//         <Button type="submit">Submit </Button>
-
-//         </Form>
-//         </Col>
-//         </Row>
-        
-//       </Container>
-//       );
-//     }
-//   }
-
-
-  
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import "./Board.css";
 import axios from 'axios'
 const url = 'https://calendar-booking-api.herokuapp.com'
 
-export default class Login extends Component {
+export default class Board extends Component {
   constructor(props) {
     super(props);
 
@@ -184,12 +122,10 @@ validateLogout() {
   render() {
     return (
       <div className="board">
-      
-        <div className="SignUp">
-      
-        <form onSubmit={this.handleSubmitSignUp}>
-          <FormGroup controlId="email_s" bsSize="large">
-          <label>Signup</label>
+      <div className="Login">
+        <form onSubmit={this.handleSubmit}>
+          <FormGroup controlId="email" bsSize="large">
+          <label>Login</label>
           <br />
             <ControlLabel>Email</ControlLabel>
             <br />
@@ -197,33 +133,40 @@ validateLogout() {
             <FormControl
               autoFocus
               type="email"
-              value={this.state.email_s}
+              value={this.state.email}
               onChange={this.handleChange}
             />
-            
+
           </FormGroup>
-          <FormGroup controlId="password_s" bssize="large">
+          <FormGroup controlId="password" bsSize="large">
             <ControlLabel>Password</ControlLabel>
             <br />
             <FormControl
-              value={this.state.password_s}
+              value={this.state.password}
               onChange={this.handleChange}
               type="password"
             />
           </FormGroup>
           <Button
             block
-            bssize="large"
-            disabled={!this.validateFormSignup}
-            type="button" onClick={this.handleSubmitSignUp}
+            bsSize="large"
+            disabled={!this.validateForm()}
+            type="button" onClick={this.handleSubmit}
           >
-            SignUp
+            Login
           </Button>
-          </form>
-
-       
-       
+         <Button
+            block
+            bsSize="large"
+            disabled={!this.validateLogout()}
+            type="button" onClick={this.handleLogout}
+          >
+            Logout
+          </Button>
+        </form>
+         
       </div>
+
       </div>
     );
   }

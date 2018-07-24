@@ -6,6 +6,10 @@ import FooterComponent from './components/FooterComponent';
 import CarouselComponent from './components/CarouselComponent';
 import About from './components/About';
 import Services from './pages/Services';
+import AdminBoard from './pages/AdminBoard';
+import Reset from './components/Reset';
+import Forgot from './components/Forgot';
+
 import BookCal from './pages/BookCal';
 import SignUpForm from './components/SignUpForm';
 import NoMatch from './components/NoMatch';
@@ -22,8 +26,9 @@ class App extends Component {
   }
 
   componentDidMount() {
+    console.log('token', this.tokenReset)
     axios
-    .get(`/services`)
+    .get(`http://localhost:4000/services`)
     .then(res => this.setState({ services: res.data.services }))
     .catch(err => console.log(err));
     //console.log(this.state)
@@ -35,9 +40,6 @@ class App extends Component {
         <div className="app">
           <NavComponent />
 
-
-
-
           <main className="mainWindow">
             <Switch>
               <Route exact path='/' component={CarouselComponent} />
@@ -45,6 +47,11 @@ class App extends Component {
               <Route exact path='/booking/:serviceName/:serviceDuration/:servicePrice' render={
                   () => <BookCal />
                 }/>
+              <Route exact path='/admin' component={AdminBoard} />
+              <Route exact path='/reset' component={Reset} />
+
+              <Route exact path='/forgot' component={Forgot} />
+
               <Route exact path='/signup' component={SignUpForm} />
               <Route exact path='/service' render={
                   () => <Services services={this.state.services} />
