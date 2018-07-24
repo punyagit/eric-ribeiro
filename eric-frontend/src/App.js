@@ -35,7 +35,8 @@ class App extends Component {
         <div className="app">
           <NavComponent />
 
-          
+
+
 
           <main className="mainWindow">
             <Switch>
@@ -52,6 +53,7 @@ class App extends Component {
             </Switch>
           </main>
           <FooterComponent />
+
           </div>
       </Router>
       

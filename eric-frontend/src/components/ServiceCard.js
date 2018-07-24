@@ -1,9 +1,6 @@
 import React from 'react';
 import './ServiceCard.css';
-
 import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Container, CardDeck, Button, Col, Row } from 'reactstrap';
-
-
 import { Link } from 'react-router-dom';
 
 class ServiceCard extends React.Component {
@@ -22,7 +19,7 @@ class ServiceCard extends React.Component {
 
   // check to see that props match service item
   handleClick = () => {
-    //console.log(this.state.service);
+    console.log(this.state.service);
   }
 
   render() {
@@ -35,7 +32,7 @@ class ServiceCard extends React.Component {
             <CardTitle>{this.state.service.name}</CardTitle>
             <CardSubtitle className="cardsubtitle">Duration: {this.state.service.duration} hours | Price: ${this.state.service.price}</CardSubtitle>
             <CardText className="cardtext">{this.state.service.description}</CardText>
-            <Button Link to={`/booking/${this.state.service.name}/${this.state.service.duration}/${this.state.service.price}`}>Book Now</Button>
+            <Button>< Link className="link" to={`/booking/${this.state.service.name}/${this.state.service.duration}/${this.state.service.price}`}>Book Now</Link> </Button>
           </CardBody>
         </Card>
      
