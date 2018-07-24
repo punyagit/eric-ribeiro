@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom' 
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import NavComponent from './components/NavComponent';
 import FooterComponent from './components/FooterComponent';
@@ -10,8 +10,6 @@ import BookCal from './pages/BookCal';
 import SignUpForm from './components/SignUpForm';
 import NoMatch from './components/NoMatch';
 import axios from 'axios';
-import { Container } from 'reactstrap';
-
 
 class App extends Component {
   constructor(props){
@@ -32,24 +30,24 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Router>
+      <main className="mainWindow">
+      <Router>
         <NavComponent />
-        <main className="mainWindow">
-          <Switch>
-            <Route exact path='/' component={CarouselComponent} />
-            <Route exact path='/about' component={About} />
-            <Route exact path='/booking/:serviceName/:serviceDuration/:servicePrice' render={
-                () => <BookCal />
-              }/>
-            <Route exact path='/signup' component={SignUpForm} />
-            <Route exact path='/services' render={
-                () => <Services services={this.state.services} />
-              }/>
-            <Route component={NoMatch} />
-          </Switch>
-        </main>
+        <Switch>
+          <Route exact path='/' component={CarouselComponent} />
+          <Route exact path='/about' component={About} />
+          <Route exact path='/booking/:serviceName/:serviceDuration/:servicePrice' render={
+              () => <BookCal />
+            }/>
+          <Route exact path='/signup' component={SignUpForm} />
+          <Route exact path='/services' render={
+              () => <Services services={this.state.services} />
+            }/>
+          <Route component={NoMatch} />
+        </Switch>
         <FooterComponent />
-        </Router>
+      </Router>
+      </main>
       </div>
     );
   }
