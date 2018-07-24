@@ -6,6 +6,7 @@ import FooterComponent from './components/FooterComponent';
 import CarouselComponent from './components/CarouselComponent';
 import About from './components/About';
 import Services from './pages/Services';
+import ContactUs from './pages/ContactUs';
 import BookCal from './pages/BookCal';
 import SignUpForm from './components/SignUpForm';
 import NoMatch from './components/NoMatch';
@@ -36,9 +37,6 @@ class App extends Component {
         <div className="app">
           <NavComponent />
 
-
-
-
           <main className="mainWindow">
             <Switch>
               <Route exact path='/' component={CarouselComponent} />
@@ -47,6 +45,7 @@ class App extends Component {
                   () => <BookCal />
                 }/>
               <Route exact path='/signup' component={SignUpForm} />
+              <Route exact path='/contactus' component={ContactUs} />
               <Route exact path='/services' render={
                   () => <Services services={this.state.services} />
                 }/>

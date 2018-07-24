@@ -11,9 +11,7 @@ class HomePage extends Component {
       <Router>
         <div>
           
-          <NavComponent />
           <ContactForm />
-          <FooterComponent />
         </div>
       </Router>
     

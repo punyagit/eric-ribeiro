@@ -7,7 +7,7 @@ emailRouter.post('/', (req, res) => {
   // console.dir(req.body)
 
     sgMail.setApiKey(process.env.REACT_APP_SENDGRID_API_KEY);
-    
+    console.log(req.body)
       const msg = {
         to: 'hackscriptboys@gmail.com',
         from: req.body.email,

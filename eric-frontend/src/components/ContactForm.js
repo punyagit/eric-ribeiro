@@ -34,20 +34,32 @@ export default class ContactForm extends Component {
       event.preventDefault();
 
       const contactData = { 
-        name: this.state.name,
+        // name: this.state.name,
         email: this.state.email,
-        phnumber: this.state.phnumber,
-        comment: this.state.comment
+        // phnumber: this.state.phnumber,
+        text: this.state.comment
       };
 
       const responder = response => {
         window.location.href = '/contactus'
       }
 
-      axios.post('/api/contactus', contactData)
+      axios.post('http://localhost:8081/contactus', contactData)
       .then(responder)
-      .catch(alert)
-    }
+      // .catch(alert)
+
+
+    //   fetch("http://localhost:8081/contactus",{
+    //     method: "POST",
+    //     body: JSON.stringify('efoiehgio')
+    // })
+    // .then(function(resp){ return resp.json(); })
+    // .then(function(contactData){  console.log(contactData)})
+   
+}
+
+      
+      
 
     
     render() {
