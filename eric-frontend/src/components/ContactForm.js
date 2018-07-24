@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Form, Button, FormGroup, Input, Label } from "reactstrap";
+import axios from "axios";
 require('dotenv').config()
 
 
@@ -30,26 +31,31 @@ export default class ContactForm extends Component {
     }
     
     handleSubmit(event) {
-      // displaying the alert
       event.preventDefault();
-      let log = [];
-      Object.entries(this.state).forEach(([key, value]) => {
-        log.push(`${key} = ${value} \n`);
-      })
-      alert('You have sent :\n' + log);
 
-      
+      const contactData = { 
+        name: this.state.name,
+        email: this.state.email,
+        phnumber: this.state.phnumber,
+        comment: this.state.comment
+      };
 
-      // prevent refresh after pressing the submit button once
-      
+      const responder = response => {
+        window.location.href = '/contactus'
+      }
+
+      axios.post('/api/contactus', contactData)
+      .then(responder)
+      .catch(alert)
     }
+
     
     render() {
  
 
 
       return (
-        <Form onSubmit={this.handleSubmit} action="mailto:samuelrazali@gmail.com" method="post" enctype="text/plain">
+        <Form onSubmit={this.handleSubmit} enctype="text/plain">
         <FormGroup>
         <Label> Name </Label>
         <Input type="text" name="name" onChange={e => this.handleChange(e)} />
@@ -71,6 +77,3 @@ export default class ContactForm extends Component {
       );
     }
   }
-
-
-  

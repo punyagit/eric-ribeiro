@@ -28,7 +28,7 @@ class BookInfo extends Component {
             month: this.props.month,
             year: this.props.year,
             duration: this.props.duration,
-            // timeslots: this.props.timeslots
+            timeslots: this.props.timeslots
         })
         // e.preventDefault()
         this.props.onSubmit(this.state);
@@ -52,7 +52,8 @@ class BookInfo extends Component {
         let timeslot = this.props.timeslot;
         let month = this.props.month;
         let year = this.props.year;
-        let duration = this.props.duration
+        let timeslots = this.props.timeslots;
+        let duration = this.props.duration;
         
 
         return (
@@ -88,9 +89,10 @@ class BookInfo extends Component {
                                 })} */}
 
                             <Input onChange={e => this.change(e)} defaultValue={duration} name="duration"/>
-                            {/* <Input onChange={e => this.change(e)} type="select" name="timeslots">
-                                    {timeslots.map(x => <option value={x}>{x}</option>)}
-                            </Input> */}
+                            <Input onChange={e => this.change(e)} type="select" name="timeslots">
+                                    <Button value={timeslots}>{timeslots}</Button>
+                                    {/* {timeslots.map(x => <Button value={x}>{x}</Button>)} */}
+                            </Input>
                             <Button color="info" onClick={e => this.onSubmit()}>Submit!</Button>
                         </Form>
                     </Col>

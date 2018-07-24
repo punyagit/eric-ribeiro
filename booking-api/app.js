@@ -37,7 +37,7 @@ app.use((req, res, next) => {
 app.use('/times', timeRoutes);
 app.use('/dates', dateRoutes);
 app.use('/services', serviceRoutes);
-app.use('/contactus', contactRoutes);
+app.use('/api/contactus', contactRoutes);
 
 
 app.use((error, req, res, next) => {

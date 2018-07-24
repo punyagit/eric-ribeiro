@@ -3,19 +3,33 @@ const emailRouter = express.Router();
 const sgMail = require('@sendgrid/mail');
 
 
-
-emailRouter.post('/', (req, resp, next) => {
+emailRouter.post('/', (req, res) => {
+  // console.dir(req.body)
 
     sgMail.setApiKey(process.env.REACT_APP_SENDGRID_API_KEY);
+    
       const msg = {
         to: 'hackscriptboys@gmail.com',
-        from: 'example999@gmail.com',
-        subject: 'SENDGRID WORKS NOW FINALLY',
-        text: "After two days of smashing keyboards and headbutting screens.."
+        from: req.body.email,
+        text: req.body.comment
       }
 
       
-      sgMail.send(msg);
+      sgMail.send(msg)
+      //   .then(res =>
+        
+      //   res.status(200).json({
+      //     status: res.message
+      //   }
+      // )
+      // )
+      //   .catch(res => {
+      //     res.status(400).json({
+      //       status: res.message
+      //     }
+      //   )
+      //   }
+      // )
 
 })
 
