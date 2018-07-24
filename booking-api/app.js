@@ -3,9 +3,9 @@ const app = express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const timeRoutes = require('./routes/times');
-const dateRoutes = require('./routes/dates');
-const serviceRoutes = require('./routes/services');
+const timeRoutes = require('./api/routes/times');
+const dateRoutes = require('./api/routes/dates');
+const serviceRoutes = require('./api/routes/services');
 const cors = require('cors');
 require('dotenv').load();
 
