@@ -46,7 +46,7 @@ class App extends Component {
                   () => <BookCal />
                 }/>
               <Route exact path='/signup' component={SignUpForm} />
-              <Route exact path='/services' render={
+              <Route exact path='/service' render={
                   () => <Services services={this.state.services} />
                 }/>
               <Route component={NoMatch} />
