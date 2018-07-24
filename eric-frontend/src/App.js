@@ -32,6 +32,15 @@ class App extends Component {
   render() {
     return (
       <Router>
+<<<<<<< HEAD
+=======
+        <div className="app">
+          <NavComponent />
+
+
+
+
+>>>>>>> c2d97d3b576f8b80e3173720fc21231e5984b43f
           <main className="mainWindow">
             <Switch>
               <Route exact path='/' component={CarouselComponent} />
@@ -47,6 +56,11 @@ class App extends Component {
             </Switch>
           </main>
           <FooterComponent />
+<<<<<<< HEAD
+=======
+
+          </div>
+>>>>>>> c2d97d3b576f8b80e3173720fc21231e5984b43f
       </Router>
       
     );
