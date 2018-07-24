@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 //import BookCal from '../pages/BookCal';
-import { Row, Col, Button, CardImg, CardBody, Card, Form, Label, Input} from 'reactstrap';
+import { Row, Col, Button, CardBody, Card, Form, Label, Input} from 'reactstrap';
 
 class BookInfo extends Component {
     constructor(props) {
@@ -28,10 +28,16 @@ class BookInfo extends Component {
             month: this.props.month,
             year: this.props.year,
             duration: this.props.duration,
-            // timeslots: this.props.timeslots
+            //timeslots: this.props.timeslots
         })
-        // e.preventDefault();
+        // e.preventDefault()
         this.props.onSubmit(this.state);
+      }
+
+      selectTime(e){
+          this.setState({
+              selectedTime: e.target.value
+          })
       }
       
     render(){
@@ -43,9 +49,10 @@ class BookInfo extends Component {
         }
 
         let day = this.props.day;
+        let timeslot = this.props.timeslot;
         let month = this.props.month;
         let year = this.props.year;
-        //let duration = this.props.duration
+        let duration = this.props.duration
         
 
         return (
@@ -64,8 +71,23 @@ class BookInfo extends Component {
                             <Label for="year">Year</Label>
                             <Input onChange={e => this.change(e)} defaultValue={year} name="year"/>
                             <Label for="duration">Duration</Label>
-                            {/* <Input onChange={e => this.change(e)} defaultValue={duration} name="duration"/> */}
+
                             <Label for="timeslots">Timeslots</Label>
+
+                                {timeslot.map(x => 
+                                    <Button value={x} onClick={e => this.selectTime(e)}> {x} </Button>
+                                    )
+                                }
+
+                                {/* {this.state.services.map((services, i) => {
+                                return(
+                                <div key={i}>
+                                <ServiceCard services={services} />
+                                </div>
+                                )
+                                })} */}
+
+                            <Input onChange={e => this.change(e)} defaultValue={duration} name="duration"/>
                             {/* <Input onChange={e => this.change(e)} type="select" name="timeslots">
                                     {timeslots.map(x => <option value={x}>{x}</option>)}
                             </Input> */}
@@ -75,10 +97,14 @@ class BookInfo extends Component {
 
                     <Col>
                         <Card>
-                            <CardImg src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
+                            {/* <CardImg src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" /> */}
                             <CardBody>
+                                <h2>Booking Confirmation</h2>
+                                <p>Date of booking : {day}</p>
+                                <p>Selected Duration : {this.state.selectedTime}</p>
+                                <p>Selected Time of Booking</p>
                                 <h2>Product Description</h2>
-                                <p>Short Description about the article.</p>
+                                    <p>Bla blablablablabla</p>
                             </CardBody>
                         </Card>
                     </Col>

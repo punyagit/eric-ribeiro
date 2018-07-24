@@ -1,0 +1,33 @@
+{
+  "name": "EricRibeiro",
+  "version": "1.0.0",
+  "description": "My cool app xD",
+  "engines": {
+    "node": "8.9.x"
+  },
+  "scripts": {
+    "start": "node booking-api/server.js",
+    "heroku-postbuild": "cd eric-frontend/ && npm install && npm install --only=dev && npm run build && cd ../booking-api && npm install"
+
+  },
+  "cacheDirectories": [
+    "node_modules",
+    "eric-frontend/node_modules",
+    "booking-api/node_modules"
+  ],
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Thebeleiver1/eric-ribeiro"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "create-react-app",
+    "react"
+  ],
+  "license": "MIT",
+  "devDependencies": {}
+}
