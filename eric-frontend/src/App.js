@@ -20,10 +20,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-<<<<<<< HEAD
-    //console.log(this.props.children);
-=======
->>>>>>> 6ada92374ecd163c515cb82314bb1719a1072278
     axios
     .get(`http://localhost:8081/services`)
     .then(res => this.setState({ services: res.data.services }))
