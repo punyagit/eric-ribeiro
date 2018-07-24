@@ -31,7 +31,7 @@ class App extends Component {
     return (
       <div>
       <main className="mainWindow">
-      <Router>
+      {/* <Router> */}
         <NavComponent />
         <Switch>
           <Route exact path='/' component={CarouselComponent} />
@@ -46,7 +46,7 @@ class App extends Component {
           <Route component={NoMatch} />
         </Switch>
         <FooterComponent />
-      </Router>
+      {/* </Router> */}
       </main>
       </div>
     );
