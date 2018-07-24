@@ -7,7 +7,7 @@
   },
   "scripts": {
     "start": "node booking-api/server.js",
-    "heroku-postbuild": "cd ./eric-frontend/ && npm install && npm run build && cd ./booking-api && npm install"
+    "heroku-postbuild": "cd ../eric-frontend/ && npm install && npm run build && cd ../booking-api && npm install"
 
   },
   "cacheDirectories": [
