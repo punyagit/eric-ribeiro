@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-//import BookCal from '../pages/BookCal';
-import { Row, Col, Button, CardBody, Card, Form, Label, Input} from 'reactstrap';
+import { Row, Col, Button, CardImg, CardBody, Card, Form, Label, Input} from 'reactstrap';
 
 class BookInfo extends Component {
     constructor(props) {
@@ -10,22 +9,22 @@ class BookInfo extends Component {
             // month: "",
             // year: "",
             // duration: "",
-            selectedTime: "Please choose a Time and date",
-            val: "",
-            collapse: false,
+            selectedTime: "Not Selected",
+            isActive: true, 
+            collapse: false
             //productName: "",
             //price:""
         }
         this.onSubmit = this.onSubmit.bind(this);
-      }
-
-      change(e){
-          this.setState({
-              [e.target.name]: e.target.value
-          })
-      }
-
-      onSubmit(){
+    }
+    
+    change(e){
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+    
+    onSubmit(){
         this.setState({
             day: this.props.day,
             month: this.props.month,
@@ -35,106 +34,84 @@ class BookInfo extends Component {
         })
         // e.preventDefault()
         this.props.onSubmit(this.state);
-      }
-
-      selectTime(e){
-          this.setState({selectedTime: e.target.value})
-          this.setState({val:"BookNOw"})
-      }
-      
-      postOrder(){
-          let orderConfirmation = {
-              productName: this.props.productName,
-              price: this.props.price,
-              date:`${this.props.day}/${this.props.month}/${this.props.year}`,
-              time:this.state.selectedTime,
-              duration: this.props.duration
-          }
-            // var data = new FormData();
-            // data.append( "json", JSON.stringify( orderConfirmation ) );
-            
-            fetch("http://localhost:8081/orders",{
-                headers: {
-                    "Content-Type": "application/json", 
-                 },
-                 method: "POST",
-                 body: JSON.stringify(orderConfirmation),
-             
-            })
-            .then(resp => resp.json())
-            .then((data) => console.log(data.productName))
-        }
-      
-      
-    render(){
-
-       
-
-        const style = {
-            background: "linear-gradient(rgba(120, 120, 120, 120) 1%, rgb(147, 147, 147) 0%, rgba(0, 0, 0, 0) 100%)",
-        }
-
-        let day = this.props.day;
-        let timeslot = this.props.timeslot;
-        let month = this.props.month;
-        let year = this.props.year;
-        let duration = this.props.duration
-        let productName = this.props.productName
-        let price = this.props.price
-
-        
-
-        return (
-        <div>
-        {/* forcing bootstrap in it... */}
-          <div className="container-fluid">
-                <Row>
-
-                    <Col style={style}>
-                        
-                        
-
-                         {timeslot.map(x => 
-                                    <Button className = "button-style" value={x} onClick={e => this.selectTime(e)}> {x} </Button>
-                                    )
-                                }
-                           
-                        
-                    </Col>
-
-                    <Col>
-                        <Card>
-                            {/* <CardImg src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" /> */}
-                            <CardBody>
-                                
-                                <h2>Booking Confirmation</h2>
-                                <p>product: {productName}</p>
-                                <p>Amount :{price}</p>
-                                <p>Date of booking : {day}/{month}/{year}</p>
-                                <p>Selected Duration : {duration}</p>
-                                <p>Selected Time of Booking:{this.state.selectedTime}</p>
-                                <form>
-                                <Button onClick = {f => this.postOrder()}>{this.state.val}</Button>
-                                </form>
-                                
- 
-                                
-
-                            </CardBody>
-                            
-                               
-                        </Card>
-                    </Col>
-
-                </Row>
-            </div>
-
-        </div>
-
-        )
-        
     }
-   
+    
+    selectTime(e){
+        this.setState({
+            selectedTime: e.target.value,
+            isActive: false
+        })
+    }
+    
+    postOrder(){
+        let orderConfirmation = {
+            productName: this.props.productName,
+            price: this.props.price,
+            date:`${this.props.day}/${this.props.month}/${this.props.year}`,
+            time:this.state.selectedTime,
+            duration: this.props.duration
+        }
+        // var data = new FormData();
+        // data.append( "json", JSON.stringify( orderConfirmation ) );
+        
+        fetch("http://localhost:8081/orders",{
+        method: "POST",
+        body: JSON.stringify({orderConfirmation})
+    })
+    //.then(function(resp){ return resp.json(); })
+    .then(function(orderConfirmation){   })
+    console.log(orderConfirmation)
+}
+
+
+render(){
+    
+    
+    
+    const style = {
+        background: "linear-gradient(rgba(120, 120, 120, 120) 1%, rgb(147, 147, 147) 0%, rgba(0, 0, 0, 0) 100%)",
+    }
+    
+    let day = this.props.day
+    let timeslot = this.props.timeslot
+    let month = this.props.month
+    let year = this.props.year
+    let duration = this.props.duration
+    let productName = this.props.productName
+    let price = this.props.price
+    let available = this.props.available
+    
+    
+    
+    return (
+    <Card>
+
+        <h2>Booking Confirmation</h2>
+            <CardBody>
+
+            <Row>
+                <Col style={{textAlign: 'left'}}>
+                    <p><strong>Product :</strong> {productName}</p>
+                    <p><strong>Amount :</strong> {price}</p>
+                    <p><strong>Date :</strong> {day}/{month}/{year}</p>
+                    <p><strong>Selected Duration :</strong> {duration}</p>
+                    <p><strong>Selected Timeslot :</strong> {this.state.selectedTime}</p>
+                    <Button onClick={f => this.postOrder()} color="success" disabled={this.state.isActive}>Book Now</Button>
+                </Col>
+            
+                <Col style={{textAlign: 'left'}}>
+                    <p>{available}</p>
+                    {timeslot.map(x => 
+                        <Button outline color="secondary" style={{width:100}} value={x} onClick={e => this.selectTime(e)}> {x} </Button>
+                    )}
+                </Col>
+                
+            </Row>
+            </CardBody>
+    
+    </Card>   
+    )
+}
 }
 
 
@@ -142,14 +119,3 @@ class BookInfo extends Component {
 
 
 export default BookInfo;
-
-
-
-
-// {
-//     productName: this.props.productName,
-//     price: this.props.price,
-//     date:`${this.props.day}/${this.props.month}/${this.props.year}`,
-//     time:this.state.selectedTime,
-//     duration: this.props.duration
-// }

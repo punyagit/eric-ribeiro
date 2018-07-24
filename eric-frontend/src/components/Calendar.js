@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import './Calendar.css';
+
 //import ReactDOM from 'react-dom';
 import Calendar from 'react-calendar-material';
 
