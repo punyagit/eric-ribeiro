@@ -8,6 +8,8 @@ const dateRoutes = require('./api/routes/dates');
 const serviceRoutes = require('./api/routes/services');
 const orderRoutes = require('./api/routes/orders')
 const cors = require('cors');
+const path = require('path');
+
 require('dotenv').load();
 
 // mongoose.connect('mongodb://localhost:27017/hackscrit'||`mongodb+srv://hackscriptboys:${process.env.MONGO_ATLAS_PW}@hackscriptboys-cak53.mongodb.net/hackscrit?retryWrites=true`, 
@@ -42,7 +44,10 @@ app.use('/times', timeRoutes);
 app.use('/dates', dateRoutes);
 app.use('/services', serviceRoutes);
 app.use('/orders',orderRoutes)
-
+app.use(express.static(path.join(__dirname + '/../eric-frontend/build/')));
+app.get('*', (req, res) => {
+	res.sendFile(path.join(__dirname + '/../eric-frontend/build/index.html'));
+});
 
 app.use((error, req, res, next) => {
 	res.status(error.status || 500);
