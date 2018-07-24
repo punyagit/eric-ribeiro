@@ -1,12 +1,13 @@
 {
   "name": "EricRibeiro",
   "version": "1.0.0",
-  "description": "My cool app xD",
+  "description": "My cool app XD",
   "engines": {
     "node": "8.9.x"
   },
   "scripts": {
     "start": "node booking-api/server.js",
+    "start-api": "nodemon server.js",
     "heroku-postbuild": "cd ./eric-frontend/ && npm install && npm install --only=dev && npm run build && cd ../booking-api && npm install"
 
   },
