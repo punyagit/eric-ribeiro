@@ -16,9 +16,9 @@ class BookCal extends Component {
     //this.onDatePicked = this.onDatePicked.bind(this);
   }
 
-  componentDidMount() {
-    //console.log(this.state);
-  }
+  // componentDidMount() {
+  //   console.log(this.state);
+  // }
 
   toggle() {
     this.setState({ collapse: true });
