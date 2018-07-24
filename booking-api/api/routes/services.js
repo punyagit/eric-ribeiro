@@ -19,7 +19,7 @@ router.get('/', (req, res, next) => {
 				_id: doc._id,
 				request: {
 					type: 'GET',
-					url: 'localhost:3000/services/' + doc._id
+					url: '/services/' + doc._id
 
 				}
 			}
@@ -58,7 +58,7 @@ router.post('/', (req, res, next) => {
        _id: result._id,
  			request: {
  				type: 'GET',
- 				url: 'localhost:3000/services/' + result._id
+ 				url: '/services/' + result._id
  			
 				}
 			}
@@ -98,7 +98,7 @@ router.delete("/:serviceId", (req, res, next) => {
           message: 'Service deleted',
           request: {
               type: 'POST',
-              url: 'localhost:3000/services',
+              url: '/services',
               body: { description: 'String', duration: 'Number', price: 'Number' }
           }
       });

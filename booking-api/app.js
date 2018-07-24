@@ -7,6 +7,8 @@ const timeRoutes = require('./api/routes/times');
 const dateRoutes = require('./api/routes/dates');
 const serviceRoutes = require('./api/routes/services');
 const cors = require('cors');
+const path = require('path');
+
 require('dotenv').load();
 
 
@@ -37,6 +39,10 @@ app.use((req, res, next) => {
 app.use('/times', timeRoutes);
 app.use('/dates', dateRoutes);
 app.use('/services', serviceRoutes);
+app.use(express.static(path.join(__dirname + '/../eric-frontend/build/')));
+app.get('*', (req, res) => {
+	res.sendFile(path.join(__dirname + '/../eric-frontend/build/index.html'));
+});
 
 app.use((error, req, res, next) => {
 	res.status(error.status || 500);

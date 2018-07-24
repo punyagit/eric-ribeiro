@@ -116,7 +116,7 @@ class BookCal extends Component {
         let db = [11.30,14.30]
         let duration = 2
         let timeSlot = [9.30,10,11.30,12.30,14.30,17,20,21]
-        const url = 'http://localhost:8081/dates'
+        const url = '/dates'
         fetch(`${url}/${day}/${month}/${year}`)
         .then(resp => resp.json())
         .then((data) => {
