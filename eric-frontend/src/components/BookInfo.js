@@ -53,7 +53,7 @@ class BookInfo extends Component {
               duration: this.props.duration
           }
             
-            fetch("/orders",{
+            fetch("http://localhost:8081/orders",{
                 headers: {
                     "Content-Type": "application/json", 
                  },
