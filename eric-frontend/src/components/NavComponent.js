@@ -43,7 +43,7 @@ class NavComponent extends React.Component {
                   <NavLink href="/about">About</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/services">Bookings</NavLink>
+                  <NavLink href="/service">Bookings</NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink href="">Blog</NavLink>

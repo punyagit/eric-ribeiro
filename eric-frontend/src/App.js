@@ -23,7 +23,7 @@ class App extends Component {
 
   componentDidMount() {
     axios
-    .get(`/services`)
+    .get(`http://localhost:8081/services`)
     .then(res => this.setState({ services: res.data.services }))
     .catch(err => console.log(err));
     //console.log(this.state)
@@ -46,7 +46,7 @@ class App extends Component {
                   () => <BookCal />
                 }/>
               <Route exact path='/signup' component={SignUpForm} />
-              <Route exact path='/services' render={
+              <Route exact path='/service' render={
                   () => <Services services={this.state.services} />
                 }/>
               <Route component={NoMatch} />
