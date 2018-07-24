@@ -26,7 +26,7 @@ router.get('/', (req, res, next) => {
 					duration: doc.duration,
 					request: {
 						type: 'GET',
-						url: 'https://localhost:3000/dates/' + doc._id
+						url: '/dates/' + doc._id
 					}
 				}
 			})
@@ -76,7 +76,7 @@ router.post('/', (req, res, next) => {
 			},
 			request: {
 				type: 'GET',
-				url: 'http://localhost:3000/dates' + result._id
+				url: '/dates' + result._id
 			}
 		});
 	})
@@ -125,7 +125,7 @@ router.delete("/:dateId", (req, res, next) => {
         message: "Date deleted",
         request: {
           type: "POST",
-          url: "http://localhost:3000/dates",
+          url: "/dates",
           body: { timeId: "ID", duration: "Number" }
         }
       });

@@ -22,7 +22,7 @@ router.get('/', (req, res, next) => {
 				_id: doc._id,
 				request: {
 					type: 'GET',
-					url: 'https://localhost:3000/times/' + doc._id
+					url: '/times/' + doc._id
 
 				}
 			}
@@ -59,7 +59,7 @@ router.post('/', (req, res, next) => {
  			_id: result._id,
  			request: {
  				type: 'GET',
- 				url: 'localhost:3000/times/' + result._id
+ 				url: '/times/' + result._id
  			
 				}
 			}
@@ -106,7 +106,7 @@ router.delete("/:timeId", (req, res, next) => {
           message: 'Time deleted',
           request: {
               type: 'POST',
-              url: 'http://localhost:3000/times',
+              url: '/times',
               body: { description: 'String', duration: 'Number' }
           }
       });

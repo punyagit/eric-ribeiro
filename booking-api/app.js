@@ -7,10 +7,13 @@ const timeRoutes = require('./api/routes/times');
 const dateRoutes = require('./api/routes/dates');
 const contactRoutes = require('./api/routes/contact');
 const serviceRoutes = require('./api/routes/services');
+const orderRoutes = require('./api/routes/orders')
 const cors = require('cors');
 
 require('dotenv').load();
 
+// 	{ useNewUrlParser: true }
+// );
 
 mongoose.connect(`mongodb+srv://hackscriptboys:${process.env.MONGO_ATLAS_PW}@hackscriptboys-cak53.mongodb.net/hackscrit?retryWrites=true`, 
 
