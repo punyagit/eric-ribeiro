@@ -1,6 +1,9 @@
 import React from 'react';
 import './ServiceCard.css';
-import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Col } from 'reactstrap';
+
+import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Container, CardDeck, Button, Col, Row } from 'reactstrap';
+
+
 import { Link } from 'react-router-dom';
 
 class ServiceCard extends React.Component {
@@ -19,24 +22,27 @@ class ServiceCard extends React.Component {
 
   // check to see that props match service item
   handleClick = () => {
-    console.log(this.state.service);
+    //console.log(this.state.service);
   }
 
   render() {
     return (
-      <Col sm="4">
+    
         <Card>
           <CardBody>
             <CardImg top width="100%" src={this.state.service.image} alt="Card image cap" />
+            <hr/>
             <CardTitle>{this.state.service.name}</CardTitle>
-            <CardSubtitle>Duration: {this.state.service.duration} hours | Price: ${this.state.service.price}</CardSubtitle>
-            <CardText>{this.state.service.description}</CardText>
-            <Link to={`/booking/${this.state.service.name}/${this.state.service.duration}/${this.state.service.price}`}>Book Now</ Link>
+            <CardSubtitle className="cardsubtitle">Duration: {this.state.service.duration} hours | Price: ${this.state.service.price}</CardSubtitle>
+            <CardText className="cardtext">{this.state.service.description}</CardText>
+            <Button Link to={`/booking/${this.state.service.name}/${this.state.service.duration}/${this.state.service.price}`}>Book Now</Button>
           </CardBody>
         </Card>
-      </Col>
+     
+      
     )
   }
 }
+
 
 export default ServiceCard;
