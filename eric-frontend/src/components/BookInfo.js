@@ -53,7 +53,7 @@ class BookInfo extends Component {
             // var data = new FormData();
             // data.append( "json", JSON.stringify( orderConfirmation ) );
             
-            fetch("http://localhost:8081/orders",{
+            fetch("/orders",{
                 headers: {
                     "Content-Type": "application/json", 
                  },
