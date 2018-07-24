@@ -10,6 +10,8 @@ import BookCal from './pages/BookCal';
 import SignUpForm from './components/SignUpForm';
 import NoMatch from './components/NoMatch';
 import axios from 'axios';
+import { Container } from 'reactstrap';
+
 
 class App extends Component {
   constructor(props){
@@ -32,6 +34,24 @@ class App extends Component {
       <Router>
         <div className="app">
           <NavComponent />
+
+          
+          <Route exact path='/' component={CarouselComponent} />
+          <Route exact path='/about' component={About} />
+          <Route exact path='/booking/:serviceName/:serviceDuration/:servicePrice' render={
+              () => <BookCal />
+            }/>
+          <Route exact path='/signup' component={SignUpForm} />
+          <Container fluid>
+          <Route exact path='/services' render={
+              () => <Services services={this.state.services} />
+            }/>
+            </Container>
+    
+          <FooterComponent />
+        
+        </div>
+
           <main className="mainWindow">
             <Switch>
               <Route exact path='/' component={CarouselComponent} />

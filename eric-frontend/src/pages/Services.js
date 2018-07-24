@@ -1,6 +1,7 @@
 import React from 'react';
 import './Services.css'
 import ServiceCard from '../components/ServiceCard';
+import { Col, Row, Container } from 'reactstrap';
 
 class Services extends React.Component {
  
@@ -12,17 +13,19 @@ class Services extends React.Component {
   render() {
     //console.log(this.props)
     return (
+            
       <div className="servicesPage">
-        <div className="servicesCards">
+        <Row className="servicesCards">
           {this.props.services.map((services, i) => {
             return(
-              <div className="serviceCard" key={i}>
+              <Col sm="4"  className="serviceCard" key={i}>
                     <ServiceCard services={services} />
-              </div>
+              </Col>
             )
           })}
-        </div>
+        </Row>
       </div>
+      
     );
   }
 };
