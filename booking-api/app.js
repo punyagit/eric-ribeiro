@@ -34,9 +34,9 @@ app.use((req, res, next) => {
 	next();
 });
 
-app.use('api/times', timeRoutes);
-app.use('api/dates', dateRoutes);
-app.use('api/services', serviceRoutes);
+app.use('/times', timeRoutes);
+app.use('/dates', dateRoutes);
+app.use('/services', serviceRoutes);
 
 app.use((error, req, res, next) => {
 	res.status(error.status || 500);
