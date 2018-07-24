@@ -1,6 +1,6 @@
 import React from 'react';
 import './ServiceCard.css';
-import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button, Col, Row } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 class ServiceCard extends React.Component {
