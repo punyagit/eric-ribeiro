@@ -6,7 +6,7 @@
     "node": "8.9.x"
   },
   "scripts": {
-    "start": "cross-env NODE_ENV=production MONGO_URL=mongodb+srv://hackscriptboys@hackscriptboys-cak53.mongodb.net/hackscrit?retryWrites=true node booking-api/server.js",
+    "start": "node booking-api/server.js",
     "heroku-postbuild": "cd eric-frontend/ && npm install && npm install --only=dev && npm run build && cd ../booking-api && npm install"
 
   },
