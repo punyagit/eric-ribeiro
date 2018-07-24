@@ -7,11 +7,11 @@ class Services extends React.Component {
  
   // see state of the component - should be an array of all services
   handleClick = () => {
-    console.log(this.props);
+    //console.log(this.props);
   }
 
   render() {
-    console.log(this.props)
+    //console.log(this.props)
     return (
             
       <div className="servicesPage">
