@@ -9,7 +9,7 @@ class BookInfo extends Component {
             // month: "",
             // year: "",
             // duration: "",
-            selectedTime: "Please choose a Time and date",
+            selectedTime: "Not Selected",
             isActive: true, 
             collapse: false
             //productName: "",
@@ -72,41 +72,47 @@ render(){
         background: "linear-gradient(rgba(120, 120, 120, 120) 1%, rgb(147, 147, 147) 0%, rgba(0, 0, 0, 0) 100%)",
     }
     
-    let day = this.props.day;
-    let timeslot = this.props.timeslot;
-    let month = this.props.month;
-    let year = this.props.year;
+    let day = this.props.day
+    let timeslot = this.props.timeslot
+    let month = this.props.month
+    let year = this.props.year
     let duration = this.props.duration
     let productName = this.props.productName
     let price = this.props.price
+    let available = this.props.available
     
     
     
     return (
     <Card>
-        <CardBody>
-        <h2>Booking Confirmation</h2>
-        <p>product : {productName}</p>
-        <p>Amount :{price}</p>
-        <p>Date of booking : {day}/{month}/{year}</p>
-        <p>Selected Duration : {duration}</p>
-        <p>Selected Timeslot : {this.state.selectedTime}</p>
-        <Button onClick={f => this.postOrder()} color="success" disabled={this.state.isActive}>Book Now</Button>
-        
-        </CardBody>
 
-            
+        <h2>Booking Confirmation</h2>
             <CardBody>
-                <p>Available Timeslot : </p>
-                {timeslot.map(x => 
-                    <Button outline color="secondary" value={x} onClick={e => this.selectTime(e)}> {x} </Button>
-                )}
-           </CardBody>
+
+            <Row>
+                <Col style={{textAlign: 'left'}}>
+                    <p><strong>Product :</strong> {productName}</p>
+                    <p><strong>Amount :</strong> {price}</p>
+                    <p><strong>Date :</strong> {day}/{month}/{year}</p>
+                    <p><strong>Selected Duration :</strong> {duration}</p>
+                    <p><strong>Selected Timeslot :</strong> {this.state.selectedTime}</p>
+                    <Button onClick={f => this.postOrder()} color="success" disabled={this.state.isActive}>Book Now</Button>
+                </Col>
+            
+                <Col style={{textAlign: 'left'}}>
+                    <p>{available}</p>
+                    {timeslot.map(x => 
+                        <Button outline color="secondary" style={{width:100}} value={x} onClick={e => this.selectTime(e)}> {x} </Button>
+                    )}
+                </Col>
+                
+            </Row>
+            </CardBody>
     
-    </Card>
-    
-    
-)}}
+    </Card>   
+    )
+}
+}
 
 
 

@@ -11,22 +11,22 @@ class BookCal extends Component {
     this.state = {
       daysData: []
     }
-    this.toggle = this.toggle.bind(this);
   }
 
   // componentDidMount() {
   //   //console.log(this.state);
   // }
 
-  toggle() {
-    this.setState({ collapse: true });
-  }
+  // toggle() {
+  //   this.setState({ collapse: true });
+  // }
 
   selectBooking (day,month,year) {
     this.setState({
       day: day,
       month: month,
       year: year,
+      available: "Available Timeslot :"
     })
 }
 
@@ -50,7 +50,7 @@ class BookCal extends Component {
         .then((data) => {
           this.checkDate(data,duration,timeSlot,db)
         }, )
-       .catch(err => console.log("rong urls",err))
+       .catch(err => console.log("Wrong urls",err))
   }
 
 // Display timeslot when ther is no previous booking
@@ -100,7 +100,7 @@ class BookCal extends Component {
     <Row style={{margin: 20, alignItems: 'center'}}>
    
       
-      <Col onClick={this.toggle}>
+      <Col>
       <Calendar
         accentColor={'green'}
         orientation={'flex-col'}
@@ -118,6 +118,7 @@ class BookCal extends Component {
           day= {this.state.day}
           month= {this.state.month}
           year= {this.state.year}
+          available= {this.state.available}
           duration= {this.props.match.params.serviceDuration}
           productName = {this.props.match.params.serviceName}
           price = {this.props.match.params.servicePrice}
