@@ -19,12 +19,12 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.children);
+    //console.log(this.props.children);
     axios
     .get(`http://localhost:8081/services`)
     .then(res => this.setState({ services: res.data.services }))
     .catch(err => console.log(err));
-    console.log(this.state)
+    //console.log(this.state)
   }
 
   render() {
@@ -42,8 +42,9 @@ class App extends Component {
               () => <Services services={this.state.services} />
             }/>
           <FooterComponent />
-        </div>
+          </div>
       </Router>
+      
     
     );
   }

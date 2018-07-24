@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 //import BookCal from '../pages/BookCal';
 import { Row, Col, Button, CardImg, CardBody, Card, Form, Label, Input} from 'reactstrap';
+import '../pages/BookCal.css'
 
 
 
@@ -9,14 +10,15 @@ class BookInfo extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            day: "",
-            month: "",
-            year: "",
-            duration: "",
+            // day: "",
+            // month: "",
+            // year: "",
+            // duration: "",
             selectedTime: "Please choose a Time and date",
             val: "",
             collapse: false,
-            productName: ""
+            //productName: "",
+            //price:""
         }
         this.onSubmit = this.onSubmit.bind(this);
       }
@@ -40,19 +42,37 @@ class BookInfo extends Component {
       }
 
       selectTime(e){
-          this.setState({
-              selectedTime: e.target.value,
-              
-          })
+          this.setState({selectedTime: e.target.value})
           this.setState({val:"BookNOw"})
-          
-        
       }
+      
+      postOrder(){
+          let orderConfirmation = {
+              productName: this.props.productName,
+              price: this.props.price,
+              date:`${this.props.day}/${this.props.month}/${this.props.year}`,
+              time:this.state.selectedTime,
+              duration: this.props.duration
+          }
+            // var data = new FormData();
+            // data.append( "json", JSON.stringify( orderConfirmation ) );
+            
+            fetch("http://localhost:8081/orders",{
+                headers: {
+                    "Content-Type": "application/json", 
+                 },
+                 method: "POST",
+                 body: JSON.stringify(orderConfirmation),
+             
+            })
+            .then(resp => resp.json())
+            .then((data) => console.log(data.productName))
+        }
       
       
     render(){
 
-        
+       
 
         const style = {
             background: "linear-gradient(rgba(120, 120, 120, 120) 1%, rgb(147, 147, 147) 0%, rgba(0, 0, 0, 0) 100%)",
@@ -64,7 +84,8 @@ class BookInfo extends Component {
         let year = this.props.year;
         let duration = this.props.duration
         let productName = this.props.productName
-        console.log(productName)
+        let price = this.props.price
+
         
 
         return (
@@ -75,14 +96,14 @@ class BookInfo extends Component {
 
                     <Col style={style}>
                         
-                        <Form>
+                        
 
-                                {timeslot.map(x => 
-                                    <Button value={x} onClick={e => this.selectTime(e)}> {x} </Button>
+                         {timeslot.map(x => 
+                                    <Button className = "button-style" value={x} onClick={e => this.selectTime(e)}> {x} </Button>
                                     )
                                 }
                            
-                        </Form>
+                        
                     </Col>
 
                     <Col>
@@ -92,15 +113,20 @@ class BookInfo extends Component {
                                 
                                 <h2>Booking Confirmation</h2>
                                 <p>product: {productName}</p>
+                                <p>Amount :{price}</p>
                                 <p>Date of booking : {day}/{month}/{year}</p>
                                 <p>Selected Duration : {duration}</p>
                                 <p>Selected Time of Booking:{this.state.selectedTime}</p>
-                                <button>{this.state.val}</button>
-                               
+                                <form>
+                                <Button onClick = {f => this.postOrder()}>{this.state.val}</Button>
+                                </form>
+                                
  
                                 
 
                             </CardBody>
+                            
+                               
                         </Card>
                     </Col>
 
@@ -120,3 +146,14 @@ class BookInfo extends Component {
 
 
 export default BookInfo;
+
+
+
+
+// {
+//     productName: this.props.productName,
+//     price: this.props.price,
+//     date:`${this.props.day}/${this.props.month}/${this.props.year}`,
+//     time:this.state.selectedTime,
+//     duration: this.props.duration
+// }

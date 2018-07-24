@@ -13,8 +13,9 @@ class BookCal extends Component {
     }
     //this.onSubmit = this.onSubmit.bind(this)
     this.toggle = this.toggle.bind(this);
-    this.onDatePicked = this.onDatePicked(this);
+    //this.onDatePicked = this.onDatePicked.bind(this);
   }
+
   componentDidMount() {
     //console.log(this.state);
   }
@@ -31,10 +32,8 @@ class BookCal extends Component {
     })
 }
 
-  // onSubmit = e => {
-    
-  // }
-
+  
+// function to pick the date in calendar
   onDatePicked = (d) => {
     let duration = this.props.match.params.serviceDuration
           let date = new Date(d);
@@ -45,36 +44,31 @@ class BookCal extends Component {
           
         let db = [11.30,14.30]
        
-        let timeSlot = [9.30,10,11.30,12.30,14.30,17,20,21]
+        let timeSlot = [9,9.30,10,10.30,11,11.30,12,12.30,13,13.30,14,14.30,15,15.30,16,
+                        16.30,17,17.30,18,18.30,19,19.30,20,21]
         const url = 'http://localhost:8081/dates'
         fetch(`${url}/${day}/${month}/${year}`)
         .then(resp => resp.json())
         .then((data) => {
           this.checkDate(data,duration,timeSlot,db)
-          
-          
-          }, )
-        //.then(console.log(this.state.daysData))
-        .catch(err => console.log("rong urls",err))
+        }, )
+       .catch(err => console.log("rong urls",err))
   }
 
+// Display timeslot when ther is no previous booking
   checkTimeSlot = (timeSlot,duration) => {
       let arrLength = timeSlot.length
-      let newArr = []
-      for(let i = 0;i < arrLength-1;i++){
-        let cal = timeSlot[i+1] - [timeSlot[i]]
-        //console.log(cal)
-        if(cal >= duration){
-          newArr.push(timeSlot[i])
-
-        }
-      }
-      //console.log(newArr)
+      let sliceIndex = duration/(.5)
+      let newLength = ((arrLength+1)- sliceIndex)
+      
+      let newArr = timeSlot.slice(0,newLength)
       this.setState({daysData:newArr})
     
       //console.log(this.state.daysData)
   }
 
+
+// Check to database
   checkDb = (timeSlot,db) => {
     let arr1 = timeSlot.filter(val => !db.includes(val));
     //console.log(arr1)
@@ -88,17 +82,12 @@ class BookCal extends Component {
    
     if ((data.day.length) === 0){
       
-      if(duration >= 1){
+     
         
         this.checkTimeSlot(timeSlot,duration)
         //console.log(this.state.daysData)
-      }
-      else{
-        this.setState({daysData:timeSlot})
-        //console.log(this.state.daysData)
-      }
-
-   } else {
+      
+      } else {
      this.checkDb(timeSlot,db)
      //console.log(this.state.daysData)
    }
@@ -108,21 +97,19 @@ class BookCal extends Component {
   
 
   render() {
-    console.log(this.props)
+    
     return (
     <div>
-    {/* to revert to button style, use Button with color="link" */}
+   
       <Jumbotron onClick={this.toggle} style={{ marginBottom: '1rem',textDecoration: 'none' }}>
       <Calendar
         accentColor={'blue'}
         orientation={'flex-col'}
         showHeader={false}
-        
-        onDatePicked={(d) => {
-          
-      }
-        
-      }/>
+        onDatePicked = {(d) => {
+          this.onDatePicked(d)
+         }
+        }/>
       </Jumbotron>
       
       
@@ -133,7 +120,7 @@ class BookCal extends Component {
           day= {this.state.day}
           month= {this.state.month}
           year= {this.state.year}
-          timeslots={this.state.timeslots}
+          //timeslots={this.state.timeslots}
           duration= {this.props.match.params.serviceDuration}
           productName = {this.props.match.params.serviceName}
           price = {this.props.match.params.servicePrice}
@@ -151,23 +138,3 @@ export default withRouter(BookCal);
 
 
 
-
-//   fetch(`${url}/${day}/${month}/${year}`)
-        //   .then(resp => resp.json())
-        //   .then((data) => {
-        //    //console.log(data.day)
-        //    this.setState({daysData:data.day })
-        //    })
-        // //.then(console.log(this.state.daysData))
-        // .catch(err => console.log("rong urls",err))
-        //   console.log(this.state.daysData)
-
-         //   (async () => {
-        //     const url = 'http://localhost:8081/dates'
-        //     const response = await fetch(`${url}/${day}/${month}/${year}`);
-        //     const json = await response.json();
-        //     this.setState({daysData:json.day })
-            
-        // })();
-
-        //this.setState({daysData:data.day }, () => { console.log(this.state) })
