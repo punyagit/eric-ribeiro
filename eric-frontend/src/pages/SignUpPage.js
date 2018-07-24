@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, NavLink, Redirect } from 'react-router-
 import NavComponent from '../components/NavComponent';
 import FooterComponent from '../components/FooterComponent';
 import SignUpForm from '../components/SignUpForm';
+import AdminLogin from '../components/AdminLogin';
 //import './App.css';
 
 class HomePage extends Component {
@@ -10,8 +11,9 @@ class HomePage extends Component {
     return (
       <Router>
         <div>
+          
           <NavComponent />
-          <SignUpForm />
+          <AdminLogin />
           <FooterComponent />
         </div>
       </Router>

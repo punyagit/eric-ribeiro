@@ -1,0 +1,20 @@
+.serviceCard {
+    margin-bottom: 20px;
+}
+
+.cardsubtitle {
+    font-size: 0.75rem;
+}
+
+.cardtext {
+    font-size: 0.75rem;
+}
+
+.button {
+    text-align: center;
+}
+
+.link {
+    text-decoration: none;
+    color: white;
+}
