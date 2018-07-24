@@ -38,6 +38,10 @@ app.use('/times', timeRoutes);
 app.use('/dates', dateRoutes);
 app.use('/services', serviceRoutes);
 
+app.get('*', (req, res) => {
+	res.sendFile(__dirname + '../eric-frontend/build/index.html');
+});
+
 app.use((error, req, res, next) => {
 	res.status(error.status || 500);
 	res.json({
