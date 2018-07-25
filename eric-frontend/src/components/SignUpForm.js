@@ -139,7 +139,6 @@ validateFormSignup() {
             SignUp
           </Button>
           <a className="changePassword" href="/forgot">Forgot Password?</a>
-          <a className="changePassword" href="/reset">Reset Password</a>
           </form>
 
        

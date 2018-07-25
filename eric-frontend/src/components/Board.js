@@ -93,6 +93,7 @@ handleLogout = event => {
             >
               Login
             </Button>
+        <a className="changePassword" href="/reset">Reset Password</a>
           </form>
         </div>
       </div>
