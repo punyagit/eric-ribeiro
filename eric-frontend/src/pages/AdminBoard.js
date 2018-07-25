@@ -14,7 +14,7 @@ export default class AdminBoard extends React.Component {
 
   state = {
     count: '',
-    days: [],
+    //days: [],
     shouldHide: Boolean,
     orders: []
   }
@@ -109,7 +109,7 @@ export default class AdminBoard extends React.Component {
       
       <br />
 
-      <DayList key={this.day} days={this.state.days} />
+      <DayList key={this.order} days={this.state.orders} />
          </div>
          <div>
          

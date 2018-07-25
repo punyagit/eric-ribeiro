@@ -1,4 +1,4 @@
-.date {
+/* .date {
 	max-width: 200px;
 	max-height: 500px auto;
   display:flex;
@@ -17,8 +17,14 @@
   font-size: 0.8em;
   text-decoration: none;
   color: #333;
-}
+} */
 
 .props {
 font-weight: bold
+}
+
+
+.table-display{
+  table-layout: fixed;
+  
 }
