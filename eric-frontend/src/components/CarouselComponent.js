@@ -9,12 +9,15 @@ import {
 const items = [
   {
     src: 'images/photo1.jpeg',
+    caption: ''
   },
   {
     src: 'images/photo2.jpeg',
+    caption: ''
   },
   {
     src: 'images/photo3.jpeg',
+    caption: ''
   }
 ];
 
