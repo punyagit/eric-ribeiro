@@ -48,8 +48,7 @@ class App extends Component {
             </Switch>
           </main>
           <FooterComponent />
-
-          </div>
+        </div>
       </Router>
     );
   }
