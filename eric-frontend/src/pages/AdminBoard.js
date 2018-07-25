@@ -14,8 +14,9 @@ export default class AdminBoard extends React.Component {
 
   state = {
     count: '',
-    days: [],
+    //days: [],
     shouldHide: Boolean,
+    orders: []
   }
 
     handleLogout = event => {
@@ -70,10 +71,19 @@ export default class AdminBoard extends React.Component {
    })
 
     .catch(error => console.log('BAD', error))
+
+    fetch('http://localhost:8081/orders')
+    .then(resp => resp.json())
+    .then((data) => {
+      this.setState({orders:data})
+    }, )
+   .catch(err => console.log("Wrong urls",err))
+
+
    }
 
     render() {
-
+        //console.log(this.state.orders)
     return (
      
    
@@ -99,7 +109,7 @@ export default class AdminBoard extends React.Component {
       
       <br />
 
-      <DayList key={this.day} days={this.state.days} />
+      <DayList key={this.order} days={this.state.orders} />
          </div>
          <div>
          
