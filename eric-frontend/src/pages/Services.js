@@ -14,17 +14,15 @@ class Services extends React.Component {
     //console.log(this.props)
     return (
             
-      <div className="servicesPage">
         <Row className="servicesCards">
           {this.props.services.map((services, i) => {
             return(
-              <Col sm="4"  className="serviceCard" key={i}>
+              <Col md="4" className="serviceCard" key={i}>
                     <ServiceCard services={services} />
               </Col>
             )
           })}
         </Row>
-      </div>
       
     );
   }
