@@ -71,35 +71,26 @@ export default class Login extends Component {
     super(props);
 
     this.state = {
-      email: "",
-      password: "",
       
       email_s: "",
       password_s: "",
+	  confirm_password_s: "",
+      phone_s: Number,
+      name_s: "",
 
-      email_f: "",
       
       token: String,
-      tokenPresent: Boolean
+      tokenPresent: Boolean,
+	    isAdmin: Boolean
+
     };
   }
 
-  validateForm() {
-    return this.state.email.length > 0 && this.state.password.length > 0;
-  }
 
 validateFormSignup() {
     return this.state.email_s.length > 0 && this.state.password_s.length > 0;
   }
 
-
-validateFormForgot() {
-    return this.state.email_f.length > 0;
-  }
-
-validateLogout() {
-    return this.state.token === true
-  }
 
   handleChange = event => {
     this.setState({
@@ -107,43 +98,6 @@ validateLogout() {
     });
   }
 
-
-  handleLogout = event => {
-      localStorage.removeItem('token');
-     window.location.reload()
-
-     const tk = Object.assign({}, this.state, {
-        tokenPresent: false
-
-      })
-     return this.setState(tk)
-
-
-   };
-
-  handleSubmit = event => {
-
-     const newValidation = Object.assign({}, this.state, {
-        email: this.state.email,
-        password: this.state.password
-
-      });
-    axios.post(url+'/user/login', newValidation )
-    .then(res => {
-
-      const tokenPresent = res.data.token
-     
-      this.setState({token: tokenPresent, tokenPresent: true})
-      window.alert('LOGIN SUCCESSS YEAHHHHHHHHHH')
-      window.location.reload()
-
-       return localStorage.setItem('token', res.data.token);
-      
-
-
-      }).catch(Error)  
-    
-     }
 
    handleSubmitSignUp = event => {
     event.preventDefault();
@@ -163,23 +117,6 @@ validateLogout() {
       })
     .catch(Error)
   }
-   handleSubmitForgotPass = event => {
-    event.preventDefault();
-
-
-     const newValidation = Object.assign({}, this.state, {
-        email_f: this.state.email_f
-
-      });
-              console.log('ForgotPass E:', newValidation)
-
-    axios.post('http://localhost:4000/user/forgot', newValidation )
-    .then(res => {
-    
-
-      })
-    .catch(Error)
-  }
 
   render() {
     return (
@@ -188,9 +125,21 @@ validateLogout() {
         <div className="SignUp">
       
         <form onSubmit={this.handleSubmitSignUp}>
-          <FormGroup controlId="email_s" bsSize="large">
+          <FormGroup controlId="user_s" bsSize="large">
           <label>Signup</label>
           <br />
+               <ControlLabel>Username</ControlLabel>
+            <br />
+
+            <FormControl
+              autoFocus
+              type="string"
+              value={this.state.user_s}
+              onChange={this.handleChange}
+            />
+            
+          </FormGroup>
+        <FormGroup controlId="email_s" bssize="large">
             <ControlLabel>Email</ControlLabel>
             <br />
 
@@ -209,6 +158,37 @@ validateLogout() {
               value={this.state.password_s}
               onChange={this.handleChange}
               type="password"
+            />
+          </FormGroup>
+            <FormGroup controlId="confirm_password_s" bssize="large">
+            <ControlLabel>Confirm Password</ControlLabel>
+            <br />
+            <FormControl
+              value={this.state.password_s}
+              onChange={this.handleChange}
+              type="password"
+            />
+          </FormGroup>
+            <FormGroup controlId="name_s" bsSize="large">
+          <label>Signup</label>
+          <br />
+               <ControlLabel>Full name</ControlLabel>
+            <br />
+
+            <FormControl
+              autoFocus
+              type="string"
+              value={this.state.user_s}
+              onChange={this.handleChange}
+            />
+            </FormGroup>
+            <FormGroup controlId="phone_s" bssize="large">
+            <ControlLabel>Phone</ControlLabel>
+            <br />
+            <FormControl
+              value={this.state.password_s}
+              onChange={this.handleChange}
+              type="number"
             />
           </FormGroup>
           <Button

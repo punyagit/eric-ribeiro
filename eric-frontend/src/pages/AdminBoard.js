@@ -1,12 +1,6 @@
 import React from "react";
 import "./AdminBoard.css";
 
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom'
-
 
 import DayList from "../components/DayList";
 import Form from "../components/Form";

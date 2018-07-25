@@ -12,28 +12,18 @@ export default class Board extends Component {
       email: "",
       password: "",
       
-      email_s: "",
-      password_s: "",
 
       email_f: "",
-      
       token: String,
       tokenPresent: Boolean
     };
   }
+  
 
   validateForm() {
     return this.state.email.length > 0 && this.state.password.length > 0;
   }
 
-validateFormSignup() {
-    return this.state.email_s.length > 0 && this.state.password_s.length > 0;
-  }
-
-
-validateFormForgot() {
-    return this.state.email_f.length > 0;
-  }
 
 validateLogout() {
     return this.state.token === true
@@ -83,41 +73,8 @@ validateLogout() {
     
      }
 
-   handleSubmitSignUp = event => {
-    event.preventDefault();
 
-     const newValidation = Object.assign({}, this.state, {
-        email: this.state.email_s,
-        password: this.state.password_s
-        
-      });
-
-    axios.post(url+'/user/signup', newValidation )
-    .then(res => {
-
-     console.log('SIGNUP DATA description:', res)
-      window.alert('LOGIN SUCCESSS YEAHHHHHHHHHH')
-
-      })
-    .catch(Error)
-  }
-   handleSubmitForgotPass = event => {
-    event.preventDefault();
-
-
-     const newValidation = Object.assign({}, this.state, {
-        email_f: this.state.email_f
-
-      });
-              console.log('ForgotPass E:', newValidation)
-
-    axios.post('http://localhost:4000/user/forgot', newValidation )
-    .then(res => {
-    
-
-      })
-    .catch(Error)
-  }
+ 
 
   render() {
     return (
@@ -155,14 +112,7 @@ validateLogout() {
           >
             Login
           </Button>
-         <Button
-            block
-            bsSize="large"
-            disabled={!this.validateLogout()}
-            type="button" onClick={this.handleLogout}
-          >
-            Logout
-          </Button>
+       
         </form>
          
       </div>

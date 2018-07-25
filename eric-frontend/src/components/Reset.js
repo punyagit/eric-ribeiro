@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import "./Reset.css";
 import axios from 'axios'
-const url = 'https://calendar-booking-api.herokuapp.com'
+// const url = 'https://calendar-booking-api.herokuapp.com'
 
 
 export default class Reset extends Component {
@@ -22,12 +22,6 @@ export default class Reset extends Component {
     return this.state.password.length === this.state.confirm.length;
   }
 
-componentDidMount() {
-
-
-    
-     }
-
 
   handleChange = event => {
 
@@ -39,18 +33,19 @@ componentDidMount() {
 
   handleSubmit = event => {
 
-
-     let config = {
-          headers: { 'Access-Control-Allow-Origin': '*' ,'Content-Type':'application/json' }, newValidation
-        }      
-     const newValidation = Object.assign({}, this.state, {
+      const newValidation = Object.assign({}, this.state, {
         tokenReset: '',
         password: this.state.password,
         confirm: this.state.confirm
 
       });
+
+     let config = {
+          headers: { 'Access-Control-Allow-Origin': '*' ,'Content-Type':'application/json' }, newValidation
+        }      
+   
            console.log('event',newValidation)
-    axios.post('http://localhost:4000'+'/user/reset/'+this.state.tokenReset, config )
+    axios.post("http://localhost:4000/user/reset/"+this.state.tokenReset, config )
     .then(res => {      
 
 

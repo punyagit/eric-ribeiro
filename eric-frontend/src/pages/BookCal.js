@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 //import { BrowserRouter as Router,Redirect } from 'react-router-dom' 
 import Calendar from 'react-calendar-material';
 import BookInfo from '../components/BookInfo';
-import {Collapse, Jumbotron, Row, Col} from 'reactstrap';
+import {Row, Col} from 'reactstrap';
 import { withRouter } from 'react-router';
 
 class BookCal extends Component {
@@ -21,6 +21,7 @@ class BookCal extends Component {
   //   this.setState({ collapse: true });
   // }
 
+ 
   selectBooking (day,month,year) {
     this.setState({
       day: day,
@@ -29,6 +30,11 @@ class BookCal extends Component {
       available: "Available Timeslot :"
     })
 }
+ componentWillMount(){
+    console.log('First this called');
+          const token = localStorage.getItem('token');
+
+  }
 
   
 // function to pick the date in calendar
