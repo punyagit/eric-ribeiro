@@ -25,7 +25,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log('token', this.tokenReset)
     axios
     .get(`http://localhost:4000/services`)
     .then(res => this.setState({ services: res.data.services }))

@@ -31,7 +31,7 @@ function onDelete() {
 
   return (
 
- <div className="day">
+ <div className="date">
             <br />
  <label>Day </label>
    <div className="props">{props.date}</div>

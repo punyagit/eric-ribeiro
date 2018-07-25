@@ -1,4 +1,4 @@
-.day {
+.date {
 	max-width: 200px;
 	max-height: 500px auto;
   display:flex;
@@ -13,7 +13,7 @@
 }
 
 
-.day  {
+.date {
   font-size: 0.8em;
   text-decoration: none;
   color: #333;

@@ -19,12 +19,6 @@ class BookInfo extends Component {
         this.onSubmit = this.onSubmit.bind(this);
     }
 
-     componentWillMount(){
-    console.log('First this called');
-          const token = localStorage.getItem('token');
-
-  }
-    
     change(e){
         this.setState({
             [e.target.name]: e.target.value
@@ -58,19 +52,19 @@ class BookInfo extends Component {
               time:this.state.selectedTime,
               duration: this.props.duration
           }
-            
-            fetch("/orders",{
+                      console.log('order', orderConfirmation)
+
+            fetch("http://localhost:4000/orders",{
                 headers: {
                     "Content-Type": "application/json", 
                  },
                  method: "POST",
                  body: JSON.stringify(orderConfirmation),
              
-            })
-            .then(resp => resp.json())
+            }).then(resp => resp.json())
+
             .then((data) => console.log(data.productName))
 
-            window.location.href = "/reset/";
 
 
         }
