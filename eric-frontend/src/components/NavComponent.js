@@ -32,7 +32,6 @@ class NavComponent extends React.Component {
         </div>
         <div>
           <Navbar className="navBar" light expand="md">
-            <NavbarBrand></NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>

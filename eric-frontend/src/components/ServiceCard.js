@@ -28,7 +28,7 @@ class ServiceCard extends React.Component {
     
         <Card>
           <CardBody>
-            <CardImg top width="100%" src={this.state.service.image} alt="Card image cap" />
+            <CardImg width="100%" src={this.state.service.image} alt="Card image cap" />
             <hr/>
             <CardTitle>{this.state.service.name}</CardTitle>
             <CardSubtitle className="cardsubtitle">Duration: {this.state.service.duration} hours | Price: ${this.state.service.price}</CardSubtitle>
