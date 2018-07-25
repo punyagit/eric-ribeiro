@@ -1,2 +1,0 @@
-import Services from './Services';
-
