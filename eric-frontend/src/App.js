@@ -26,6 +26,10 @@ class App extends Component {
 
   componentDidMount() {
     axios
+
+
+    .get(`http://localhost:8081/services`)
+
     .then(res => this.setState({ services: res.data.services }))
     .catch(err => console.log(err));
     //console.log(this.state)
@@ -57,7 +61,8 @@ class App extends Component {
             </Switch>
           </main>
           <FooterComponent />
-        </div>
+
+          </div>
       </Router>
     );
   }
