@@ -1,0 +1,42 @@
+@media all and (min-width: 480px) {
+
+.DayList {
+
+
+  background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+
+
+  }
+
+.Form {
+
+border-radius: 30px;
+
+-webkit-box-shadow: inset -1px 18px 17px 17px rgba(148,148,148,0.48);
+-moz-box-shadow: inset -1px 18px 17px 17px rgba(148,148,148,0.48);
+box-shadow: inset -1px 18px 17px 17px rgba(148,148,148,0.48);
+
+}
+
+.board {
+
+    background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+
+
+}
+.hidden { 
+
+  display:none; 
+
+  }
+
+  .hidden2 { 
+
+  display:none; 
+
+  }
+.logout {
+
+
+}
+}
