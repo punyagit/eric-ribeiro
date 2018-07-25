@@ -51,7 +51,7 @@ class BookCal extends Component {
        
 
 
-        const url = 'http://localhost:8081/dates'
+        const url = '/dates'
 
         fetch(`${url}/${day}/${month}/${year}`)
         .then(resp => resp.json())
