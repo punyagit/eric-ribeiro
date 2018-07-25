@@ -1,0 +1,3 @@
+.current, .selected {
+    top: calc(38% - 15px);
+}
