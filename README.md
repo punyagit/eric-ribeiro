@@ -1,6 +1,6 @@
 # MERN Project: Eric Rebeiro
 ## Team: hackScript(boys)
-Completed as a major assessment in Term 3 Coder Academy’s Fast Track Bootcamp using MERN Stack By Hackscript Boys(Punya, Rafael, Sam Li, Rhys and Sam Foong)
+Completed as a major assessment in Term 3 Coder Academy’s Fast Track Bootcamp using MERN Stack By Hackscript Boys(Punya, Rafael, Sam Li, Rhys and Sam Foong).
 
 View Live (Heroku): https://hairbyeric.herokuapp.com
 
@@ -9,22 +9,22 @@ View Github : https://github.com/Thebeleiver1/eric-ribeiro
 ---
 
 ## Table of Contents
-- Project Brief
-- Problem Definition and Solution
-	- Problem
-	- Solution
-- User Stories
-- WorkFlow Diagram
+- [Project-Brief](#Project-Brief)
+- [Problem Definition and Solution](#Problem-Definition-and-Solution)
+	- [Problem](#Problem)
+	- [Solution](#Solution)
+- [User Stories](#User-Stories)
+- [WorkFlow Diagram](#WorkFlow-Diagram)
 
-- Wireframes
+- [Wireframes](#Wireframes)
 
-- Entity Relationship Diagram (ERD)
+- [Entity Relationship Diagram (ERD)](#Entity-Relationship-Diagram)
 
-- Tools & Methodologies
+- [Tools & Methodologies](#Tools-&-Methodologies)
 
-- Technologies Used
+- [Technologies Used](#Technologies-Used)
 
-- Future Development Improvement
+- [Future Development Improvement](#Future-Development-Improvement)
 
 ---
 
@@ -38,7 +38,18 @@ View Github : https://github.com/Thebeleiver1/eric-ribeiro
 
 ## Problem Definition and Solution
 
-Our Client Mr Eric Rebeiro who is an experienced hairdresser seeks to create a website with more functionality for it to market his hairstyling business. Said functionality are a more robust booking system with appointment reminders and a contact us messaging system. We will create a website that focuses on the ease of making appointments based on the service which they have chosen.
+Our Client Mr Eric Rebeiro who is an experienced hairdresser seeks to create a website with more functionality for it to market his hairstyling business. He currently has a simple app created using wix however he finds that the website is very rigid and not as customisable. 
+
+Problems
+
+The client would want functionalities which are:
+- more robust booking system with appointment reminders and a contact us messaging system. 
+- he wants to be able to make bookings with limited information(name and phone number)
+- client does not have any marketing component on his website or analytics features.
+
+Solutions
+
+We will create a website that focuses on the ease of making appointments based on the service which they have chosen. Logging in as an admin, the client is able to make bookings for client with just minimal information(name and phone number). 
 
 ---
 
@@ -81,9 +92,18 @@ Our Client Mr Eric Rebeiro who is an experienced hairdresser seeks to create a w
 
 ## Concept, Design and Build
 
-Style Guide
+### Style Guide
+
+We have design the website on a minimalistic approach. Below are the colour and font type which we have apply to our website.
+
 Colour
+
+![Color Scheme](colorscheme.png)
+
 Font Type
+
+![Font Style](fontstyle1.png)
+![Font Style](fontstyle2.png)
 
 ## Wireframes of App
 
@@ -132,10 +152,6 @@ Updated design for our database.
 
 ---
 
-## Project Plan & Effort Estimation
-
----
-
 ### Tools & Methodologies
 
 **Trello Board**
@@ -164,27 +180,28 @@ Code Review are done on a regular basis with the rest of the team mates. This is
 
 
 **Client Communication**
-![Client Notes/!st Meeting Minutes](./client-notes.png)
+![Client Notes/1st Meeting Minutes](./client-notes.png)
 
-![Meeting Minutes]
+![Meeting Minutes](./meeting-minutes.pdf)
 
-![Meeting Minutes 3]
+
 
 ---
 
 ## Technologies Stack Used (Marked in bold)
 This project was built with : **node.js** and **Mongodb** with **mongoose** for the server and **create-react-app** for the frontend.
 
-Some other dependencies we used include **Reactstrap** for our frontend design elements and **React-router-dom** for all our routing, which allows for a seamless flow between pages.
+Some other dependencies we used include **Reactstrap** for our frontend design elements and **React-router-dom** for all our routing, which allows for a seamless flow between pages. 
 
 Authentication
 **Passport** combined with **JWT tokens** were used for authenticating the user on the frontend.
 
+Notable Packages, Services & Tools Used
 **Sendgrid**
+We have used sendgrid so that people who sign up will receive an email regarding confirmation of them signing up.
 
 **Twillio**
-
-Notable Packages, Services & Tools Used
+We have used Twilio so that client is being sent a sms reminder prior to them coming in for their appointment. 
 
 ---
 
@@ -195,3 +212,4 @@ Notable Packages, Services & Tools Used
 ## Future Development Improvement
 
 - Incorporate google analytics to see how effective the business owner's marketing promotion is.
+- We will add a blogging page for the client as another form of marketing.
