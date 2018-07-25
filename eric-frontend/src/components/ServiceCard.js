@@ -33,11 +33,7 @@ class ServiceCard extends React.Component {
             <CardTitle>{this.state.service.name}</CardTitle>
             <CardSubtitle className="cardsubtitle">Duration: {this.state.service.duration} hours | Price: ${this.state.service.price}</CardSubtitle>
             <CardText className="cardtext">{this.state.service.description}</CardText>
-<<<<<<< HEAD
-            <Button><Link className="link" to={`/booking/${this.state.service.name}/${this.state.service.duration}/${this.state.service.price}`}>Book Now</Link> </Button>
-=======
             <Link className="link" to={`/booking/${this.state.service.name}/${this.state.service.duration}/${this.state.service.price}`}><Button> Book Now </Button> </Link>
->>>>>>> fdf6bf6cbcf62722b8cdf7b193bab9d99f4346cf
           </CardBody>
         </Card>
      
