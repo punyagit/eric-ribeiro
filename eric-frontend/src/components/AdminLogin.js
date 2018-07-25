@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Form, Button, FormGroup, Input, Label, Container, Row, Col } from "reactstrap";
+
 export default class AdminLogin extends Component {
   constructor() {
     super();
@@ -11,7 +12,7 @@ export default class AdminLogin extends Component {
       e.preventDefault();
       const data = new FormData(this.handleSubmit);
 
-      fetch('http://localhost:8081/adminlogin', {
+      fetch('/adminlogin', {
         method: 'POST',
         body: data,
       });
