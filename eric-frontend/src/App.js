@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom' 
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import NavComponent from './components/NavComponent';
 import FooterComponent from './components/FooterComponent';
@@ -26,7 +26,10 @@ class App extends Component {
 
   componentDidMount() {
     axios
-    .get(`http://localhost:4000/services`)
+
+
+    .get(`http://localhost:8081/services`)
+
     .then(res => this.setState({ services: res.data.services }))
     .catch(err => console.log(err));
     //console.log(this.state)
@@ -61,8 +64,6 @@ class App extends Component {
 
           </div>
       </Router>
-      
-    
     );
   }
 }
