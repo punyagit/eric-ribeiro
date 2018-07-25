@@ -48,6 +48,8 @@ function onDelete() {
     
   </tr> */}
   <tr>
+    <td>{props.name}</td>
+    <td>{props.phoneNumber}</td>
     <td>{props.date}</td>
     <td>{props.productName}</td>
     <td>{props.time}</td>

@@ -9,6 +9,8 @@ function DayList(props) {
       <h1> Admin Board</h1>
       <table width = "70%" className ="table-display" border = "1px">
   <tr>
+    <th>Name</th>
+    <th>PhoneNo.</th>
     <th>Date</th>
     <th>Product</th>
     <th>Time</th>
@@ -23,7 +25,8 @@ function DayList(props) {
       	<Day key={d} 
       
       _id={day._id} 
-
+        name = {day.name}
+        phoneNumber = {day.phoneNumber}
         date={day.date} 
         productName = {day.productName}
       

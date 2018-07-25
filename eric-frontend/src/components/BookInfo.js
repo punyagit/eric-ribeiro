@@ -59,6 +59,7 @@ nameChange(e){
 checkValidation(){
     const name = this.state.name
     const  phoneNumber = this.state.phoneNumber
+    //const re = ?:\+?(61))? ?(?:\((?=.*\)))?(0?[2-57-8])\)? ?(\d\d(?:[- ](?=\d{3})|(?!\d\d[- ]?\d[- ]))\d\d[- ]?\d[- ]?\d{3})$
     if(name == ""){
        // alert("please enter your name")
         return false
