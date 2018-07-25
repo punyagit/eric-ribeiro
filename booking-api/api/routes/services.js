@@ -5,9 +5,11 @@ const Service = require('../models/service');
 
 router.get('/', (req, res, next) => {
 	Service.find()
-	.select('name description duration price _id')
+	.select('name description duration image price _id')
 	.exec()
 	.then(docs => {
+		console.dir(docs.data)
+
 		const response = {
 		count: docs.length,
 		services: docs.map( doc => {
