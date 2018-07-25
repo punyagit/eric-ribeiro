@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import { Row, Col, Button, CardImg, CardBody, Card, Form, Label, Input} from 'reactstrap';
 
@@ -44,24 +45,25 @@ class BookInfo extends Component {
     }
     
     postOrder(){
-        let orderConfirmation = {
-            productName: this.props.productName,
-            price: this.props.price,
-            date:`${this.props.day}/${this.props.month}/${this.props.year}`,
-            time:this.state.selectedTime,
-            duration: this.props.duration
+          let orderConfirmation = {
+              productName: this.props.productName,
+              price: this.props.price,
+              date:`${this.props.day}/${this.props.month}/${this.props.year}`,
+              time:this.state.selectedTime,
+              duration: this.props.duration
+          }
+            
+            fetch("http://localhost:8081/orders",{
+                headers: {
+                    "Content-Type": "application/json", 
+                 },
+                 method: "POST",
+                 body: JSON.stringify(orderConfirmation),
+             
+            })
+            // .then(resp => resp.json())
+            // .then((data) => console.log(data.productName))
         }
-        // var data = new FormData();
-        // data.append( "json", JSON.stringify( orderConfirmation ) );
-        
-        fetch("http://localhost:8081/orders",{
-        method: "POST",
-        body: JSON.stringify({orderConfirmation})
-    })
-    //.then(function(resp){ return resp.json(); })
-    .then(function(orderConfirmation){   })
-    console.log(orderConfirmation)
-}
 
 
 render(){
