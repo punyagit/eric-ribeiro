@@ -4,24 +4,22 @@ import React, { Component } from 'react';
 import { Row, Col, Button, CardImg, CardBody, Card, Form, Label, Input} from 'reactstrap';
 import './BookInfo.css';
 
-import { Row, Col, Button, CardBody, Card} from 'reactstrap';
 
 
 class BookInfo extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            // day: "",
-            // month: "",
-            // year: "",
-            // duration: "",
+            
             selectedTime: "Not Selected",
             isActive: true, 
-            collapse: false
-            //productName: "",
-            //price:""
+            collapse: false,
+            name: "",
+            phoneNumber:"",
+            
         }
         this.onSubmit = this.onSubmit.bind(this);
+        //this.onChange = this.onChange.bind(this);
     }
 
     change(e){
@@ -38,7 +36,7 @@ class BookInfo extends Component {
             duration: this.props.duration,
             //timeslots: this.props.timeslots
         })
-        // e.preventDefault()
+        //e.preventDefault()
         this.props.onSubmit(this.state);
     }
     
@@ -49,17 +47,49 @@ class BookInfo extends Component {
         })
     }
     
+inputChange(e){
+    this.setState({phoneNumber: e.target.value})
+}
+
+nameChange(e){
+    this.setState({name: e.target.value})
+
+}
+
+checkValidation(){
+    const name = this.state.name
+    const  phoneNumber = this.state.phoneNumber
+    if(name == ""){
+       // alert("please enter your name")
+        return false
+    }
+    if(phoneNumber.length < 10){
+        //alert("please provide your phone nunber")
+        return false
+    }
+
+    return true
+}
+
     postOrder(){
+        if(this.checkValidation()){
           let orderConfirmation = {
+              name: this.state.name,
+              phoneNumber: this.state.phoneNumber,
               productName: this.props.productName,
               price: this.props.price,
               date:`${this.props.day}/${this.props.month}/${this.props.year}`,
               time:this.state.selectedTime,
               duration: this.props.duration
+              
           }
+          
+          console.log(this.state.phoneNumber)
+          console.log(this.state.name)
 
-            
-            fetch("http://localhost:8081/orders",{
+
+
+            fetch('http://localhost:8081/orders',{
 
                 headers: {
                     "Content-Type": "application/json", 
@@ -70,9 +100,9 @@ class BookInfo extends Component {
 
             }).then(resp => resp.json())
 
-            .then((data) => console.log(data.productName))
+            //.then((data) => console.log(data))
 
-
+        }else {alert("please enter you name and number")}
 
 
         }
@@ -93,20 +123,6 @@ render(){
     let available = this.props.available
 
 
-    // let selectStyle = '';
-    
-
-    // if(available === 'Not Selected'){
-    //     selectStyle = {
-    //         color: '#212529'
-    //     }
-    // }else{
-    //     selectStyle = {
-    //         color: '#d3d3d3'
-    //     }
-    // }
-
-
     
     
     return (
@@ -123,6 +139,11 @@ render(){
                             <p><strong>Date :</strong> {day}/{month}/{year}</p>
                             <p><strong>Selected Duration :</strong> {duration}</p>
                             <p><strong>Selected Timeslot :</strong> {this.state.selectedTime}</p>
+                            <hr/>
+                            <p><strong>Name :</strong> </p>
+                            <p><input type="text" onChange = {e => this.nameChange(e)} /></p>
+                            <p><strong>PhoneNumber :</strong></p>
+                            <p><input type="text" onChange = {e => this.inputChange(e)}/></p>
                             <Button onClick={f => this.postOrder()} color="success" disabled={this.state.isActive}>Book Now</Button>
                     </Col>
                     <Col sm="6" style={{textAlign: 'left'}} >
