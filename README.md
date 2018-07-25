@@ -24,6 +24,8 @@ View Github : https://github.com/Thebeleiver1/eric-ribeiro
 
 - [Technologies Used](#Technologies-Used)
 
+- [Installation/Setup/Deployment](#Installation/Setup/Deployment)
+
 - [Future Development Improvement](#Future-Development-Improvement)
 
 ---
@@ -211,6 +213,16 @@ We have used Twilio so that client is being sent a sms reminder prior to them co
 ---
 
 ## Installation/Setup/Deployment
+
+1. ```git clone https://github.com/Thebeleiver1/eric-ribeiro.git``` to your desired directory.
+<br><br>`eric-frontend` serves as the front end, and `booking-api` as the back end.
+
+2. `cd` into `eric-frontend` and do `npm install`
+3. `cd` into `booking-api` and do `npm install`
+4. launch the server from `eric-frontend` with `npm start`
+5. launch the server from `booking-api` with `nodemon server` or `node server`
+6. go to your http://localhost:3000
+
 
 ---
 
