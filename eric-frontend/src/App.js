@@ -21,7 +21,7 @@ class App extends Component {
 
   componentDidMount() {
     axios
-    .get(`/services`)
+    .get('/services')
     .then(res => this.setState({ services: res.data.services }))
     .catch(err => console.log(err));
     //console.log(this.state)
