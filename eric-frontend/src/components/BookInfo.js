@@ -1,6 +1,11 @@
 
 import React, { Component } from 'react';
+
+import { Row, Col, Button, CardImg, CardBody, Card, Form, Label, Input} from 'reactstrap';
+import './BookInfo.css';
+
 import { Row, Col, Button, CardBody, Card} from 'reactstrap';
+
 
 class BookInfo extends Component {
     constructor(props) {
