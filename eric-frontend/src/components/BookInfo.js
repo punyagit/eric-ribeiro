@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { Row, Col, Button, CardImg, CardBody, Card, Form, Label, Input} from 'reactstrap';
+import { Row, Col, Button, CardBody, Card} from 'reactstrap';
 
 class BookInfo extends Component {
     constructor(props) {
@@ -18,7 +18,7 @@ class BookInfo extends Component {
         }
         this.onSubmit = this.onSubmit.bind(this);
     }
-    
+
     change(e){
         this.setState({
             [e.target.name]: e.target.value
@@ -52,27 +52,27 @@ class BookInfo extends Component {
               time:this.state.selectedTime,
               duration: this.props.duration
           }
-            
-            fetch("/orders",{
+                      console.log('order', orderConfirmation)
+
+            fetch("http://localhost:4000/orders",{
                 headers: {
                     "Content-Type": "application/json", 
                  },
                  method: "POST",
                  body: JSON.stringify(orderConfirmation),
              
-            })
-            .then(resp => resp.json())
+            }).then(resp => resp.json())
+
             .then((data) => console.log(data.productName))
+
+
+
         }
+
 
 
 render(){
     
-    
-    
-    const style = {
-        background: "linear-gradient(rgba(120, 120, 120, 120) 1%, rgb(147, 147, 147) 0%, rgba(0, 0, 0, 0) 100%)",
-    }
     
     let day = this.props.day
     let timeslot = this.props.timeslot

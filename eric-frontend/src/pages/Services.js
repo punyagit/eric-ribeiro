@@ -1,7 +1,7 @@
-import React from 'react';
+  import React from 'react';
 import './Services.css'
 import ServiceCard from '../components/ServiceCard';
-import { Col, Row, Container } from 'reactstrap';
+import { Col, Row } from 'reactstrap';
 
 class Services extends React.Component {
  
