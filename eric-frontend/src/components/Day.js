@@ -5,7 +5,7 @@ import axios from "axios";
   
 // const url = 'http://localhost:4000'
  
-const url = 'https://calendar-booking-api.herokuapp.com'
+//const url = 'http://localhost:8081'
 function Day(props) {
     
 function onDelete() {
@@ -13,14 +13,14 @@ function onDelete() {
 
       const token = localStorage.getItem('token');
 
-      const dateId = props._id; 
+      const orderId = props._id; 
       let config = {
    
     headers: { 'Access-Control-Allow-Origin': '*', 
     'Content-Type':'application/json', 
     'Authorization':'Bearer '+token  },
   }
-      axios.delete(url+'/dates/'+dateId, config )
+      axios.delete('./orders/'+orderId, config )
       .then(res => {
          window.alert('Deleted', res)
          return window.location.reload();      
@@ -31,9 +31,27 @@ function onDelete() {
 
   return (
 
- <div className="date">
-            <br />
- <label>Day </label>
+
+
+ <div >
+
+ 
+
+<table width = "70%" className ="table-display" border = "1px">
+  
+  <tr>
+    <td>{props.date}</td>
+    <td>{props.productName}</td>
+    <td>{props.time}</td>
+    <td>{props.duration}</td>
+    <td>{props.price}</td>
+    <td><button onClick={onDelete} >Delete</button>
+           </td>
+  </tr>
+  
+</table>
+           
+ {/* <label>Day </label>
    <div className="props">{props.date}</div>
    <label>Month </label>
     <div className="props">{props.month}</div>
@@ -55,15 +73,13 @@ function onDelete() {
 
           <label>DAY ID </label>
           <div className="props">{props._id}</div>
- <br />
+ <br /> */}
 
  </div>
 
  );
 }
 
-/// Day.propTypes = {
-//   month: PropTypes.integer.isRequired
-//   };
+
 
 export default Day;
