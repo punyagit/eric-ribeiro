@@ -1,4 +1,3 @@
-  
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import "./Board.css";
@@ -133,11 +132,14 @@ validateFormSignup() {
           <Button
             block
             bssize="large"
+            color="success"
             disabled={!this.validateFormSignup}
             type="button" onClick={this.handleSubmitSignUp}
           >
             SignUp
           </Button>
+          <a className="changePassword" href="/forgot">Forgot Password?</a>
+          <a className="changePassword" href="/reset">Reset Password</a>
           </form>
 
        
