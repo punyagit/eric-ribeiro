@@ -1,5 +1,7 @@
 {
   "env": {
-    "MONGO_ATLAS_PW":"hackhack123"
+    "MONGO_ATLAS_PW":"hackhack123",
+    "GMAILPW":"hackhack123"
+    
   }
 }

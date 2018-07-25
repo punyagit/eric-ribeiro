@@ -32,11 +32,14 @@ router.post('/', function (req, resp) {
        });
 
 
-router.get('/',(req, resp) => {
-    resp.send('hello world')
-
-})
-
+       router.get('/',(req, resp) => {
+        Order.find()
+        .then(data => {
+        resp.send(data)
+    })
+    }
+    
+    )
 
 
 
