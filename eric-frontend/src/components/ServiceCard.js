@@ -1,6 +1,6 @@
 import React from 'react';
 import './ServiceCard.css';
-import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Container, CardDeck, Button, Col, Row } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 class ServiceCard extends React.Component {
@@ -28,7 +28,7 @@ class ServiceCard extends React.Component {
     
         <Card>
           <CardBody>
-            <CardImg top width="100%" src={this.state.service.image} alt="Card image cap" />
+            <CardImg width="100%" src={this.state.service.image} alt="Card image cap" />
             <hr/>
             <CardTitle>{this.state.service.name}</CardTitle>
             <CardSubtitle className="cardsubtitle">Duration: {this.state.service.duration} hours | Price: ${this.state.service.price}</CardSubtitle>

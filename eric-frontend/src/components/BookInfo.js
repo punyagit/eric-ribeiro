@@ -1,6 +1,11 @@
 
 import React, { Component } from 'react';
+
 import { Row, Col, Button, CardImg, CardBody, Card, Form, Label, Input} from 'reactstrap';
+import './BookInfo.css';
+
+import { Row, Col, Button, CardBody, Card} from 'reactstrap';
+
 
 class BookInfo extends Component {
     constructor(props) {
@@ -18,7 +23,7 @@ class BookInfo extends Component {
         }
         this.onSubmit = this.onSubmit.bind(this);
     }
-    
+
     change(e){
         this.setState({
             [e.target.name]: e.target.value
@@ -52,28 +57,32 @@ class BookInfo extends Component {
               time:this.state.selectedTime,
               duration: this.props.duration
           }
+
             
             fetch("http://localhost:8081/orders",{
+
                 headers: {
                     "Content-Type": "application/json", 
                  },
                  method: "POST",
                  body: JSON.stringify(orderConfirmation),
              
-            })
-            .then(resp => resp.json())
+
+            }).then(resp => resp.json())
+
             .then((data) => console.log(data.productName))
+
+
+
+
         }
+
 
 
 render(){
     
     
-    
-    const style = {
-        background: "linear-gradient(rgba(120, 120, 120, 120) 1%, rgb(147, 147, 147) 0%, rgba(0, 0, 0, 0) 100%)",
-    }
-    
+
     let day = this.props.day
     let timeslot = this.props.timeslot
     let month = this.props.month
@@ -82,34 +91,49 @@ render(){
     let productName = this.props.productName
     let price = this.props.price
     let available = this.props.available
+
+
+    // let selectStyle = '';
     
+
+    // if(available === 'Not Selected'){
+    //     selectStyle = {
+    //         color: '#212529'
+    //     }
+    // }else{
+    //     selectStyle = {
+    //         color: '#d3d3d3'
+    //     }
+    // }
+
+
     
     
     return (
     <Card>
 
-        <h2>Booking Confirmation</h2>
-            <CardBody>
+        <CardBody><h2>Booking Confirmation</h2></CardBody>
 
+        <CardBody>
             <Row>
-                <Col style={{textAlign: 'left'}}>
-                    <p><strong>Product :</strong> {productName}</p>
-                    <p><strong>Amount :</strong> {price}</p>
-                    <p><strong>Date :</strong> {day}/{month}/{year}</p>
-                    <p><strong>Selected Duration :</strong> {duration}</p>
-                    <p><strong>Selected Timeslot :</strong> {this.state.selectedTime}</p>
-                    <Button onClick={f => this.postOrder()} color="success" disabled={this.state.isActive}>Book Now</Button>
-                </Col>
-            
-                <Col style={{textAlign: 'left'}}>
-                    <p>{available}</p>
-                    {timeslot.map(x => 
-                        <Button outline color="secondary" style={{width:100}} value={x} onClick={e => this.selectTime(e)}> {x} </Button>
-                    )}
+
+                    <Col style={{textAlign: 'left', border: '1px solid #D3D3D3', padding: 10}}>
+                            <p><strong>Product :</strong> {productName}</p>
+                            <p><strong>Amount :</strong> {price}</p>
+                            <p><strong>Date :</strong> {day}/{month}/{year}</p>
+                            <p><strong>Selected Duration :</strong> {duration}</p>
+                            <p><strong>Selected Timeslot :</strong> {this.state.selectedTime}</p>
+                            <Button onClick={f => this.postOrder()} color="success" disabled={this.state.isActive}>Book Now</Button>
+                    </Col>
+                    <Col sm="6" style={{textAlign: 'left'}} >
+                        <h3>{available}</h3>
+                        {timeslot.map(x => 
+                            <Button outline color="secondary" style={{width:'50%'}} value={x} onClick={e => this.selectTime(e)}> {x} </Button>
+                        )}
                 </Col>
                 
             </Row>
-            </CardBody>
+        </CardBody>
     
     </Card>   
     )
@@ -121,14 +145,3 @@ render(){
 
 
 export default BookInfo;
-
-
-
-
-// {
-//     productName: this.props.productName,
-//     price: this.props.price,
-//     date:`${this.props.day}/${this.props.month}/${this.props.year}`,
-//     time:this.state.selectedTime,
-//     duration: this.props.duration
-// }

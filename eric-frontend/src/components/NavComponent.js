@@ -32,7 +32,6 @@ class NavComponent extends React.Component {
         </div>
         <div>
           <Navbar className="navBar" light expand="md">
-            <NavbarBrand></NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
@@ -50,6 +49,15 @@ class NavComponent extends React.Component {
                 </NavItem>
                 <NavItem>
                   <NavLink href="/signup">SignUp</NavLink>
+                </NavItem>
+                 <NavItem>
+                  <NavLink href="/admin">Admin</NavLink>
+                </NavItem>
+                   <NavItem>
+                  <NavLink href="/reset">Reset</NavLink>
+                </NavItem>
+                 <NavItem>
+                  <NavLink href="/forgot">Forgot</NavLink>
                 </NavItem>
               </Nav>
             </Collapse>
