@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 //import { BrowserRouter as Router,Redirect } from 'react-router-dom' 
 import Calendar from 'react-calendar-material';
 import BookInfo from '../components/BookInfo';
-import {Collapse, Jumbotron} from 'reactstrap';
+import {Collapse, Jumbotron, Row, Col} from 'reactstrap';
 import { withRouter } from 'react-router';
 
 class BookCal extends Component {
@@ -11,24 +11,22 @@ class BookCal extends Component {
     this.state = {
       daysData: []
     }
-    //this.onSubmit = this.onSubmit.bind(this)
-    this.toggle = this.toggle.bind(this);
-    //this.onDatePicked = this.onDatePicked.bind(this);
   }
 
-  componentDidMount() {
-    //console.log(this.state);
-  }
+  // componentDidMount() {
+  //   //console.log(this.state);
+  // }
 
-  toggle() {
-    this.setState({ collapse: true });
-  }
+  // toggle() {
+  //   this.setState({ collapse: true });
+  // }
 
   selectBooking (day,month,year) {
     this.setState({
       day: day,
       month: month,
       year: year,
+      available: "Available Timeslot :"
     })
 }
 
@@ -52,7 +50,7 @@ class BookCal extends Component {
         .then((data) => {
           this.checkDate(data,duration,timeSlot,db)
         }, )
-       .catch(err => console.log("rong urls",err))
+       .catch(err => console.log("Wrong urls",err))
   }
 
 // Display timeslot when ther is no previous booking
@@ -99,35 +97,34 @@ class BookCal extends Component {
   render() {
     
     return (
-    <div>
+    <Row style={{margin: 20, alignItems: 'center'}}>
    
-      <Jumbotron onClick={this.toggle} style={{ marginBottom: '1rem',textDecoration: 'none' }}>
+      
+      <Col>
       <Calendar
-        accentColor={'blue'}
+        accentColor={'green'}
         orientation={'flex-col'}
         showHeader={false}
         onDatePicked = {(d) => {
           this.onDatePicked(d)
-         }
-        }/>
-      </Jumbotron>
+        }}
+      />
+      </Col>
       
       
-      <Collapse isOpen={this.state.collapse}>
+      <Col isOpen={this.state.collapse}>
           <BookInfo
-          
           timeslot = {this.state.daysData}
           day= {this.state.day}
           month= {this.state.month}
           year= {this.state.year}
-          //timeslots={this.state.timeslots}
+          available= {this.state.available}
           duration= {this.props.match.params.serviceDuration}
           productName = {this.props.match.params.serviceName}
           price = {this.props.match.params.servicePrice}
-          //onSubmit= {e => this.onSubmit(e)}
           />
-      </Collapse>
-     </div>
+      </Col>
+     </Row>
     );
   }
 }
@@ -135,6 +132,7 @@ class BookCal extends Component {
 
 
 export default withRouter(BookCal);
+
 
 
 
