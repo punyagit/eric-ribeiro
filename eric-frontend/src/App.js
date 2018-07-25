@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom' 
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import NavComponent from './components/NavComponent';
 import FooterComponent from './components/FooterComponent';
@@ -10,8 +10,6 @@ import BookCal from './pages/BookCal';
 import SignUpForm from './components/SignUpForm';
 import NoMatch from './components/NoMatch';
 import axios from 'axios';
-import { Container } from 'reactstrap';
-
 
 class App extends Component {
   constructor(props){
@@ -23,7 +21,7 @@ class App extends Component {
 
   componentDidMount() {
     axios
-    .get(`/services`)
+    .get(`http://localhost:8081/services`)
     .then(res => this.setState({ services: res.data.services }))
     .catch(err => console.log(err));
     //console.log(this.state)
@@ -34,10 +32,6 @@ class App extends Component {
       <Router>
         <div className="app">
           <NavComponent />
-
-
-
-
           <main className="mainWindow">
             <Switch>
               <Route exact path='/' component={CarouselComponent} />
@@ -56,8 +50,6 @@ class App extends Component {
 
           </div>
       </Router>
-      
-    
     );
   }
 }

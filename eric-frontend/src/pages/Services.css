@@ -1,3 +1,10 @@
+.servicesCards {
+    max-width: 1395px;
+    margin: 0px;
+    padding-left: 7%;
+    padding-right: 5%;
+    padding-top: 2%;
+}
 .serviceCard {
     margin-bottom: 20px;
 }
