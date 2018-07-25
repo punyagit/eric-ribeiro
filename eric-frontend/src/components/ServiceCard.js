@@ -8,11 +8,12 @@ class ServiceCard extends React.Component {
     super(props);
     this.state = {
       service: {
+        _id: this.props.services._id,
         name: this.props.services.name,
         description: this.props.services.description,
         duration: this.props.services.duration,
         price: this.props.services.price,
-        _id: this.props.services._id
+        image: this.props.services.image
       }
     };
   }
