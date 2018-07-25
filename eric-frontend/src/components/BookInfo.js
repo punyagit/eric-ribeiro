@@ -88,28 +88,28 @@ render(){
     return (
     <Card>
 
-        <h2>Booking Confirmation</h2>
-            <CardBody>
+        <CardBody><h2>Booking Confirmation</h2></CardBody>
 
+        <CardBody>
             <Row>
-                <Col style={{textAlign: 'left'}}>
-                    <p><strong>Product :</strong> {productName}</p>
-                    <p><strong>Amount :</strong> {price}</p>
-                    <p><strong>Date :</strong> {day}/{month}/{year}</p>
-                    <p><strong>Selected Duration :</strong> {duration}</p>
-                    <p><strong>Selected Timeslot :</strong> {this.state.selectedTime}</p>
-                    <Button onClick={f => this.postOrder()} color="success" disabled={this.state.isActive}>Book Now</Button>
-                </Col>
-            
-                <Col style={{textAlign: 'left'}}>
-                    <p>{available}</p>
-                    {timeslot.map(x => 
-                        <Button outline color="secondary" style={{width:100}} value={x} onClick={e => this.selectTime(e)}> {x} </Button>
-                    )}
+
+                    <Col style={{textAlign: 'left', border: '1px solid #D3D3D3', padding: 10}}>
+                            <p><strong>Product :</strong> {productName}</p>
+                            <p><strong>Amount :</strong> {price}</p>
+                            <p><strong>Date :</strong> {day}/{month}/{year}</p>
+                            <p><strong>Selected Duration :</strong> {duration}</p>
+                            <p><strong>Selected Timeslot :</strong> {this.state.selectedTime}</p>
+                            <Button onClick={f => this.postOrder()} color="success" disabled={this.state.isActive}>Book Now</Button>
+                    </Col>
+                    <Col sm="6" style={{textAlign: 'left'}} >
+                        <h3>{available}</h3>
+                        {timeslot.map(x => 
+                            <Button outline color="secondary" style={{width:100}} value={x} onClick={e => this.selectTime(e)}> {x} </Button>
+                        )}
                 </Col>
                 
             </Row>
-            </CardBody>
+        </CardBody>
     
     </Card>   
     )

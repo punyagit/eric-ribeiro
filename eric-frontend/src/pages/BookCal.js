@@ -100,7 +100,7 @@ class BookCal extends Component {
     <Row style={{margin: 20, alignItems: 'center'}}>
    
       
-      <Col>
+      <Col md="12" lg="6">
       <Calendar
         accentColor={'green'}
         orientation={'flex-col'}
@@ -112,7 +112,7 @@ class BookCal extends Component {
       </Col>
       
       
-      <Col isOpen={this.state.collapse}>
+      <Col md="12" lg="6" isOpen={this.state.collapse}>
           <BookInfo
           timeslot = {this.state.daysData}
           day= {this.state.day}
