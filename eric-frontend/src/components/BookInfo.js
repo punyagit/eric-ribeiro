@@ -116,7 +116,7 @@ render(){
                     <Col sm="6" style={{textAlign: 'left'}} >
                         <h3>{available}</h3>
                         {timeslot.map(x => 
-                            <Button outline color="secondary" style={{width:100}} value={x} onClick={e => this.selectTime(e)}> {x} </Button>
+                            <Button outline color="secondary" style={{width:'50%'}} value={x} onClick={e => this.selectTime(e)}> {x} </Button>
                         )}
                 </Col>
                 
