@@ -5,7 +5,7 @@ import axios from "axios";
   
 // const url = 'http://localhost:4000'
  
-const url = 'https://calendar-booking-api.herokuapp.com'
+//const url = 'http://localhost:8081'
 function Day(props) {
     
 function onDelete() {
@@ -13,14 +13,14 @@ function onDelete() {
 
       const token = localStorage.getItem('token');
 
-      const dateId = props._id; 
+      const orderId = props._id; 
       let config = {
    
     headers: { 'Access-Control-Allow-Origin': '*', 
     'Content-Type':'application/json', 
     'Authorization':'Bearer '+token  },
   }
-      axios.delete(url+'/dates/'+dateId, config )
+      axios.delete('./orders/'+orderId, config )
       .then(res => {
          window.alert('Deleted', res)
          return window.location.reload();      
@@ -38,15 +38,7 @@ function onDelete() {
  
 
 <table width = "70%" className ="table-display" border = "1px">
-  {/* <tr>
-    <th>Date</th>
-    <th>Product</th>
-    <th>Time</th>
-    <th>Duration</th>
-    <th>Price</th>
-    <th>fun</th>
-    
-  </tr> */}
+  
   <tr>
     <td>{props.date}</td>
     <td>{props.productName}</td>
