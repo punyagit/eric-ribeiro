@@ -24,6 +24,8 @@ View Github : https://github.com/Thebeleiver1/eric-ribeiro
 
 - [Technologies Used](#Technologies-Used)
 
+- [Installation/Setup/Deployment](#Installation/Setup/Deployment)
+
 - [Future Development Improvement](#Future-Development-Improvement)
 
 ---
@@ -86,7 +88,7 @@ We will create a website that focuses on the ease of making appointments based o
 
 ## Workflow Diagram of User Journey
 
-![User Flow](./userflow.png)
+![User Flow](./Images/userflow.png)
 
 ---
 
@@ -98,76 +100,78 @@ We have design the website on a minimalistic approach. Below are the colour and 
 
 Colour
 
-![Color Scheme](colorscheme.png)
+![Color Scheme](./Images/colorscheme.png)
 
 Font Type
 
-![Font Style](fontstyle1.png)
-![Font Style](fontstyle2.png)
+![Font Style](./Images/fontstyle1.png)
+![Font Style](./Images/fontstyle2.png)
 
 ## Wireframes of App
 
 ## Lo-fi wireframes for desktop
-![Lo-Fi](wireframes/lofi-wireframes.png)
+![Lo-Fi](./Images/wireframes/lofi-wireframes.png)
 
 ## Hi-Fi wireframes for desktop
-![About Us](wireframes/About-Us.png)
+![About Us](./Images/wireframes/About-Us.png)
 
-![Blog](wireframes/Blog.png)
+![Blog](./Images/wireframes/Blog.png)
 
-![Booking Calendar](wireframes/Booking-Calendar.png)
+![Booking Calendar](./Images/wireframes/Booking-Calendar.png)
 
-![Booking Services](wireframes/Booking-Services.png)
+![Booking Services](./Images/wireframes/Booking-Services.png)
 
-![Login](wireframes/Login.png)
+![Login](./Images/wireframes/Login.png)
 
-![Contact](wireframes/Contact-Us.png)
+![Contact](./Images/wireframes/Contact-Us.png)
 
-![Landing](wireframes/Landing-Page.png)
+![Landing](./Images/wireframes/Landing-Page.png)
 
 ## Hi-fi wireframes for mobile
-![About](wireframes/Mobile-About.png)
+![About](./Images/wireframes/Mobile-About.png)
 
-![Blog](wireframes/Mobile-Blog.png)
+![Blog](./Images/wireframes/Mobile-Blog.png)
 
-![Booking Calendar](wireframes/Mobile-Calendar.png)
+![Booking Calendar](./Images/wireframes/Mobile-Calendar.png)
 
-![Booking Services](wireframes/Mobile-Services.png)
+![Booking Services](./Images/wireframes/Mobile-Services.png)
 
-![Login](wireframes/Mobile-Login.png)
+![Login](./Images/wireframes/Mobile-Login.png)
 
-![Contact](wireframes/Mobile-Contact.png)
+![Contact](./Images/wireframes/Mobile-Contact.png)
 
-![Landing](wireframes/Mobile-Landing.png)
+![Landing](./Images/wireframes/Mobile-Landing.png)
 
 ---
 
 ## Entity Relationship Diagram
 
 The initial MVP schema design for our app.
-![Initial ERD](./initial-erd.png)
+![Initial ERD](./Images/initial-erd.png)
 
 Updated design for our database.
-![ERD](./erd.png)
+![ERD](./Images//erd.png)
 
 ---
 
 ### Tools & Methodologies
 
 **Trello Board**
-![Trello Screenshots](agile-images/trello-2018-07-06.png)
 
-![Trello Screenshots](agile-images/trello-2018-07-09.png)
+![Trello Screenshots](./Images/agile-images/trello-2018-07-06.png)
 
-![Trello Screenshot](agile-images/trello-2018-07-11.png)
+![Trello Screenshots](./Images/agile-images/trello-2018-07-09.png)
 
-![Trello Screenshot](agile-images/trello-2018-07-13.png)
+![Trello Screenshot](./Images/agile-images/trello-2018-07-11.png)
+
+![Trello Screenshot](./Images/agile-images/trello-2018-07-13.png)
 
 **Trello Gantt**
-![Trello Screenshot](agile-images/trellogantt.png)
+![Trello Screenshot](./Images/agile-images/trellogantt.png)
 
 **Slack**
-![Slack Screenshot](agile-images/slack.png)
+
+![Slack Screenshot](./Images/agile-images/slack.png)
 
 **Github**
 
@@ -180,10 +184,13 @@ Code Review are done on a regular basis with the rest of the team mates. This is
 
 
 **Client Communication**
-![Client Notes/1st Meeting Minutes](./client-notes.png)
+![Client Notes/1st Meeting Minutes](./Images/client-notes.png)
 
-![Meeting Minutes](./meeting-minutes.pdf)
+![Meeting Minutes 2](./Images/Meetingminutes-1.png) 
 
+![Meeting Minutes 3](./Images/Meetingminutes-2.png) 
+
+![Meeting Minutes 4](./Images/Meetingminutes-3.png) 
 
 
 ---
@@ -207,9 +214,22 @@ We have used Twilio so that client is being sent a sms reminder prior to them co
 
 ## Installation/Setup/Deployment
 
+1. ```git clone https://github.com/Thebeleiver1/eric-ribeiro.git``` to your desired directory.
+<br><br>`eric-frontend` serves as the front end, and `booking-api` as the back end.
+
+2. `cd` into `eric-frontend` and do `npm install`
+3. `cd` into `booking-api` and do `npm install`
+4. launch the server from `eric-frontend` with `npm start`
+5. launch the server from `booking-api` with `nodemon server` or `node server`
+6. go to your http://localhost:3000
+
+
 ---
 
 ## Future Development Improvement
 
 - Incorporate google analytics to see how effective the business owner's marketing promotion is.
 - We will add a blogging page for the client as another form of marketing.
+- Add appointment reminder with reply function from the client
+
+![Appointment Reminder Userflow](./Images/Appointmentuserflow.png)
