@@ -60,7 +60,7 @@ class BookInfo extends Component {
 
 
 
-            fetch('/orders',{
+            fetch('http://localhost:8081/orders',{
 
                 headers: {
                     "Content-Type": "application/json", 
