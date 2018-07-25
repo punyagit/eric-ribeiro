@@ -16,6 +16,7 @@ export default class AdminBoard extends React.Component {
     count: '',
     days: [],
     shouldHide: Boolean,
+    orders: []
   }
 
     handleLogout = event => {
@@ -74,7 +75,7 @@ export default class AdminBoard extends React.Component {
     fetch('http://localhost:8081/orders')
     .then(resp => resp.json())
     .then((data) => {
-      console.log(data)
+      this.setState({orders:data})
     }, )
    .catch(err => console.log("Wrong urls",err))
 
@@ -82,7 +83,7 @@ export default class AdminBoard extends React.Component {
    }
 
     render() {
-
+        //console.log(this.state.orders)
     return (
      
    

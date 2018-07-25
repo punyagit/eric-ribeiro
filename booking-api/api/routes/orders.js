@@ -29,50 +29,16 @@ router.post('/', function (req, resp) {
     //     .catch(err => {
     //     res.status(400).send("unable to save to database");
     //     });
-       });
+});
 
 
 router.get('/',(req, resp) => {
-    Order.find({})
-    .then(resp =>{
-        resp.send(resp)
-    })
-    
-
+    Order.find()
+    .then(data => {
+    resp.send(data)
+})
 })
 
-
-
-
-// router.post('/', (req, res, next) => {
-// 	const service = new Service({
-// 		_id: new mongoose.Types.ObjectId(),
-// 		name: req.body.name,
-// 		description: req.body.description,
-//     duration: req.body.duration,
-//     price: req.body.price
-// 	});
-// 	service.save()
-// 	.then(result => {
-// 		console.log(result);
-// 		res.status(201).json({
-// 			message: "Item chosen, now choose a time",
-// 			createdTime: {
-// 			name: result.name,
-// 			description: result.description,
-//  			duration: result.duration,
-//       price: result.price,
-//        _id: result._id,
-//  			request: {
-//  				type: 'GET',
-//  				url: 'localhost:3000/orders/' + result._id
- 			
-// 				}
-// 			}
-// 		})
-// 	})
-// 	.catch(err => console.log(err));
-// });
 
 
 
