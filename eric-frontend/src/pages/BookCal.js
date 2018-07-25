@@ -14,7 +14,7 @@ class BookCal extends Component {
   }
 
   // componentDidMount() {
-  //   //console.log(this.state);
+  //   console.log(this.state);
   // }
 
   // toggle() {
@@ -44,7 +44,7 @@ class BookCal extends Component {
        
         let timeSlot = [9,9.30,10,10.30,11,11.30,12,12.30,13,13.30,14,14.30,15,15.30,16,
                         16.30,17,17.30,18,18.30,19,19.30,20,21]
-        const url = '/dates'
+        const url = 'http://localhost:8081/dates'
         fetch(`${url}/${day}/${month}/${year}`)
         .then(resp => resp.json())
         .then((data) => {

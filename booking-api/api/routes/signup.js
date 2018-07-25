@@ -29,7 +29,7 @@ router.post('/', (req, res, next) => {
        _id: result._id,
  			request: {
  				type: 'GET',
- 				url: 'localhost:3000/signup/' + result._id
+ 				url: '/signup/' + result._id
  			
 				}
 			}

@@ -8,11 +8,12 @@ class ServiceCard extends React.Component {
     super(props);
     this.state = {
       service: {
+        _id: this.props.services._id,
         name: this.props.services.name,
         description: this.props.services.description,
         duration: this.props.services.duration,
         price: this.props.services.price,
-        _id: this.props.services._id
+        image: this.props.services.image
       }
     };
   }
@@ -27,12 +28,12 @@ class ServiceCard extends React.Component {
     
         <Card>
           <CardBody>
-            <CardImg top width="100%" src={this.state.service.image} alt="Card image cap" />
+            <CardImg width="100%" src={this.state.service.image} alt="Card image cap" />
             <hr/>
             <CardTitle>{this.state.service.name}</CardTitle>
             <CardSubtitle className="cardsubtitle">Duration: {this.state.service.duration} hours | Price: ${this.state.service.price}</CardSubtitle>
             <CardText className="cardtext">{this.state.service.description}</CardText>
-            <Button>< Link className="link" to={`/booking/${this.state.service.name}/${this.state.service.duration}/${this.state.service.price}`}>Book Now</Link> </Button>
+            <Link className="link" to={`/booking/${this.state.service.name}/${this.state.service.duration}/${this.state.service.price}`}><Button> Book Now </Button> </Link>
           </CardBody>
         </Card>
      
