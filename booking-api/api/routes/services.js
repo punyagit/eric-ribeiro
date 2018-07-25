@@ -15,7 +15,8 @@ router.get('/', (req, res, next) => {
 				name: doc.name,
 				description: doc.description,
         duration: doc.duration,
-        price: doc.price,
+				price: doc.price,
+				image: doc.image,
 				_id: doc._id,
 				request: {
 					type: 'GET',
@@ -43,7 +44,8 @@ router.post('/', (req, res, next) => {
 		name: req.body.name,
 		description: req.body.description,
     duration: req.body.duration,
-    price: req.body.price
+		price: req.body.price,
+		image: req.body.image
 	});
 	service.save()
 	.then(result => {
@@ -54,7 +56,8 @@ router.post('/', (req, res, next) => {
 			name: result.name,
 			description: result.description,
  			duration: result.duration,
-      price: result.price,
+			price: result.price,
+			image: result.image,
        _id: result._id,
  			request: {
  				type: 'GET',
