@@ -21,7 +21,7 @@ class App extends Component {
 
   componentDidMount() {
     axios
-    .get(`/services`)
+    .get(`http://localhost:8081/services`)
     .then(res => this.setState({ services: res.data.services }))
     .catch(err => console.log(err));
     //console.log(this.state)
@@ -30,22 +30,25 @@ class App extends Component {
   render() {
     return (
       <Router>
-      <main className="mainWindow">
-        <NavComponent />
-        <Switch>
-          <Route exact path='/' component={CarouselComponent} />
-          <Route exact path='/about' component={About} />
-          <Route exact path='/booking/:serviceName/:serviceDuration/:servicePrice' render={
-              () => <BookCal />
-            }/>
-          <Route exact path='/signup' component={SignUpForm} />
-          <Route exact path='/services' render={
-              () => <Services services={this.state.services} />
-            }/>
-          <Route component={NoMatch} />
-        </Switch>
-        <FooterComponent />
-      </main>
+        <div className="app">
+          <NavComponent />
+          <main className="mainWindow">
+            <Switch>
+              <Route exact path='/' component={CarouselComponent} />
+              <Route exact path='/about' component={About} />
+              <Route exact path='/booking/:serviceName/:serviceDuration/:servicePrice' render={
+                  () => <BookCal />
+                }/>
+              <Route exact path='/signup' component={SignUpForm} />
+              <Route exact path='/service' render={
+                  () => <Services services={this.state.services} />
+                }/>
+              <Route component={NoMatch} />
+            </Switch>
+          </main>
+          <FooterComponent />
+
+          </div>
       </Router>
     );
   }
