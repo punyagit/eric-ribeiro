@@ -33,7 +33,11 @@ router.post('/', function (req, resp) {
 
 
 router.get('/',(req, resp) => {
-    resp.send('hello world')
+    Order.find({})
+    .then(resp =>{
+        resp.send(resp)
+    })
+    
 
 })
 

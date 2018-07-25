@@ -70,6 +70,15 @@ export default class AdminBoard extends React.Component {
    })
 
     .catch(error => console.log('BAD', error))
+
+    fetch('http://localhost:8081/orders')
+    .then(resp => resp.json())
+    .then((data) => {
+      console.log(data)
+    }, )
+   .catch(err => console.log("Wrong urls",err))
+
+
    }
 
     render() {
