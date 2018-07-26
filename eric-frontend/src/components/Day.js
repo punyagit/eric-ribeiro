@@ -31,9 +31,37 @@ function onDelete() {
 
   return (
 
- <div className="date">
-            <br />
- <label>Day </label>
+
+
+ <div >
+
+ 
+
+<table width = "70%" className ="table-display" border = "1px">
+  {/* <tr>
+    <th>Date</th>
+    <th>Product</th>
+    <th>Time</th>
+    <th>Duration</th>
+    <th>Price</th>
+    <th>fun</th>
+    
+  </tr> */}
+  <tr>
+    <td>{props.name}</td>
+    <td>{props.phoneNumber}</td>
+    <td>{props.date}</td>
+    <td>{props.productName}</td>
+    <td>{props.time}</td>
+    <td>{props.duration}</td>
+    <td>{props.price}</td>
+    <td><button onClick={onDelete} >Delete</button>
+           </td>
+  </tr>
+  
+</table>
+           
+ {/* <label>Day </label>
    <div className="props">{props.date}</div>
    <label>Month </label>
     <div className="props">{props.month}</div>
@@ -55,15 +83,13 @@ function onDelete() {
 
           <label>DAY ID </label>
           <div className="props">{props._id}</div>
- <br />
+ <br /> */}
 
  </div>
 
  );
 }
 
-/// Day.propTypes = {
-//   month: PropTypes.integer.isRequired
-//   };
+
 
 export default Day;
