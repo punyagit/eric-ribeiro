@@ -26,6 +26,8 @@ View Github : https://github.com/Thebeleiver1/eric-ribeiro
 
 - [Installation/Setup/Deployment](#Installation/Setup/Deployment)
 
+- [User Testing](#User-Testing)
+
 - [Future Development Improvement](#Future-Development-Improvement)
 
 ---
@@ -100,7 +102,7 @@ We have design the website on a minimalistic approach. Below are the colour and 
 
 Colour
 
-![Color Scheme](./Images/colorscheme.png)
+![Color Scheme](/Images/colorscheme.png)
 
 Font Type
 
@@ -177,7 +179,6 @@ Updated design for our database.
 
 [Link to team's github page](https://github.com/Thebeleiver1/eric-ribeiro)
 
-**Agile**
 
 **Code Review**
 Code Review are done on a regular basis with the rest of the team mates. This is to ensure that they are not stuck on a problem for too long and that everyone understand the code. Besides that this also help with refactoring the code to make sure that it's understandable and cleaner.
@@ -203,12 +204,13 @@ Some other dependencies we used include **Reactstrap** for our frontend design e
 Authentication
 **Passport** combined with **JWT tokens** were used for authenticating the user on the frontend.
 
-Notable Packages, Services & Tools Used
+### Notable Packages, Services & Tools 
+
 **Sendgrid**
-We have used sendgrid so that people who sign up will receive an email regarding confirmation of them signing up.
+-We have used sendgrid so that people who sign up will receive an email regarding confirmation of them signing up.
 
 **Twillio**
-We have used Twilio so that client is being sent a sms reminder prior to them coming in for their appointment. 
+-We have used Twilio so that client is being sent a sms reminder prior to them coming in for their appointment. 
 
 ---
 
@@ -223,6 +225,33 @@ We have used Twilio so that client is being sent a sms reminder prior to them co
 5. launch the server from `booking-api` with `nodemon server` or `node server`
 6. go to your http://localhost:3000
 
+---
+
+## User Testing
+
+The team have created a feedback survey for other users in order to collect user feedback.
+
+- User Feedback
+
+![User Testing](Images/usertesting.png)
+
+
+- Client Feedback
+
+Provided client survey for the site's feedback: [Click here:](https://www.surveymonkey.com/r/CHN2HW5)
+
+- User Feedback
+
+![Client Testing](Images/clienttesting.png)
+
+- User rated the website as engaging and easy to use and navigate
+
+Results from the client:
+
+Overall the client is happy with the initial mvp, basic functionality works. However he would like to see more functionality to it following future improvement:
+
+- to be able to add analytics for him to track his marketing actions
+- to have a blog page setup and connected to the website 
 
 ---
 
