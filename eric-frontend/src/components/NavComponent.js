@@ -45,19 +45,10 @@ class NavComponent extends React.Component {
                   <NavLink href="/service">Bookings</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="">Blog</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink href="/signup">SignUp</NavLink>
+                  <NavLink href="/signup">Sign Up</NavLink>
                 </NavItem>
                  <NavItem>
                   <NavLink href="/admin">Admin</NavLink>
-                </NavItem>
-                   <NavItem>
-                  <NavLink href="/reset">Reset</NavLink>
-                </NavItem>
-                 <NavItem>
-                  <NavLink href="/forgot">Forgot</NavLink>
                 </NavItem>
               </Nav>
             </Collapse>
