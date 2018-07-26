@@ -165,9 +165,9 @@
         });
       }
 
-      console.log('Schedule TIMES', used)
-      console.log('Available TIMES: ', timesUsed)
-      console.log('Available States: ', this.state)
+      // console.log('Schedule TIMES', used)
+      // console.log('Available TIMES: ', timesUsed)
+      // console.log('Available States: ', this.state)
 
       return (
         <form className='form' >

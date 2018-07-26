@@ -12,8 +12,7 @@ class Services extends React.Component {
 
   render() {
     //console.log(this.props)
-    return (
-            
+    return (      
       <Row className="servicesCards">
         {this.props.services.map((services, i) => {
           return(
