@@ -2,7 +2,7 @@
 ## Team: hackScript(boys)
 Completed as a major assessment in Term 3 Coder Academy’s Fast Track Bootcamp using MERN Stack By Hackscript Boys(Punya, Rafael, Sam Li, Rhys and Sam Foong).
 
-View Live (Heroku): https://hairbyeric.herokuapp.com
+View Live (Heroku): https://hairbyerric.herokuapp.com
 
 View Github : https://github.com/Thebeleiver1/eric-ribeiro
 
