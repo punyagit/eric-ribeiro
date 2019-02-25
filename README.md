@@ -31,7 +31,7 @@ View Github : https://github.com/Thebeleiver1/eric-ribeiro
 ---
 
 ## Project Brief
-- Design, build, deploy and present an application built for a real world customer
+- Design, build, deploy and present an application built for a real world customers
 - Meet with the business owner or organisation manager to find out what challenges they face
 - Find a problem that can be solved with an application
 
