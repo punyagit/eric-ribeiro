@@ -9,7 +9,6 @@
     "start": "node booking-api/server.js",
     "start-api": "nodemon server.js",
     "heroku-postbuild": "cd ./eric-frontend/ && npm install && npm install --only=dev && npm run build && cd ../booking-api && npm install"
-
   },
   "cacheDirectories": [
     "node_modules",
@@ -21,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Thebeleiver1/eric-ribeiro"
+    "url": "https://github.com/punyachapagain/eric-ribeiro"
   },
   "keywords": [
     "node",
