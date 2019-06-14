@@ -14,7 +14,7 @@ import Board from "../components/Board";
 
 import axios from "axios"
 const url = 'https://calendar-booking-api.herokuapp.com'
-// const urlLocal = 'http://localhost:4000/dates'
+
 
 export default class AdminBoard extends React.Component {
 

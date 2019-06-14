@@ -140,31 +140,45 @@
         headers: { 'Access-Control-Allow-Origin': '*', 
         'Content-Type':'application/json', 
         'Authorization':'Bearer '+token  },
-      }      
+      }    
+      
+      
+      axios
+    .get(`http://localhost:8081/orders`)
+    .thens(data => {
+      console.log("dfdfdfkjhkjhjkhjkhjk")
+    })
+  }
 
-      axios.get(url+'/dates', config )
-      .then( response => {
-        const newDays = response.data.days.map((day, d) => {
-          return {
-            _id: day._id,
-            date: day.date,
-            month: day.month,
-            year: day.year,
-            time: day.time.time,
-            description: day.time.description,
-            duration: day.time.duration
-          };
-        });
 
-        const newState = Object.assign({}, this.state, {
-          days: newDays
-        });
+    // .then(res => this.setState({ services: res.data.services }))
+    // .catch(err => console.log(err));
 
-        this.setState(newState);
-      })
-      .catch(error => console.log('FORM COULD NOT GET', error))
 
-    }
+
+    //   axios.get(url+'/orders', config )
+    //   .then( response => {
+    //     const newDays = response.data.days.map((day, d) => {
+    //       return {
+    //         _id: day._id,
+    //         date: day.date,
+    //         month: day.month,
+    //         year: day.year,
+    //         time: day.time.time,
+    //         description: day.time.description,
+    //         duration: day.time.duration
+    //       };
+    //     });
+
+    //     const newState = Object.assign({}, this.state, {
+    //       days: newDays
+    //     });
+
+    //     this.setState(newState);
+    //   })
+    //   .catch(error => console.log('FORM COULD NOT GET', error))
+
+    // }
 
     render () {
 
